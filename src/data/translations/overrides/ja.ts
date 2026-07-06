@@ -1,0 +1,92 @@
+import type { TranslationOverrides } from "@/types";
+
+export const jaOverrides: TranslationOverrides = {
+  meta: { multilingualExperience: "AI による多言語体験" },
+  language: { label: "言語", selectLanguage: "言語を選択" },
+  nav: {
+    home: "ホーム",
+    about: "About",
+    skills: "スキル",
+    experience: "経歴",
+    projects: "プロジェクト",
+    hackathons: "ハッカソン",
+    contact: "連絡",
+    hireMe: "採用する",
+    openMenu: "メニューを開く",
+    closeMenu: "メニューを閉じる",
+  },
+  hero: {
+    availability: "新しい機会を受け付けています",
+    hireMe: "採用する",
+    downloadResume: "履歴書をダウンロード",
+    github: "GitHub",
+    linkedin: "LinkedIn",
+    stats: { projects: "プロジェクト", hackathons: "ハッカソン", aiTools: "AI ツール" },
+    roles: [
+      "MERN Stack Developer",
+      "Next.js Developer",
+      "AI Automation & Agentic AI Enthusiast",
+    ],
+  },
+  about: {
+    label: "About",
+    title: "MERN Stack の技とインテリジェントシステムの融合",
+    description:
+      "本番 SaaS 経験、AI 自動化の専門性、ハッカソンリーダーシップ — 採用担当者と協力者向けの概要。",
+    education: "学歴",
+    achievementHighlights: "主な実績",
+    cgpa: "GPA",
+    summary:
+      "MongoDB、Express.js、React.js、Next.js、Node.js、TypeScript、Tailwind CSS を用いたスケーラブルで高性能なフルスタックアプリケーションの構築に情熱を注ぐ MERN Stack Developer です。\n\nインテリジェントシステムへの好奇心から、AI Automation、Agentic AI ワークフロー、LLM API、Gemini API、Groq API、機械学習の概念を活用した AI ソリューションを探求・構築しています。\n\n実際の SaaS プロダクトへの貢献、フロントエンド・バックエンド機能の開発、API 統合、プロフェッショナルな開発ワークフローでの本番 Web アプリケーション構築の経験があります。\n\nエンジニアリング以外にも、AI・Web ハッカソンに contributor および team lead として積極参加し、継続的な学習とイノベーションでアイデアを impactful なデジタルソリューションに変えています。",
+  },
+  skills: {
+    label: "スキル",
+    title: "AI スキルダッシュボード",
+    description: "本番アプリケーションと AI 統合を支える技術とツール。",
+  },
+  experience: {
+    label: "経歴",
+    title: "プロフェッショナルジャーニー",
+    description:
+      "SaaS プロダクト構築、API 統合、本番機能の提供における実務経験。",
+  },
+  projects: {
+    label: "プロジェクト",
+    title: "プロジェクトショーケース",
+    description: "AI 駆動 SaaS プラットフォーム、セキュリティ middleware、本番 Web アプリ。",
+    featured: "Featured",
+    problem: "課題",
+    solution: "ソリューション",
+    github: "GitHub",
+    liveDemo: "ライブデモ",
+  },
+  hackathons: {
+    label: "ハッカソン",
+    title: "Competition & Innovation",
+    description: "世界中の AI・開発者ハッカソンでのアクティブな参加者・team lead。",
+  },
+  contact: {
+    label: "連絡",
+    title: "インテリジェントなものを一緒に作りましょう",
+    description:
+      "MERN Stack Developer の機会、コラボレーション、AI プロジェクトを歓迎します。",
+    aiPoweredContact: "AI パワードコンタクト",
+    getInTouch: "お問い合わせ",
+    intro: "採用、フリーランス、ハッカソンコラボのご連絡をお待ちしています。",
+    linkedinProfile: "LinkedIn プロフィール",
+    githubProfile: "GitHub プロフィール",
+    form: {
+      name: "お名前",
+      namePlaceholder: "お名前",
+      email: "メール",
+      emailPlaceholder: "you@example.com",
+      message: "メッセージ",
+      messagePlaceholder: "プロジェクトや機会について教えてください...",
+      sending: "送信中...",
+      send: "メッセージを送信",
+    },
+    toast: { success: "メッセージを送信しました", error: "エラーが発生しました" },
+  },
+  footer: { email: "メール", rights: "All rights reserved." },
+  resume: { unavailable: "履歴書はまだ利用できません。直接ご連絡ください。" },
+};

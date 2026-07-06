@@ -1,26 +1,368 @@
 @import "tailwindcss";
 
+/* ─── Design tokens — Premium AI SaaS palette ─── */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Backgrounds */
+  --bg-base: #020617;
+  --bg-elevated: #0f172a;
+  --bg-surface: #111827;
+
+  /* Brand colors */
+  --primary: #38bdf8;
+  --secondary: #8b5cf6;
+  --accent: #22d3ee;
+  --success: #10b981;
+
+  /* Semantic text */
+  --background: var(--bg-base);
+  --foreground: #e2e8f0;
+  --heading: #f1f5f9;
+  --muted: #94a3b8;
+  --muted-subtle: #64748b;
+
+  /* Surfaces */
+  --card: rgba(255, 255, 255, 0.08);
+  --card-hover: rgba(255, 255, 255, 0.1);
+  --card-border: rgba(255, 255, 255, 0.12);
+
+  /* Gradients */
+  --gradient-start: var(--primary);
+  --gradient-mid: var(--secondary);
+  --gradient-end: var(--accent);
+
+  /* Glows */
+  --glow-primary: rgba(56, 189, 248, 0.18);
+  --glow-secondary: rgba(139, 92, 246, 0.14);
+  --glow-accent: rgba(34, 211, 238, 0.12);
+
+  /* Navigation */
+  --nav-bg: rgba(2, 6, 23, 0.72);
+  --nav-bg-scrolled: rgba(15, 23, 42, 0.9);
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --color-heading: var(--heading);
+  --color-muted: var(--muted);
+  --color-muted-subtle: var(--muted-subtle);
+  --color-primary: var(--primary);
+  --color-secondary: var(--secondary);
+  --color-accent: var(--accent);
+  --color-success: var(--success);
+  --color-surface: var(--bg-surface);
+  --color-elevated: var(--bg-elevated);
+  --color-card: var(--card);
+  --color-card-border: var(--card-border);
+  --color-card-hover: var(--card-hover);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+* {
+  scroll-behavior: smooth;
+}
+
+html {
+  color-scheme: dark;
 }
 
 body {
-  background: var(--background);
+  background-color: var(--bg-base);
+  background-image:
+    radial-gradient(ellipse 90% 60% at 50% -30%, rgba(56, 189, 248, 0.07), transparent 55%),
+    radial-gradient(ellipse 50% 40% at 100% 0%, rgba(139, 92, 246, 0.05), transparent 50%),
+    radial-gradient(ellipse 40% 30% at 0% 100%, rgba(34, 211, 238, 0.04), transparent 50%);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  overflow-x: hidden;
+}
+
+::selection {
+  background: rgba(56, 189, 248, 0.28);
+  color: #fff;
+}
+
+/* ─── Typography ─── */
+.text-heading {
+  color: var(--heading);
+}
+
+/* ─── Gradient text ─── */
+.gradient-text {
+  background: linear-gradient(
+    135deg,
+    var(--gradient-start),
+    var(--gradient-mid),
+    var(--gradient-end)
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ─── Glass surfaces ─── */
+.glass {
+  background: var(--card);
+  backdrop-filter: blur(20px) saturate(160%);
+  -webkit-backdrop-filter: blur(20px) saturate(160%);
+  border: 1px solid var(--card-border);
+}
+
+.glass-strong {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(28px) saturate(180%);
+  -webkit-backdrop-filter: blur(28px) saturate(180%);
+  border: 1px solid var(--card-border);
+}
+
+/* ─── Navigation — Vercel-style frosted glass ─── */
+.nav-glass {
+  background: var(--nav-bg);
+  backdrop-filter: blur(40px) saturate(180%);
+  -webkit-backdrop-filter: blur(40px) saturate(180%);
+  border: 1px solid var(--card-border);
+  box-shadow:
+    0 4px 24px rgba(0, 0, 0, 0.35),
+    0 1px 0 rgba(255, 255, 255, 0.05) inset,
+    0 0 48px var(--glow-primary);
+  isolation: isolate;
+}
+
+.nav-glass-scrolled {
+  background: var(--nav-bg-scrolled);
+  backdrop-filter: blur(48px) saturate(200%);
+  -webkit-backdrop-filter: blur(48px) saturate(200%);
+  border-color: rgba(255, 255, 255, 0.14);
+  box-shadow:
+    0 8px 32px rgba(0, 0, 0, 0.45),
+    0 1px 0 rgba(255, 255, 255, 0.07) inset,
+    0 0 64px var(--glow-secondary);
+}
+
+.nav-backdrop {
+  background: linear-gradient(
+    to bottom,
+    rgba(2, 6, 23, 0.92) 0%,
+    rgba(15, 23, 42, 0.8) 70%,
+    transparent 100%
+  );
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+}
+
+.nav-mobile-menu {
+  background: rgba(15, 23, 42, 0.95);
+  backdrop-filter: blur(48px) saturate(200%);
+  -webkit-backdrop-filter: blur(48px) saturate(200%);
+  border: 1px solid var(--card-border);
+  box-shadow:
+    0 12px 40px rgba(0, 0, 0, 0.5),
+    0 0 0 1px rgba(255, 255, 255, 0.04) inset;
+}
+
+/* ─── AI glow ─── */
+.ai-glow {
+  box-shadow:
+    0 0 24px var(--glow-primary),
+    0 0 48px var(--glow-accent),
+    inset 0 1px 0 rgba(255, 255, 255, 0.06);
+}
+
+.ai-glow-hover:hover {
+  box-shadow:
+    0 0 32px var(--glow-primary),
+    0 0 64px var(--glow-secondary),
+    inset 0 1px 0 rgba(255, 255, 255, 0.09);
+}
+
+/* ─── Buttons ─── */
+.btn-gradient {
+  background: linear-gradient(
+    135deg,
+    var(--primary) 0%,
+    var(--secondary) 50%,
+    var(--accent) 100%
+  );
+  color: #fff;
+  box-shadow:
+    0 4px 20px var(--glow-primary),
+    0 0 40px var(--glow-accent);
+  transition: all 0.3s ease;
+}
+
+.btn-gradient:hover {
+  filter: brightness(1.08);
+  box-shadow:
+    0 6px 28px var(--glow-primary),
+    0 0 56px var(--glow-secondary);
+}
+
+/* ─── Skill progress bar ─── */
+.skill-progress {
+  background: linear-gradient(
+    90deg,
+    var(--primary),
+    var(--accent)
+  );
+}
+
+.skill-progress-shine {
+  background: rgba(255, 255, 255, 0.2);
+  mix-blend-mode: overlay;
+}
+
+/* ─── Aurora — soft AI atmosphere ─── */
+@keyframes aurora {
+  0%, 100% {
+    transform: translate(0, 0) scale(1);
+    opacity: 0.7;
+  }
+  50% {
+    transform: translate(20px, -30px) scale(1.05);
+    opacity: 1;
+  }
+}
+
+.aurora-blob {
+  animation: aurora 28s ease-in-out infinite;
+}
+
+.aurora-blob-delayed {
+  animation: aurora 34s ease-in-out infinite reverse;
+}
+
+.aurora-blob-slow {
+  animation: aurora 40s ease-in-out 4s infinite;
+}
+
+.aurora-blob-primary {
+  background: rgba(56, 189, 248, 0.07);
+}
+
+.aurora-blob-secondary {
+  background: rgba(139, 92, 246, 0.05);
+}
+
+.aurora-blob-accent {
+  background: rgba(34, 211, 238, 0.04);
+}
+
+/* ─── Floating animation ─── */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+.float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.float-delayed {
+  animation: float 6s ease-in-out 2s infinite;
+}
+
+/* ─── Grid patterns ─── */
+.grid-pattern {
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
+  background-size: 64px 64px;
+}
+
+.ai-grid {
+  background-image:
+    linear-gradient(rgba(56, 189, 248, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(56, 189, 248, 0.03) 1px, transparent 1px);
+  background-size: 48px 48px;
+  mask-image: radial-gradient(ellipse 80% 60% at 50% 40%, black, transparent);
+}
+
+/* ─── Card shine (tilt effect) ─── */
+.card-shine {
+  background: radial-gradient(
+    circle at var(--shine-x, 50%) var(--shine-y, 50%),
+    var(--glow-primary),
+    transparent 60%
+  );
+}
+
+/* ─── Section divider ─── */
+.section-glow {
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(56, 189, 248, 0.25),
+    rgba(139, 92, 246, 0.2),
+    rgba(34, 211, 238, 0.25),
+    transparent
+  );
+  height: 1px;
+}
+
+/* ─── Section label accent line ─── */
+.section-label-line {
+  background: linear-gradient(to right, var(--primary), transparent);
+}
+
+/* ─── Scrollbar ─── */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-base);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(56, 189, 248, 0.35);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(56, 189, 248, 0.5);
+}
+
+/* ─── Animated gradient shimmer ─── */
+@keyframes gradient-shift {
+  0%, 100% { background-position: 0% center; }
+  50% { background-position: 100% center; }
+}
+
+.animate-gradient {
+  animation: gradient-shift 8s ease infinite;
+}
+
+/* ─── 3D perspective ─── */
+.perspective-\[1000px\] {
+  perspective: 1000px;
+}
+
+/* ─── Reduced motion ─── */
+@media (prefers-reduced-motion: reduce) {
+  .animate-gradient,
+  .aurora-blob,
+  .aurora-blob-delayed,
+  .aurora-blob-slow,
+  .float,
+  .float-delayed {
+    animation: none;
+  }
+
+  * {
+    scroll-behavior: auto;
+  }
+}
+
+/* ─── Focus ─── */
+:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
+
+/* ─── Custom cursor (desktop, fine pointer) ─── */
+@media (pointer: fine) and (hover: hover) and (min-width: 768px) {
+  html.custom-cursor-active,
+  html.custom-cursor-active * {
+    cursor: none !important;
+  }
 }

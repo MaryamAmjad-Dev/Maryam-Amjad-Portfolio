@@ -1,0 +1,92 @@
+import type { TranslationOverrides } from "@/types";
+
+export const arOverrides: TranslationOverrides = {
+  meta: { multilingualExperience: "تجربة متعددة اللغات مدعومة بالذكاء الاصطناعي" },
+  language: { label: "اللغة", selectLanguage: "اختر اللغة" },
+  nav: {
+    home: "الرئيسية",
+    about: "نبذة",
+    skills: "المهارات",
+    experience: "الخبرة",
+    projects: "المشاريع",
+    hackathons: "الهاكathons",
+    contact: "التواصل",
+    hireMe: "وظّفني",
+    openMenu: "فتح القائمة",
+    closeMenu: "إغلاق القائمة",
+  },
+  hero: {
+    availability: "متاحة للفرص",
+    hireMe: "وظّفني",
+    downloadResume: "تحميل السيرة الذاتية",
+    github: "GitHub",
+    linkedin: "LinkedIn",
+    stats: { projects: "المشاريع", hackathons: "الهاكathons", aiTools: "أدوات AI" },
+    roles: [
+      "مطورة MERN Stack",
+      "مطورة Next.js",
+      "مهتمة بـ AI Automation و Agentic AI",
+    ],
+  },
+  about: {
+    label: "نبذة",
+    title: "حيث يلتقي إتقان MERN Stack بالأنظمة الذكية",
+    description:
+      "خبرة SaaS إنتاجية، تخصص في أتمتة AI، وقيادة في الهاكathons — لمحة للمجندين والمتعاونين.",
+    education: "التعليم",
+    achievementHighlights: "أبرز الإنجازات",
+    cgpa: "المعدل التراكمي",
+    summary:
+      "مطورة MERN Stack شغوفة بإنشاء تطبيقات full-stack قابلة للتوسع وعالية الأداء باستخدام MongoDB وExpress.js وReact.js وNext.js وNode.js وTypeScript وTailwind CSS.\n\nبدافع الفضول تجاه الأنظمة الذكية، أستكشف وأبني حلولاً مدعومة بالذكاء الاصطناعي عبر AI Automation وAgentic AI workflows وLLM APIs وGemini API وGroq API ومفاهيم Machine Learning.\n\nتشمل خبرتي المساهمة في منتجات SaaS حقيقية، تطوير ميزات frontend وbackend، دمج APIs، وبناء تطبيقات web جاهزة للإنتاج ضمن سير عمل تطوير احترافي.\n\nإلى جانب الهندسة، أشارك بنشاط في hackathons للذكاء الاصطناعي والويب كمساهمة وقائدة فريق، محولة الأفكار إلى حلول رقمية مؤثرة عبر التعلم المستمر والابتكار.",
+  },
+  skills: {
+    label: "المهارات",
+    title: "لوحة مهارات AI",
+    description: "التقنيات والأدوات التي تدعم التطبيقات الإنتاجية وتكاملات AI.",
+  },
+  experience: {
+    label: "الخبرة",
+    title: "المسيرة المهنية",
+    description:
+      "خبرة عملية في بناء منتجات SaaS ودمج APIs وتسليم ميزات إنتاجية.",
+  },
+  projects: {
+    label: "المشاريع",
+    title: "عرض المشاريع",
+    description: "منصات SaaS مدعومة بالذكاء الاصطناعي، middleware أمني، وتطبيقات web إنتاجية.",
+    featured: "مميز",
+    problem: "المشكلة",
+    solution: "الحل",
+    github: "GitHub",
+    liveDemo: "عرض مباشر",
+  },
+  hackathons: {
+    label: "الهاكathons",
+    title: "المنافسة والابتكار",
+    description: "مشاركة نشطة وقيادة فريق في hackathons للذكاء الاصطناعي والمطورين عالمياً.",
+  },
+  contact: {
+    label: "التواصل",
+    title: "لنبني شيئاً ذكياً",
+    description:
+      "متاحة لفرص MERN Stack Developer والتعاون ومشاريع مدعومة بالذكاء الاصطناعي.",
+    aiPoweredContact: "تواصل مدعوم بالذكاء الاصطناعي",
+    getInTouch: "تواصل معي",
+    intro: "تواصل للتوظيف، مشاريع freelance، أو تعاون في hackathons.",
+    linkedinProfile: "ملف LinkedIn",
+    githubProfile: "ملف GitHub",
+    form: {
+      name: "الاسم",
+      namePlaceholder: "اسمك",
+      email: "البريد الإلكتروني",
+      emailPlaceholder: "you@example.com",
+      message: "الرسالة",
+      messagePlaceholder: "أخبريني عن مشروعك أو الفرصة...",
+      sending: "جارٍ الإرسال...",
+      send: "إرسال الرسالة",
+    },
+    toast: { success: "تم إرسال الرسالة بنجاح", error: "حدث خطأ ما" },
+  },
+  footer: { email: "البريد", rights: "جميع الحقوق محفوظة." },
+  resume: { unavailable: "السيرة الذاتية غير متاحة بعد. يرجى التواصل مباشرة." },
+};
