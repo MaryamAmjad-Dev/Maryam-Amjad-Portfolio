@@ -9,6 +9,10 @@ import { portfolioData } from "@/data";
 import { useLanguage } from "@/hooks";
 import type { Project } from "@/types";
 
+function getGithubUrl(project: Project): string {
+  return project.githubUrl || project.repoUrl || "";
+}
+
 function ProjectCard({
   project,
   labels,
@@ -22,18 +26,31 @@ function ProjectCard({
     liveDemo: string;
   };
 }) {
+  const githubUrl = getGithubUrl(project);
+
   return (
     <motion.div variants={staggerItem} className="h-full">
-      <TiltCard className="h-full" intensity={10}>
+      <TiltCard className="h-full" intensity={10} interactive>
         <div className="flex h-full flex-col">
           <div className="mb-4 flex items-start justify-between gap-3">
-            <div>
+            <div className="min-w-0 flex-1">
               <div className="mb-2 flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-primary/20 to-accent/10 text-primary">
                 <Sparkles size={18} aria-hidden="true" />
               </div>
               <h3 className="text-xl font-semibold tracking-tight">{project.title}</h3>
             </div>
-            {project.featured && <Badge variant="accent">{labels.featured}</Badge>}
+            <div className="flex shrink-0 items-start gap-2">
+              {project.featured && <Badge variant="accent">{labels.featured}</Badge>}
+              <a
+                href={githubUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={`${project.title} on GitHub`}
+                className="flex h-9 w-9 cursor-pointer items-center justify-center rounded-full border border-card-border bg-card text-muted transition-all duration-300 hover:scale-110 hover:border-primary/40 hover:bg-primary/10 hover:text-primary"
+              >
+                <GitHubIcon size={16} />
+              </a>
+            </div>
           </div>
 
           <p className="text-sm leading-relaxed text-muted">{project.description}</p>
@@ -62,15 +79,25 @@ function ProjectCard({
             ))}
           </div>
 
-          <div className="mt-auto flex flex-wrap gap-2 pt-6">
-            {project.repoUrl && (
-              <Button href={project.repoUrl} variant="outline" size="sm" external>
-                <GitHubIcon size={14} />
-                {labels.github}
-              </Button>
-            )}
+          <div className="relative z-10 mt-auto flex flex-wrap gap-2 pt-6">
+            <Button
+              href={githubUrl}
+              variant="outline"
+              size="sm"
+              external
+              className="cursor-pointer transition-transform hover:scale-105"
+            >
+              <GitHubIcon size={14} />
+              {labels.github}
+            </Button>
             {project.liveUrl && (
-              <Button href={project.liveUrl} variant="secondary" size="sm" external>
+              <Button
+                href={project.liveUrl}
+                variant="secondary"
+                size="sm"
+                external
+                className="cursor-pointer transition-transform hover:scale-105"
+              >
                 <ExternalLink size={14} aria-hidden="true" />
                 {labels.liveDemo}
               </Button>

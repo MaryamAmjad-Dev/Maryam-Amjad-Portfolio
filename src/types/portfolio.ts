@@ -58,6 +58,8 @@ export interface Project extends WithId {
   tags: string[];
   technologies: string[];
   liveUrl?: string;
+  githubUrl: string;
+  /** @deprecated Use githubUrl */
   repoUrl?: string;
   featured: boolean;
   completedAt?: ISODateString;

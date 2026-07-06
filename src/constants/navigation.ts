@@ -18,7 +18,7 @@ export const MAIN_NAV: MainNavItem[] = [
 
 /** Footer navigation links */
 export const FOOTER_NAV = [
-  { label: "GitHub", href: "https://github.com/maryamaliali", external: true },
+  { label: "GitHub", href: "https://github.com/MaryamAmjad-Dev", external: true },
   {
     label: "LinkedIn",
     href: "https://www.linkedin.com/in/maryam-amjad-3a235a315/",

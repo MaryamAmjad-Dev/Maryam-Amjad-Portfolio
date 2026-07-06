@@ -40,11 +40,11 @@ function AchievementHighlightCard({ stat }: { stat: AchievementStat }) {
 
   return (
     <motion.div variants={staggerItem} className="h-full">
-      <TiltCard className="h-full ai-glow-hover" intensity={6}>
-        <div
-          className="pointer-events-none absolute inset-0 rounded-2xl bg-gradient-to-br from-primary/10 via-secondary/5 to-accent/10 opacity-70"
-          aria-hidden="true"
-        />
+      <TiltCard
+        className="h-full ai-glow-hover"
+        intensity={6}
+        tintClassName="bg-gradient-to-br from-primary/10 via-secondary/5 to-accent/10 opacity-90"
+      >
         <div className="relative flex h-full flex-col gap-3">
           <div className="flex h-9 w-9 items-center justify-center rounded-lg border border-primary/20 bg-primary/10 text-primary">
             <Icon size={16} aria-hidden="true" />
@@ -148,7 +148,7 @@ export function AboutSection() {
                 {t("about.achievementHighlights")}
               </p>
               <motion.div
-                className="grid grid-cols-2 gap-4"
+                className="grid grid-cols-1 gap-3 min-[420px]:grid-cols-2 sm:gap-4"
                 variants={staggerContainer}
                 initial="hidden"
                 whileInView="visible"

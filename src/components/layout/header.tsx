@@ -6,7 +6,6 @@ import { Menu, Sparkles, X } from "lucide-react";
 import { GitHubIcon, LinkedInIcon } from "@/components/shared";
 import { LanguageSwitcher } from "./language-switcher";
 import { MAIN_NAV, SOCIAL_LINKS } from "@/constants";
-import { portfolioData } from "@/data";
 import { useActiveSection, useLanguage } from "@/hooks";
 import { cn } from "@/lib";
 
@@ -15,8 +14,6 @@ export function Header() {
   const [scrolled, setScrolled] = useState(false);
   const activeSection = useActiveSection();
   const { navLabel, t } = useLanguage();
-  const { profile } = portfolioData;
-  const firstName = profile.name.split(" ")[0];
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 16);
@@ -45,7 +42,7 @@ export function Header() {
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <nav
           className={cn(
-            "mt-3 flex items-center justify-between rounded-2xl px-4 py-2.5 transition-all duration-300 md:mt-4 md:px-5 md:py-3",
+            "mt-2 flex items-center justify-between rounded-2xl px-3 py-2.5 transition-all duration-300 sm:mt-3 sm:px-4 md:mt-4 md:px-5 md:py-3",
             "nav-glass",
             scrolled && "nav-glass-scrolled",
           )}
@@ -53,12 +50,11 @@ export function Header() {
         >
           <a
             href="#home"
-            className="relative z-10 flex items-center gap-2 text-sm font-semibold text-heading"
+            className="relative z-10 flex min-w-0 items-center gap-2 text-xs font-semibold text-heading sm:text-sm"
           >
-            <Sparkles className="h-4 w-4 text-primary" aria-hidden="true" />
-            <span>
-              {firstName}
-              <span className="text-primary">.</span>
+            <Sparkles className="h-4 w-4 shrink-0 text-primary" aria-hidden="true" />
+            <span className="truncate">
+              Maryam Amjad <span className="text-primary">Portfolio</span>
             </span>
           </a>
 
@@ -111,12 +107,6 @@ export function Header() {
             >
               <LinkedInIcon size={16} />
             </a>
-            <a
-              href="#contact"
-              className="btn-gradient ml-1 rounded-full px-5 py-2 text-sm font-medium"
-            >
-              {t("nav.hireMe")}
-            </a>
           </div>
 
           <div className="relative z-10 flex items-center gap-2 lg:hidden">
@@ -162,12 +152,12 @@ export function Header() {
                   </li>
                 ))}
               </ul>
-              <div className="mt-4 flex items-center gap-3 border-t border-card-border pt-4">
+              <div className="mt-4 flex items-center justify-center gap-4 border-t border-card-border pt-4">
                 <a
                   href={SOCIAL_LINKS.github}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex h-10 w-10 items-center justify-center rounded-full border border-card-border bg-card text-muted"
+                  className="flex h-11 w-11 items-center justify-center rounded-full border border-card-border bg-card text-muted"
                   aria-label="GitHub"
                 >
                   <GitHubIcon size={18} />
@@ -176,17 +166,10 @@ export function Header() {
                   href={SOCIAL_LINKS.linkedin}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex h-10 w-10 items-center justify-center rounded-full border border-card-border bg-card text-muted"
+                  className="flex h-11 w-11 items-center justify-center rounded-full border border-card-border bg-card text-muted"
                   aria-label="LinkedIn"
                 >
                   <LinkedInIcon size={18} />
-                </a>
-                <a
-                  href="#contact"
-                  className="btn-gradient flex-1 rounded-full py-2.5 text-center text-sm font-medium"
-                  onClick={() => setMobileOpen(false)}
-                >
-                  {t("nav.hireMe")}
                 </a>
               </div>
             </motion.div>

@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Mail, MapPin, Sparkles } from "lucide-react";
+import { MapPin, Sparkles } from "lucide-react";
 import { GitHubIcon, LinkedInIcon, ResumeDownloadButton } from "@/components/shared";
 import {
   AIParticles,
@@ -31,14 +31,14 @@ export function HeroSection() {
   return (
     <section
       id="home"
-      className="relative flex min-h-screen items-center overflow-hidden pt-28 pb-16"
+      className="relative flex min-h-[100dvh] items-center overflow-hidden pt-24 pb-12 sm:pt-28 sm:pb-16"
     >
       <AuroraBackground />
       <AIParticles />
       <FloatingIcons />
 
       <div className="relative z-10 mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="grid items-center gap-12 lg:grid-cols-[1.1fr_0.9fr] lg:gap-16">
+        <div className="grid items-center gap-8 sm:gap-12 lg:grid-cols-[1.1fr_0.9fr] lg:gap-16">
           <div className="flex flex-col items-center text-center lg:items-start lg:text-left">
             <FadeIn direction="up">
               <motion.div
@@ -57,7 +57,7 @@ export function HeroSection() {
             </FadeIn>
 
             <FadeIn direction="up" delay={0.1}>
-              <h1 className="text-heading text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl lg:text-7xl">
+              <h1 className="text-heading text-3xl font-bold tracking-tight sm:text-5xl md:text-6xl lg:text-7xl">
                 {firstName}{" "}
                 <AnimatedGradientText as="span">{lastName}</AnimatedGradientText>
               </h1>
@@ -70,7 +70,7 @@ export function HeroSection() {
             </FadeIn>
 
             <FadeIn direction="up" delay={0.3}>
-              <div className="mt-4 h-8">
+              <div className="mt-4 min-h-8">
                 <TypingRoles
                   roles={dictionary.hero.roles}
                   className="text-base font-medium sm:text-lg"
@@ -92,17 +92,25 @@ export function HeroSection() {
             </FadeIn>
 
             <FadeIn direction="up" delay={0.5}>
-              <div className="mt-8 flex flex-wrap items-center justify-center gap-3 lg:justify-start">
-                <Button href="#contact" size="lg">
-                  <Mail size={16} aria-hidden="true" />
-                  {t("hero.hireMe")}
-                </Button>
-                <ResumeDownloadButton variant="secondary" size="lg" />
-                <Button href={SOCIAL_LINKS.github} variant="outline" size="lg" external>
+              <div className="mt-8 flex w-full max-w-md flex-col gap-3 sm:max-w-none sm:flex-row sm:flex-wrap sm:items-center sm:justify-center lg:justify-start">
+                <ResumeDownloadButton size="lg" className="w-full sm:w-auto" />
+                <Button
+                  href={SOCIAL_LINKS.github}
+                  variant="outline"
+                  size="lg"
+                  external
+                  className="w-full sm:w-auto"
+                >
                   <GitHubIcon size={16} />
                   {t("hero.github")}
                 </Button>
-                <Button href={SOCIAL_LINKS.linkedin} variant="outline" size="lg" external>
+                <Button
+                  href={SOCIAL_LINKS.linkedin}
+                  variant="outline"
+                  size="lg"
+                  external
+                  className="w-full sm:w-auto"
+                >
                   <LinkedInIcon size={16} />
                   {t("hero.linkedin")}
                 </Button>
@@ -131,13 +139,13 @@ export function HeroSection() {
                   <p className="text-heading mt-6 text-lg font-semibold">{profile.name}</p>
                   <p className="mt-1 text-sm text-primary">{profile.title}</p>
 
-                  <div className="mt-6 grid w-full grid-cols-3 gap-3">
+                  <div className="mt-6 grid w-full grid-cols-3 gap-2 sm:gap-3">
                     {heroStats.map((stat, index) => (
                       <div
                         key={stat.label}
-                        className="rounded-xl border border-card-border bg-card px-2 py-3 text-center backdrop-blur-sm"
+                        className="rounded-xl border border-card-border bg-card px-1.5 py-2.5 text-center backdrop-blur-sm sm:px-2 sm:py-3"
                       >
-                        <p className="text-lg font-bold gradient-text">{stat.value}</p>
+                        <p className="text-base font-bold gradient-text sm:text-lg">{stat.value}</p>
                         <p className="mt-0.5 text-[10px] uppercase tracking-wider text-muted-subtle sm:text-xs">
                           {t(`hero.stats.${HERO_STAT_KEYS[index]}`)}
                         </p>

@@ -9,7 +9,6 @@ import {
   Terminal,
   Users,
   Wrench,
-  Zap,
 } from "lucide-react";
 import { staggerContainer, staggerItem } from "@/components/animations";
 import { Section, TiltCard } from "@/components/ui";
@@ -37,82 +36,46 @@ const CATEGORY_GRADIENTS: Record<string, string> = {
   "Collaboration Tools": "from-primary/12 to-success/8",
 };
 
-function SkillBar({ name, level, index }: { name: string; level: number; index: number }) {
-  return (
-    <div className="group/skill space-y-2">
-      <div className="flex items-center justify-between text-sm">
-        <span className="text-foreground transition-colors group-hover/skill:text-heading">
-          {name}
-        </span>
-        <span className="font-mono text-xs text-muted-subtle">{level}%</span>
-      </div>
-      <div className="relative h-2 overflow-hidden rounded-full bg-white/5">
-        <motion.div
-          className="skill-progress absolute inset-y-0 left-0 rounded-full"
-          initial={{ width: 0 }}
-          whileInView={{ width: `${level}%` }}
-          viewport={{ once: true }}
-          transition={{
-            duration: 1.2,
-            delay: index * 0.08,
-            ease: [0.21, 0.47, 0.32, 0.98],
-          }}
-        />
-        <motion.div
-          className="skill-progress-shine absolute inset-y-0 left-0 rounded-full"
-          initial={{ width: 0 }}
-          whileInView={{ width: `${level}%` }}
-          viewport={{ once: true }}
-          transition={{ duration: 1.2, delay: index * 0.08 }}
-        />
-      </div>
-    </div>
-  );
-}
-
 function SkillCategoryCard({ category }: { category: SkillCategory }) {
   const Icon = CATEGORY_ICONS[category.name] ?? Code2;
   const gradient = CATEGORY_GRADIENTS[category.name] ?? "from-primary/15 to-accent/8";
-  const avgLevel = Math.round(
-    category.skills.reduce((sum, s) => sum + s.level, 0) / category.skills.length,
-  );
 
   return (
     <motion.div variants={staggerItem} className="h-full">
-      <TiltCard className="h-full" intensity={8}>
-        <div
-          className={`absolute inset-0 rounded-2xl bg-gradient-to-br ${gradient} opacity-60`}
-          aria-hidden="true"
-        />
-        <div className="relative">
-          <div className="mb-6 flex items-start justify-between">
-            <div className="flex items-center gap-3">
-              <div className="flex h-11 w-11 items-center justify-center rounded-xl border border-card-border bg-card text-primary shadow-inner">
-                <Icon size={20} aria-hidden="true" />
-              </div>
-              <div>
-                <h3 className="text-heading text-lg font-semibold">{category.name}</h3>
-                <p className="text-xs text-muted-subtle">
-                  {category.skills.length} technologies
-                </p>
-              </div>
+      <TiltCard
+        className="h-full"
+        intensity={8}
+        tintClassName={`bg-gradient-to-br ${gradient} opacity-80`}
+      >
+        <div className="relative flex h-full min-h-[220px] flex-col">
+          <div className="mb-6 flex items-center gap-3">
+            <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl border border-card-border bg-card text-primary shadow-inner">
+              <Icon size={20} aria-hidden="true" />
             </div>
-            <div className="flex items-center gap-1 rounded-full border border-primary/20 bg-primary/10 px-2.5 py-1 text-xs font-medium text-primary">
-              <Zap size={10} aria-hidden="true" />
-              {avgLevel}%
+            <div className="min-w-0">
+              <h3 className="text-heading text-base font-semibold sm:text-lg">
+                {category.name}
+              </h3>
+              <p className="text-xs text-muted-subtle">
+                {category.skills.length} technologies
+              </p>
             </div>
           </div>
 
-          <div className="space-y-4">
-            {category.skills.map((skill, i) => (
-              <SkillBar
+          <ul className="flex flex-1 flex-col justify-start space-y-2.5">
+            {category.skills.map((skill) => (
+              <li
                 key={skill.name}
-                name={skill.name}
-                level={skill.level}
-                index={i}
-              />
+                className="flex items-center gap-2.5 text-sm text-foreground"
+              >
+                <span
+                  className="h-1.5 w-1.5 shrink-0 rounded-full bg-primary"
+                  aria-hidden="true"
+                />
+                <span className="min-w-0 break-words">{skill.name}</span>
+              </li>
             ))}
-          </div>
+          </ul>
         </div>
       </TiltCard>
     </motion.div>
@@ -131,7 +94,7 @@ export function SkillsSection() {
       className="relative"
     >
       <motion.div
-        className="grid gap-6 sm:grid-cols-2"
+        className="grid auto-rows-fr gap-4 sm:grid-cols-2 sm:gap-6"
         variants={staggerContainer}
         initial="hidden"
         whileInView="visible"

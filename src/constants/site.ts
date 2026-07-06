@@ -30,7 +30,7 @@ export const SITE_ROUTES = {
 } as const;
 
 export const SOCIAL_LINKS = {
-  github: "https://github.com/maryamaliali",
+  github: "https://github.com/MaryamAmjad-Dev",
   linkedin: "https://www.linkedin.com/in/maryam-amjad-3a235a315/",
   email: "mailto:maryamamjad621@gmail.com",
   phone: "tel:+923147390062",

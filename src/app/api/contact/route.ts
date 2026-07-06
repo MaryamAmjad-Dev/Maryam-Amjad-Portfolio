@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 import { CONTACT_RATE_LIMIT } from "@/constants";
-import { contactFormSchema } from "@/lib/contact";
+import { contactFormSchema, sendContactEmail } from "@/lib/contact";
 import {
   checkRateLimit,
   getClientIdentifier,
@@ -55,15 +55,25 @@ export async function POST(request: Request) {
       );
     }
 
-    const { name, email, message } = parsed.data;
+    const delivery = await sendContactEmail(parsed.data);
 
-    // Ready for email/webhook integration — validated submissions are accepted
-    console.info("[contact] New message", {
-      name,
-      email,
-      messageLength: message.length,
-      at: new Date().toISOString(),
-    });
+    if (!delivery.ok && delivery.reason === "not_configured") {
+      return NextResponse.json({
+        success: false,
+        fallback: "mailto",
+        error: "Email service is not configured on the server.",
+      });
+    }
+
+    if (!delivery.ok) {
+      return NextResponse.json(
+        {
+          success: false,
+          error: delivery.error ?? "Failed to send message",
+        },
+        { status: 502 },
+      );
+    }
 
     return NextResponse.json({
       success: true,

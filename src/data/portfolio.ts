@@ -87,6 +87,8 @@ function buildAchievements(
   ];
 }
 
+const GITHUB_PROFILE = "https://github.com/MaryamAmjad-Dev";
+
 export const portfolioData: PortfolioData = {
   profile: {
     name: "Maryam Amjad",
@@ -110,7 +112,7 @@ export const portfolioData: PortfolioData = {
     socialLinks: [
       {
         platform: "github",
-        url: "https://github.com/maryamaliali",
+        url: "https://github.com/MaryamAmjad-Dev",
         label: "GitHub",
       },
       {
@@ -330,7 +332,7 @@ export const portfolioData: PortfolioData = {
       tags: ["AI", "SaaS", "Automation"],
       thumbnailUrl: "/images/projects/autovance.jpg",
       featured: true,
-      repoUrl: "https://github.com/maryamaliali",
+      githubUrl: GITHUB_PROFILE,
     },
     {
       id: "proj-hiregen",
@@ -346,7 +348,7 @@ export const portfolioData: PortfolioData = {
       tags: ["AI", "Hiring", "SaaS"],
       thumbnailUrl: "/images/projects/hiregen.jpg",
       featured: true,
-      repoUrl: "https://github.com/maryamaliali",
+      githubUrl: `${GITHUB_PROFILE}/hiregen-ai`,
     },
     {
       id: "proj-feature-kit",
@@ -361,7 +363,7 @@ export const portfolioData: PortfolioData = {
       tags: ["FYP", "AI", "Multi-modal"],
       thumbnailUrl: "/images/projects/feature-kit.jpg",
       featured: true,
-      repoUrl: "https://github.com/maryamaliali",
+      githubUrl: GITHUB_PROFILE,
     },
     {
       id: "proj-aiuc",
@@ -377,7 +379,7 @@ export const portfolioData: PortfolioData = {
       tags: ["Security", "AI", "Middleware"],
       thumbnailUrl: "/images/projects/aiuc.jpg",
       featured: true,
-      repoUrl: "https://github.com/maryamaliali",
+      githubUrl: GITHUB_PROFILE,
     },
     {
       id: "proj-driving",
@@ -392,7 +394,7 @@ export const portfolioData: PortfolioData = {
       tags: ["Next.js", "Forms", "MongoDB", "MSA Driving School"],
       thumbnailUrl: "/images/projects/driving.jpg",
       featured: false,
-      repoUrl: "https://github.com/maryamaliali",
+      githubUrl: `${GITHUB_PROFILE}/Driving-Web-Forms-System`,
     },
     {
       id: "proj-forms",
@@ -406,7 +408,7 @@ export const portfolioData: PortfolioData = {
       tags: ["Next.js", "Forms", "Architecture"],
       thumbnailUrl: "/images/projects/forms.jpg",
       featured: false,
-      repoUrl: "https://github.com/maryamaliali",
+      githubUrl: `${GITHUB_PROFILE}/nextjs-form-handling`,
     },
     {
       id: "proj-portfolio",
@@ -420,8 +422,8 @@ export const portfolioData: PortfolioData = {
       tags: ["Portfolio", "AI", "Next.js"],
       thumbnailUrl: "/images/projects/portfolio.jpg",
       featured: true,
-      liveUrl: "https://github.com/maryamaliali",
-      repoUrl: "https://github.com/maryamaliali",
+      liveUrl: "https://maryam-amjad-portfolio.vercel.app/",
+      githubUrl: `${GITHUB_PROFILE}/Maryam-Amjad-Portfolio`,
     },
     {
       id: "proj-wildlife",
@@ -435,7 +437,7 @@ export const portfolioData: PortfolioData = {
       tags: ["Web", "Conservation"],
       thumbnailUrl: "/images/projects/wildlife.jpg",
       featured: false,
-      repoUrl: "https://github.com/maryamaliali",
+      githubUrl: `${GITHUB_PROFILE}/Wildlifesite`,
     },
   ],
 
@@ -468,7 +470,7 @@ export const educationSummary = formatEducationSummary();
 /** Hero highlight stats derived from portfolio data */
 export const heroStats = [
   { label: "Projects", value: `${portfolioData.projects.length}+` },
-  { label: "Hackathons", value: String(portfolioData.hackathons.length) },
+  { label: "Hackathons", value: `${portfolioData.hackathons.length}+` },
   {
     label: "AI Tools",
     value: `${portfolioData.skills.find((c) => c.id === "ai")?.skills.length ?? 0}+`,

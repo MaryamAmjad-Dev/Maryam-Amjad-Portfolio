@@ -9,10 +9,10 @@ export function Footer() {
   const { t } = useLanguage();
 
   return (
-    <footer className="border-t border-card-border py-12">
+    <footer className="border-t border-card-border py-10 sm:py-12">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="flex flex-col items-center justify-between gap-6 md:flex-row">
-          <div className="text-center md:text-left">
+        <div className="flex flex-col items-center justify-between gap-6 text-center md:flex-row md:text-left">
+          <div>
             <p className="text-heading text-sm font-semibold">
               {portfolioData.profile.name}
             </p>
