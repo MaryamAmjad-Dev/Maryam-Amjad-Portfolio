@@ -85,7 +85,7 @@ Supports multiple languages for global accessibility.
 
 # 🏆 Featured Projects
 
-## 🥇 AI Feature Kit (Final Year Project — 1st Position)
+## 🥇 AI Feature Kit (Final Year Project: 1st Position)
 
 A modular AI ecosystem integrating multiple AI-powered tools into one intelligent platform.
 
@@ -96,15 +96,6 @@ A modular AI ecosystem integrating multiple AI-powered tools into one intelligen
 - Voice Changer
 - AI Summarization
 - Background Removal
-
-**Tech Stack**
-
-- React.js
-- Node.js
-- Express.js
-- MongoDB
-- AI APIs
-- Tailwind CSS
 
 ---
 
@@ -155,24 +146,6 @@ Report Generation Agent
 Frontend Dashboard
 ```
 
-**Tech Stack**
-
-- Next.js 16
-- React 19
-- TypeScript
-- Tailwind CSS
-- Framer Motion
-- Shadcn/UI
-- React Hook Form
-- Zod
-- MongoDB Atlas
-- Google Gemini API
-- Google ADK
-- Google Antigravity
-- Hugging Face API
-- Vercel
-
----
 
 ## 🤖 AMD ZeroToken Hybrid AI Router
 
@@ -184,30 +157,11 @@ Built for the AMD Developer Hackathon ACT II.
 - Five-Layer Decision Pipeline
 - Token Savings Analytics
 
-**Tech Stack**
-
-- Python
-- Machine Learning
-- FastAPI
-- Next.js
-- React
-- TypeScript
-
 ---
 
 ## 🧠 MIRA AI – Personal Growth Assistant
 
 AI-powered MERN application supporting emotional well-being, productivity, mood journaling, habit tracking, and intelligent insights.
-
-**Tech Stack**
-
-- React.js
-- Vite
-- Node.js
-- Express.js
-- MongoDB
-- JWT
-- AI Integration
 
 ---
 
