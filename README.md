@@ -1,16 +1,33 @@
+<div align="center">
+
 # 🚀 Maryam Amjad Portfolio
 
-> **AI Engineer • Full Stack Developer • MERN Stack Developer**
+### AI Engineer • Full Stack Developer • MERN Stack Developer
 
-A modern AI-powered developer portfolio built with **Next.js 16**, **React 19**, **TypeScript**, and **Tailwind CSS**. Designed to showcase professional experience, AI projects, hackathon achievements, technical skills, and interactive user experiences through a premium SaaS-inspired interface.
+A modern AI-powered developer portfolio built with **Next.js 16**, **React 19**, **TypeScript**, and **Tailwind CSS**.
+
+Designed to showcase AI projects, hackathon achievements, technical expertise, and modern frontend engineering through a premium SaaS-inspired experience.
+
+<br/>
+
+[🌐 Live Demo](https://maryam-amjad-portfolio.vercel.app)
+&nbsp;&nbsp;•&nbsp;&nbsp;
+[💻 GitHub](https://github.com/MaryamAmjad-Dev/Maryam-Amjad-Portfolio)
+
+<br/>
+
+![Next.js](https://img.shields.io/badge/Next.js-16-black?logo=next.js)
+![React](https://img.shields.io/badge/React-19-61DAFB?logo=react)
+![TypeScript](https://img.shields.io/badge/TypeScript-5-3178C6?logo=typescript)
+![Tailwind CSS](https://img.shields.io/badge/TailwindCSS-4-38BDF8?logo=tailwind-css)
+![Framer Motion](https://img.shields.io/badge/Framer%20Motion-Animations-black?logo=framer)
+![MongoDB](https://img.shields.io/badge/MongoDB-Atlas-47A248?logo=mongodb)
+![Vercel](https://img.shields.io/badge/Vercel-Deployed-black?logo=vercel)
+
+</div>
 
 ---
 
-## 🌐 Live Demo
-
-🔗 **Portfolio:** https://maryam-amjad-portfolio.vercel.app/
-
----
 
 # ✨ Features
 
