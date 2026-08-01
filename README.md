@@ -21,7 +21,6 @@ Designed to showcase AI projects, hackathon achievements, technical expertise, a
 ![TypeScript](https://img.shields.io/badge/TypeScript-5-3178C6?logo=typescript)
 ![Tailwind CSS](https://img.shields.io/badge/TailwindCSS-4-38BDF8?logo=tailwind-css)
 ![Framer Motion](https://img.shields.io/badge/Framer%20Motion-Animations-black?logo=framer)
-![MongoDB](https://img.shields.io/badge/MongoDB-Atlas-47A248?logo=mongodb)
 ![Vercel](https://img.shields.io/badge/Vercel-Deployed-black?logo=vercel)
 
 </div>
