@@ -159,7 +159,7 @@ Built for the AMD Developer Hackathon ACT II.
 
 ---
 
-## 🧠 MIRA AI – Personal Growth Assistant
+## 🧠 MIRA AI: Personal Growth Assistant
 
 AI-powered MERN application supporting emotional well-being, productivity, mood journaling, habit tracking, and intelligent insights.
 
@@ -240,11 +240,6 @@ AI-powered MERN application supporting emotional well-being, productivity, mood 
 
 ---
 
-# 🏅 Certifications
-
-- Claude Certified Architect – Foundations
-
----
 
 # 🚀 Installation
 
