@@ -163,6 +163,18 @@ Built for the AMD Developer Hackathon ACT II.
 
 AI-powered MERN application supporting emotional well-being, productivity, mood journaling, habit tracking, and intelligent insights.
 
+
+### Features
+
+- AI-Powered Mood Analysis
+- Daily Mood Journaling
+- Habit Tracking & Progress Monitoring
+- Personalized Productivity Insights
+- Secure User Authentication
+- JWT-Based Authorization
+- Dashboard Analytics
+- Responsive User Interface
+
 ---
 
 # 💻 Tech Stack
