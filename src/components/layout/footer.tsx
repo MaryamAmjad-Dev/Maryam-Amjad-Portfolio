@@ -19,7 +19,7 @@ export function Footer() {
             <p className="mt-1 text-sm text-muted">
               {portfolioData.profile.title}
             </p>
-            <p className="mt-2 text-[10px] font-medium uppercase tracking-widest text-primary/70">
+            <p className="mt-2 text-[10px] font-medium uppercase tracking-widest text-primary/80">
               {t("meta.multilingualExperience")}
             </p>
           </div>
@@ -32,7 +32,7 @@ export function Footer() {
                     href={item.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-sm text-muted transition-colors hover:text-primary"
+                    className="inline-flex items-center py-2 text-sm text-muted transition-colors hover:text-primary"
                   >
                     {item.label}
                   </a>
@@ -41,7 +41,7 @@ export function Footer() {
               <li>
                 <a
                   href={SOCIAL_LINKS.email}
-                  className="text-sm text-muted transition-colors hover:text-primary"
+                  className="inline-flex items-center py-2 text-sm text-muted transition-colors hover:text-primary"
                 >
                   {t("footer.email")}
                 </a>

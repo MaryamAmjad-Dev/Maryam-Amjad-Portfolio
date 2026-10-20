@@ -22,7 +22,8 @@ export function HackathonsSection() {
       label={t("hackathons.label")}
       title={t("hackathons.title")}
       description={t("hackathons.description")}
-    >      <motion.div
+    >
+      <motion.div
         className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3"
         variants={staggerContainer}
         initial="hidden"
@@ -33,14 +34,18 @@ export function HackathonsSection() {
           <motion.div key={hackathon.id} variants={staggerItem} className="h-full">
             <TiltCard className="h-full" intensity={7}>
               <div className="flex h-full flex-col">
-                <div className="mb-4 flex items-center justify-between">
-                  <div className="flex h-11 w-11 items-center justify-center rounded-xl border border-card-border bg-gradient-to-br from-primary/15 to-accent/10 text-primary">
+                <div className="mb-4 flex items-center justify-between gap-3">
+                  <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl border border-primary/20 bg-primary/10 text-primary">
                     <HackathonIcon hackathon={hackathon} />
                   </div>
-                  {hackathon.role && <Badge variant="accent">{hackathon.role}</Badge>}
+                  {hackathon.role && (
+                    <Badge variant="accent" className="min-w-0 text-right">
+                      {hackathon.role}
+                    </Badge>
+                  )}
                 </div>
 
-                <h3 className="font-semibold leading-snug text-foreground">
+                <h3 className="text-lg font-semibold leading-snug text-heading">
                   {hackathon.title}
                 </h3>
                 <p className="mt-1.5 text-sm text-primary/90">{hackathon.event}</p>

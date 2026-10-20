@@ -43,11 +43,11 @@ function AchievementHighlightCard({ stat }: { stat: AchievementStat }) {
       <TiltCard
         className="h-full ai-glow-hover"
         intensity={6}
-        tintClassName="bg-gradient-to-br from-primary/10 via-secondary/5 to-accent/10 opacity-90"
+        tintClassName="bg-linear-to-br from-primary/10 via-secondary/5 to-accent/10 opacity-90"
       >
         <div className="relative flex h-full flex-col gap-3">
-          <div className="flex h-9 w-9 items-center justify-center rounded-lg border border-primary/20 bg-primary/10 text-primary">
-            <Icon size={16} aria-hidden="true" />
+          <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl border border-primary/20 bg-primary/10 text-primary">
+            <Icon size={18} aria-hidden="true" />
           </div>
           <AnimatedCounter
             value={stat.value}
@@ -69,7 +69,7 @@ function AchievementHighlightCard({ stat }: { stat: AchievementStat }) {
 }
 
 export function AboutSection() {
-  const { profile, education, achievements } = portfolioData;
+  const { education, achievements } = portfolioData;
   const { t, dictionary } = useLanguage();
 
   const orderedAchievements = ABOUT_ACHIEVEMENT_ORDER.map((id) =>
@@ -123,11 +123,11 @@ export function AboutSection() {
               {education.map((edu) => (
                 <TiltCard key={edu.id} intensity={5}>
                   <div className="flex gap-4">
-                    <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl border border-primary/20 bg-primary/10 text-primary">
-                      <GraduationCap size={22} aria-hidden="true" />
+                    <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl border border-primary/20 bg-primary/10 text-primary">
+                      <GraduationCap size={20} aria-hidden="true" />
                     </div>
-                    <div className="space-y-1">
-                      <h3 className="font-semibold text-heading">
+                    <div className="min-w-0 space-y-1">
+                      <h3 className="text-lg font-semibold text-heading">
                         {edu.institution}
                       </h3>
                       <p className="text-sm text-foreground">{edu.degree}</p>
@@ -152,7 +152,7 @@ export function AboutSection() {
                 variants={staggerContainer}
                 initial="hidden"
                 whileInView="visible"
-                viewport={{ once: true, margin: "-40px" }}
+                viewport={{ once: true, margin: "-80px" }}
               >
                 {orderedAchievements.map((stat) => (
                   <AchievementHighlightCard key={stat.id} stat={stat} />

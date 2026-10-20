@@ -42,16 +42,16 @@ interface LanguageContextValue {
 const LanguageContext = createContext<LanguageContextValue | null>(null);
 
 export function LanguageProvider({ children }: { children: ReactNode }) {
-  const [locale, setLocaleState] = useState<Locale>(DEFAULT_LOCALE);
-  const [isReady, setIsReady] = useState(false);
-
-  useEffect(() => {
-    const stored = localStorage.getItem(LOCALE_STORAGE_KEY);
-    if (stored && isSupportedLocale(stored)) {
-      setLocaleState(stored);
+  const [locale, setLocaleState] = useState<Locale>(() => {
+    try {
+      const stored = typeof window !== "undefined" ? localStorage.getItem(LOCALE_STORAGE_KEY) : null;
+      if (stored && isSupportedLocale(stored)) return stored as Locale;
+    } catch {
+      // ignore
     }
-    setIsReady(true);
-  }, []);
+    return DEFAULT_LOCALE;
+  });
+  const [isReady] = useState(true);
 
   const setLocale = useCallback((next: Locale) => {
     setLocaleState(next);

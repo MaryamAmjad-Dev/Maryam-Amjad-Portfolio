@@ -88,15 +88,15 @@ export function ContactSection() {
       label={t("contact.label")}
       title={t("contact.title")}
       description={t("contact.description")}
-      className="relative pb-20 sm:pb-32"
+      className="relative pb-20 sm:pb-32 md:pb-32"
     >
       <div className="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden="true">
-        <div className="absolute bottom-0 left-1/2 h-64 w-96 -translate-x-1/2 rounded-full bg-primary/8 blur-[100px]" />
+        <div className="absolute bottom-0 left-1/2 hidden h-64 w-96 -translate-x-1/2 rounded-full bg-primary/8 blur-[100px] sm:block" />
       </div>
 
       <div className="relative grid gap-8 lg:grid-cols-2">
         <FadeIn>
-          <TiltCard intensity={6} interactive>
+          <TiltCard intensity={6} interactive className="h-full">
             <div className="mb-2 flex items-center gap-2 text-primary">
               <Sparkles size={16} aria-hidden="true" />
               <span className="text-xs font-medium uppercase tracking-widest">
@@ -174,7 +174,7 @@ export function ContactSection() {
         </FadeIn>
 
         <FadeIn delay={0.15}>
-          <TiltCard intensity={6} interactive>
+          <TiltCard intensity={6} interactive className="h-full">
             <form onSubmit={handleSubmit} className="relative z-10 space-y-5" noValidate>
               <Input
                 id="contact-name"

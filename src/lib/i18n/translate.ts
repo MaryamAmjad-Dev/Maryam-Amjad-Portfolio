@@ -12,6 +12,7 @@ export function mergeTranslations(
     ...overrides,
     meta: { ...base.meta, ...overrides.meta },
     language: { ...base.language, ...overrides.language },
+    theme: { ...base.theme, ...overrides.theme },
     nav: { ...base.nav, ...overrides.nav },
     hero: {
       ...base.hero,
@@ -25,6 +26,8 @@ export function mergeTranslations(
     experience: { ...base.experience, ...overrides.experience },
     projects: { ...base.projects, ...overrides.projects },
     hackathons: { ...base.hackathons, ...overrides.hackathons },
+    volunteer: { ...base.volunteer, ...overrides.volunteer },
+    certifications: { ...base.certifications, ...overrides.certifications },
     contact: {
       ...base.contact,
       ...overrides.contact,

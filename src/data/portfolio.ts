@@ -1,45 +1,67 @@
-import type { AchievementStat, Hackathon, PortfolioData } from "@/types";
+import type {
+  AchievementStat,
+  Certification,
+  Hackathon,
+  PortfolioData,
+  VolunteerExperience,
+} from "@/types";
 
 const hackathonEntries: Hackathon[] = [
+  {
+    id: "hack-nasa",
+    title: "NASA Space Apps Challenge",
+    event: "NASA International Hackathon",
+    role: "Team Lead",
+    description:
+      "Currently enrolled as Team Lead for the upcoming global hackathon on November 14–15, 2026.",
+    year: "Nov 14–15, 2026",
+  },
   {
     id: "hack-amd",
     title: "AMD Developer Hackathon ACT II",
     event: "International — lablab.ai",
     description: "Built AI-powered solutions on AMD hardware infrastructure.",
-    year: "2025",
+    year: "2026",
   },
   {
     id: "hack-codesprint",
     title: "CodeSprint LA",
     event: "Los Angeles Hackathon",
     placement: "25th out of 137 teams",
-    year: "2025",
+    year: "2026",
   },
   {
     id: "hack-hec2",
     title: "HEC GenAI Cohort 2",
     event: "Higher Education Commission Pakistan",
     role: "Team Lead",
-    year: "2025",
+    year: "2026",
   },
   {
     id: "hack-hec3",
     title: "HEC GenAI Cohort 3",
     event: "Higher Education Commission Pakistan",
     role: "Team Lead",
-    year: "2025",
+    year: "2026",
   },
   {
     id: "hack-devlaunch",
     title: "Dev Launch Hackathon",
     event: "Developer Community Event",
-    year: "2025",
+    year: "2026",
   },
   {
     id: "hack-unesco",
     title: "UNESCO Youth Hackathon",
     event: "UNESCO International",
-    year: "2025",
+    year: "2026",
+  },
+  {
+    id: "hack-gemini-quizoff",
+    title: "Google Gemini Quizoff Challenge",
+    event: "Google Gemini Quizoff Challenge 2026",
+    description: "Participated and attended the global AI challenge focused on Gemini-powered solutions.",
+    year: "2026",
   },
 ];
 
@@ -89,15 +111,36 @@ function buildAchievements(
 
 const GITHUB_PROFILE = "https://github.com/MaryamAmjad-Dev";
 
+const volunteerEntries: VolunteerExperience[] = [
+  {
+    id: "vol-hci-research",
+    title: "HCI Research Report and Presentation",
+    organization: "Independent Volunteer Project",
+    description:
+      "Co-authored an independent Human Computer Interaction research report with group mates, analyzing survey data on procrastination and digital distraction among STEM students. Built and delivered the companion presentation deck.",
+  },
+];
+
+const certificationEntries: Certification[] = [
+  {
+    id: "cert-gydf-mindset",
+    title:
+      "Developing the Mindset and Skills Young People Need to Succeed in a Global World",
+    organization: "Global Youth Development Forum, Sierra Leone Chapter",
+    date: "August 2026",
+    note: "Attended an online training session led by Coach Alie Bangoura.",
+  },
+];
+
 export const portfolioData: PortfolioData = {
   profile: {
     name: "Maryam Amjad",
-    title: "MERN Stack Developer",
+    title: "AI Engineer • Full Stack Developer • MERN Stack Developer",
     tagline:
-      "Building scalable full-stack applications with MERN technologies and AI automation.",
-    bio: "MERN Stack Developer passionate about scalable full-stack applications and AI-powered solutions. Production SaaS experience, LLM integrations, and hackathon leadership.",
+      "Building scalable, AI-enabled web applications with modern full-stack technology.",
+    bio: "AI engineer and full-stack developer delivering production SaaS experiences, API integrations, and intelligent systems.",
     summary:
-      "A MERN Stack Developer passionate about creating scalable, high-performance full-stack applications with MongoDB, Express.js, React.js, Next.js, Node.js, TypeScript, and Tailwind CSS.\n\nDriven by curiosity for intelligent systems, I explore and build AI-powered solutions using AI Automation, Agentic AI workflows, LLM APIs, Gemini API, Groq API, and Machine Learning concepts.\n\nMy experience includes contributing to real-world SaaS products, developing frontend and backend features, integrating APIs, and building production-ready web applications within professional development workflows.\n\nBeyond engineering, I actively engage in AI and Web hackathons as a contributor and team lead, transforming ideas into impactful digital solutions through continuous learning and innovation.",
+      "A global-minded AI engineer and full-stack developer who builds scalable web products with MERN, Next.js, TypeScript, and Tailwind CSS.\n\nI combine production SaaS experience with AI automation, Gemini and Groq APIs, and intelligent systems design.\n\nI also contribute to international hackathons as a participant and team lead, bringing practical development and collaboration to fast-moving AI challenges.",
     location: "Pakistan",
     email: "maryamamjad621@gmail.com",
     phone: "+92 314 7390062",
@@ -106,8 +149,8 @@ export const portfolioData: PortfolioData = {
       "Next.js Developer",
       "AI Automation & Agentic AI Enthusiast",
     ],
-    image: "/profile/maryam.jpg",
-    avatarUrl: "/profile/maryam.jpg",
+    image: "/profile/maryam.svg",
+    avatarUrl: "/profile/maryam.svg",
     resumeUrl: "/resume/Maryam-Amjad-Resume.pdf",
     socialLinks: [
       {
@@ -128,7 +171,6 @@ export const portfolioData: PortfolioData = {
       id: "edu-gcuf",
       institution: "Government College University Faisalabad",
       degree: "Bachelor of Science in Information Technology",
-      cgpa: "3.45/4.0",
     },
   ],
 
@@ -196,6 +238,14 @@ export const portfolioData: PortfolioData = {
         { name: "Groq API", level: 85 },
         { name: "Llama 3.3 70B", level: 82 },
         { name: "Google ADK", level: 78 },
+        { name: "Google Antigravity", level: 72 },
+        { name: "Hugging Face API", level: 86 },
+        { name: "AI Agents", level: 84 },
+        { name: "Prompt Engineering", level: 88 },
+        { name: "LLM Integration", level: 86 },
+        { name: "Speech Processing", level: 82 },
+        { name: "Fact Verification", level: 80 },
+        { name: "RAG", level: 80 },
         { name: "Make.com", level: 80 },
       ],
     },
@@ -233,7 +283,11 @@ export const portfolioData: PortfolioData = {
           level: 90,
           note: "Maryam uses Cursor AI for AI-assisted development workflows",
         },
+        { name: "Claude Code", level: 78 },
+        { name: "Google AI Studio", level: 78 },
         { name: "Vercel", level: 88 },
+        { name: "MongoDB Atlas", level: 86 },
+        { name: "Postman", level: 80 },
         { name: "Figma", level: 75 },
         { name: "Canva", level: 78 },
         { name: "Linear", level: 85 },
@@ -288,18 +342,20 @@ export const portfolioData: PortfolioData = {
       ],
     },
     {
-      id: "exp-zynarvo",
-      company: "Zynarvo IT Solutions",
-      role: "IT Recruiter",
-      location: "Remote, UK",
-      startDate: "2025-06",
-      endDate: "2025-08",
-      description: "Sourced and screened technical talent for UK-based IT roles.",
+      id: "exp-deloitte",
+      company: "Deloitte",
+      role: "Technology Intern",
+      location: "Remote, Australia",
+      startDate: "2026-07",
+      endDate: "2026-08",
+      description:
+        "Technology work with the team to deliver Deloitte expertise to clients.",
       highlights: [
-        "Managed end-to-end recruitment pipeline for tech positions",
-        "Collaborated with hiring managers on role requirements",
+        "Supported remote technology delivery for client engagements with Deloitte subject matter experts",
+        "Assisted in developing process improvements, documentation, and technical recommendations",
+        "Collaborated across teams to align solutions with client requirements and Deloitte quality standards",
       ],
-      technologies: ["LinkedIn Recruiter", "ATS Tools"],
+      technologies: ["Documentation", "Client Collaboration", "Process Improvement"],
     },
     {
       id: "exp-gaotek",
@@ -319,19 +375,84 @@ export const portfolioData: PortfolioData = {
 
   projects: [
     {
-      id: "proj-autovance",
-      title: "Autovance AI",
-      slug: "autovance-ai",
-      description:
-        "AI SaaS automation platform supporting English/Urdu natural commands.",
+      id: "proj-feature-kit",
+      title: "AI Feature Kit",
+      slug: "ai-feature-kit",
+      description: "Final Year Project — multi-modal AI toolkit.",
       problem:
-        "Businesses needed a way to automate workflows using natural language in multiple languages.",
+        "Users needed a single platform for common AI tasks without switching between tools.",
       solution:
-        "Built a MERN SaaS platform with Groq API and Llama 3.3 for bilingual command processing and workflow automation.",
-      technologies: ["MERN", "Groq API", "Llama 3.3", "MongoDB"],
-      tags: ["AI", "SaaS", "Automation"],
-      thumbnailUrl: "/images/projects/autovance.jpg",
+        "Built a unified toolkit with Text to Image, Text to Voice, Background Removal, Text Summarizer, and Voice Changer.",
+      technologies: ["React", "AI APIs", "Python", "Node.js"],
+      tags: ["FYP", "AI", "Multi-modal", "Final Year Project", "1st Position"],
+      thumbnailUrl: "/images/projects/feature-kit.jpg",
       featured: true,
+      githubUrl: GITHUB_PROFILE,
+    },
+    {
+      id: "proj-verivoice",
+      title: "VeriVoice",
+      slug: "verivoice",
+      description:
+        "AI-powered multilingual voice fact verification platform built using a modular multi-agent architecture.",
+      problem:
+        "Misinformation in audio content is hard to verify quickly across languages and formats.",
+      solution:
+        "A pipelined multi-agent system performs speech analysis, language detection, translation, fact verification, evidence retrieval, and explainable reporting with confidence scoring.",
+      technologies: [
+        "Python",
+        "Next.js",
+        "React",
+        "TypeScript",
+        "Tailwind CSS",
+        "Google Gemini API",
+        "FastAPI",
+        "MongoDB",
+      ],
+      tags: [
+        "Featured",
+        "Team Project",
+        "UNESCO Youth Hackathon 2026",
+        "AI",
+        "Multilingual",
+      ],
+      thumbnailUrl: "/images/projects/verivoice.jpg",
+      featured: true,
+      teamProject: true,
+      role: "Frontend Developer — design systems, 3D Evidence Constellation visualizer, and multilingual UI/UX.",
+      liveUrl: "https://verivoice-ten.vercel.app",
+      githubUrl: "https://github.com/MaryamAmjad-Dev/Veri-Voice-Unesco-Hackathon",
+    },
+    {
+      id: "proj-amd-zerotoken",
+      title: "AMD ZeroToken Hybrid AI Router",
+      slug: "amd-zerotoken",
+      description:
+        "An intelligent AI routing platform minimizing inference costs by dynamically selecting between local and cloud AI models.",
+      problem:
+        "Inference costs and latency can make AI deployment expensive; choosing the right model dynamically is non-trivial.",
+      solution:
+        "A five-layer decision pipeline routes requests between local and cloud models, optimizing for cost, latency, and quality while providing token savings analytics.",
+      technologies: ["Python", "FastAPI", "Machine Learning", "Next.js", "React", "TypeScript"],
+      tags: ["AMD Developer Hackathon", "Routing", "Cost Optimisation"],
+      thumbnailUrl: "/images/projects/amd-zerotoken.jpg",
+      featured: false,
+      githubUrl: GITHUB_PROFILE,
+    },
+    {
+      id: "proj-mira-ai",
+      title: "MIRA AI",
+      slug: "mira-ai",
+      description:
+        "AI-powered MERN application supporting emotional well-being, productivity, intelligent insights, mood journaling, and habit tracking.",
+      problem:
+        "Users need personalized, privacy-first tools for mental wellbeing and productivity that adapt over time.",
+      solution:
+        "Built a MERN app with mood journaling, habit tracking, and intelligent insights driven by AI models and privacy-preserving design.",
+      technologies: ["React", "Vite", "Node.js", "Express", "MongoDB", "JWT"],
+      tags: ["MERN", "Wellbeing", "AI"],
+      thumbnailUrl: "/images/projects/mira-ai.jpg",
+      featured: false,
       githubUrl: GITHUB_PROFILE,
     },
     {
@@ -351,64 +472,20 @@ export const portfolioData: PortfolioData = {
       githubUrl: `${GITHUB_PROFILE}/hiregen-ai`,
     },
     {
-      id: "proj-feature-kit",
-      title: "AI Feature Kit",
-      slug: "ai-feature-kit",
-      description: "Final Year Project — multi-modal AI toolkit.",
+      id: "proj-autovance",
+      title: "Autovance AI",
+      slug: "autovance-ai",
+      description:
+        "AI SaaS automation platform supporting English/Urdu natural commands.",
       problem:
-        "Users needed a single platform for common AI tasks without switching between tools.",
+        "Businesses needed a way to automate workflows using natural language in multiple languages.",
       solution:
-        "Built a unified toolkit with Text to Image, Text to Voice, Background Removal, Text Summarizer, and Voice Changer.",
-      technologies: ["React", "AI APIs", "Python", "Node.js"],
-      tags: ["FYP", "AI", "Multi-modal"],
-      thumbnailUrl: "/images/projects/feature-kit.jpg",
+        "Built a MERN SaaS platform with Groq API and Llama 3.3 for bilingual command processing and workflow automation.",
+      technologies: ["MERN", "Groq API", "Llama 3.3", "MongoDB"],
+      tags: ["AI", "SaaS", "Automation"],
+      thumbnailUrl: "/images/projects/autovance.jpg",
       featured: true,
       githubUrl: GITHUB_PROFILE,
-    },
-    {
-      id: "proj-aiuc",
-      title: "Edge Native AIUC Gateway",
-      slug: "edge-native-aiuc-gateway",
-      description:
-        "AI security middleware removing sensitive information before AI requests.",
-      problem:
-        "Organizations risk exposing PII and sensitive data when sending requests to AI models.",
-      solution:
-        "Created edge-native middleware that detects and redacts sensitive information before AI API calls.",
-      technologies: ["Node.js", "AI Security", "Edge Computing"],
-      tags: ["Security", "AI", "Middleware"],
-      thumbnailUrl: "/images/projects/aiuc.jpg",
-      featured: true,
-      githubUrl: GITHUB_PROFILE,
-    },
-    {
-      id: "proj-driving",
-      title: "MSA Driving School — Driving Web Forms System",
-      slug: "driving-web-forms",
-      description:
-        "Next.js contact and booking system for MSA Driving School, built during MatchHalf MERN Stack internship.",
-      problem: "MSA Driving School needed a reliable digital booking and contact system.",
-      solution:
-        "Built a Next.js app with MongoDB, API integrations, and server-side actions for responsive contact and booking forms with database persistence.",
-      technologies: ["Next.js", "TypeScript", "Tailwind CSS", "MongoDB", "Serverless Actions"],
-      tags: ["Next.js", "Forms", "MongoDB", "MSA Driving School"],
-      thumbnailUrl: "/images/projects/driving.jpg",
-      featured: false,
-      githubUrl: `${GITHUB_PROFILE}/Driving-Web-Forms-System`,
-    },
-    {
-      id: "proj-forms",
-      title: "Next.js Form Handling",
-      slug: "nextjs-form-handling",
-      description: "Modern serverless form architecture patterns.",
-      problem: "Developers need robust, type-safe form patterns for Next.js App Router.",
-      solution:
-        "Implemented modern serverless form architecture with validation, error handling, and optimistic UI.",
-      technologies: ["Next.js", "TypeScript", "Zod", "Server Actions"],
-      tags: ["Next.js", "Forms", "Architecture"],
-      thumbnailUrl: "/images/projects/forms.jpg",
-      featured: false,
-      githubUrl: `${GITHUB_PROFILE}/nextjs-form-handling`,
     },
     {
       id: "proj-portfolio",
@@ -425,23 +502,13 @@ export const portfolioData: PortfolioData = {
       liveUrl: "https://maryam-amjad-portfolio.vercel.app/",
       githubUrl: `${GITHUB_PROFILE}/Maryam-Amjad-Portfolio`,
     },
-    {
-      id: "proj-wildlife",
-      title: "Wildlife Site",
-      slug: "wildlife-site",
-      description: "Interactive wildlife conservation awareness website.",
-      problem: "Wildlife conservation organizations need engaging digital presence.",
-      solution:
-        "Created an immersive wildlife site with rich media, education content, and responsive design.",
-      technologies: ["React", "Tailwind CSS", "Framer Motion"],
-      tags: ["Web", "Conservation"],
-      thumbnailUrl: "/images/projects/wildlife.jpg",
-      featured: false,
-      githubUrl: `${GITHUB_PROFILE}/Wildlifesite`,
-    },
   ],
 
   hackathons: hackathonEntries,
+
+  volunteer: volunteerEntries,
+
+  certifications: certificationEntries,
 
   achievements: buildAchievements(hackathonEntries, LINKEDIN_FOLLOWERS),
 };
@@ -459,11 +526,10 @@ export function formatEducationSummary(
   return education
     .map((edu) => {
       const lines = [edu.institution, edu.degree];
-      if (edu.cgpa) lines.push(`CGPA: ${edu.cgpa}`);
       return lines.join("\n");
     })
     .join("\n\n");
-}
+  }
 
 export const educationSummary = formatEducationSummary();
 

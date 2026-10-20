@@ -3,17 +3,26 @@ import type { TranslationOverrides } from "@/types";
 export const urOverrides: TranslationOverrides = {
   meta: { multilingualExperience: "AI سے چلنے والا کثیر لسانی تجربہ" },
   language: { label: "زبان", selectLanguage: "زبان منتخب کریں" },
+  theme: {
+    current: "موجودہ تھیم: {theme}",
+    switchTo: "{theme} تھیم پر جائیں",
+    light: "روشن",
+    dark: "گہری",
+  },
   nav: {
     home: "ہوم",
     about: "تعارف",
     skills: "مہارتیں",
     experience: "تجربہ",
     projects: "پروجیکٹس",
-    hackathons: "ہیکathons",
+    hackathons: "ہیکیاثون",
+    volunteer: "رضاکاری",
+    certifications: "تصدیق نامے",
     contact: "رابطہ",
     hireMe: "ملازمت دیں",
     openMenu: "مینو کھولیں",
     closeMenu: "مینو بند کریں",
+    menu: "مینو",
   },
   hero: {
     availability: "مواقع کے لیے دستیاب",
@@ -21,7 +30,7 @@ export const urOverrides: TranslationOverrides = {
     downloadResume: "ریزیومے ڈاؤن لوڈ",
     github: "GitHub",
     linkedin: "LinkedIn",
-    stats: { projects: "پروجیکٹس", hackathons: "ہیکathons", aiTools: "AI ٹولز" },
+    stats: { projects: "پروجیکٹس", hackathons: "ہیکیاثون", aiTools: "AI ٹولز" },
     roles: [
       "MERN Stack Developer",
       "Next.js Developer",
@@ -44,6 +53,7 @@ export const urOverrides: TranslationOverrides = {
     title: "AI Skill Dashboard",
     description:
       "Production applications اور AI integrations کو power دینے والی technologies اور tools۔",
+    technologies: "{count} ٹیکنالوجیز",
   },
   experience: {
     label: "تجربہ",
@@ -63,10 +73,20 @@ export const urOverrides: TranslationOverrides = {
     liveDemo: "Live Demo",
   },
   hackathons: {
-    label: "ہیکathons",
+    label: "ہیکیاثون",
     title: "Competition & Innovation",
     description:
       "دنیا بھر میں AI اور developer hackathons میں active participant اور team lead۔",
+  },
+  volunteer: {
+    label: "کمیونٹی",
+    title: "رضاکارانہ تجربہ",
+    description: "کلائنٹس اور ہیکیاثونز سے مزید آزادانہ تحقیق اور کمیونٹی کی شراکتیں۔",
+  },
+  certifications: {
+    label: "تصدیق نامے",
+    title: "تصدیقات اور تربیت",
+    description: "پیشہ ورانہ ترقی، قیادت کی تربیت اور راستے میں حاصل کردہ تصدیق نامے۔",
   },
   contact: {
     label: "رابطہ",

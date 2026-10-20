@@ -12,6 +12,12 @@ export const enDictionary: TranslationDictionary = {
     label: "Language",
     selectLanguage: "Select language",
   },
+  theme: {
+    current: "Current theme: {theme}",
+    switchTo: "Switch to {theme} theme",
+    light: "Light",
+    dark: "Dark",
+  },
   nav: {
     home: "Home",
     about: "About",
@@ -19,10 +25,13 @@ export const enDictionary: TranslationDictionary = {
     experience: "Experience",
     projects: "Projects",
     hackathons: "Hackathons",
+    volunteer: "Volunteer",
+    certifications: "Certificates",
     contact: "Contact",
     hireMe: "Hire Me",
     openMenu: "Open menu",
     closeMenu: "Close menu",
+    menu: "Menu",
   },
   hero: {
     availability: "Available for opportunities",
@@ -53,7 +62,7 @@ export const enDictionary: TranslationDictionary = {
     title: "AI Skill Dashboard",
     description:
       "Technologies and tools powering production applications and AI integrations.",
-    technologiesCount: "Proficiency",
+    technologies: "{count} technologies",
   },
   experience: {
     label: "Experience",
@@ -67,6 +76,8 @@ export const enDictionary: TranslationDictionary = {
     description:
       "AI-powered SaaS platforms, security middleware, and production web applications.",
     featured: "Featured",
+    teamProject: "Team Project",
+    myRole: "My Role",
     problem: "Problem",
     solution: "Solution",
     github: "GitHub",
@@ -76,7 +87,19 @@ export const enDictionary: TranslationDictionary = {
     label: "Hackathons",
     title: "Competition & Innovation",
     description:
-      "Active participant and team lead in AI and developer hackathons worldwide.",
+      "Active participant and team lead in AI and developer hackathons worldwide, including Google Gemini Quizoff Challenge 2026.",
+  },
+  volunteer: {
+    label: "Community",
+    title: "Volunteer Experience",
+    description:
+      "Independent research and community contributions beyond client and hackathon work.",
+  },
+  certifications: {
+    label: "Credentials",
+    title: "Certifications & Training",
+    description:
+      "Professional development, leadership training, and certifications earned along the way.",
   },
   contact: {
     label: "Contact",

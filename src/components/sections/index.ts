@@ -1,7 +1,9 @@
 export { AboutSection } from "./about-section";
+export { CertificationsSection } from "./certifications-section";
 export { ContactSection } from "./contact-section";
 export { ExperienceSection } from "./experience-section";
 export { HackathonsSection } from "./hackathons-section";
 export { HeroSection } from "./hero-section";
 export { ProjectsSection } from "./projects-section";
 export { SkillsSection } from "./skills-section";
+export { VolunteerSection } from "./volunteer-section";

@@ -24,23 +24,40 @@ export function ResumeDownloadButton({
   useEffect(() => {
     let cancelled = false;
 
-    fetch(RESUME.path, { method: "HEAD" })
-      .then((response) => {
-        if (!cancelled) setAvailable(response.ok);
-      })
-      .catch(() => {
+    const controller = new AbortController();
+    const check = async () => {
+      try {
+        // Try a HEAD first (fast). If it fails (some dev servers abort HEAD),
+        // fallback to a ranged GET to avoid downloading the whole PDF.
+        // Use a ranged GET first to avoid HEAD requests being aborted by some dev servers.
+        let res = await fetch(RESUME.path, {
+          method: "GET",
+          headers: { Range: "bytes=0-0" },
+          signal: controller.signal,
+        });
+        if (!res || !res.ok) {
+          // Fallback to a full GET if ranged request is not supported.
+          res = await fetch(RESUME.path, { method: "GET", signal: controller.signal });
+        }
+
+        if (!cancelled) setAvailable(Boolean(res && res.ok));
+      } catch {
         if (!cancelled) setAvailable(false);
-      });
+      }
+    };
+
+    check();
 
     return () => {
       cancelled = true;
+      controller.abort();
     };
   }, []);
 
   if (available === null) {
     return (
       <Button variant={variant} size={size} className={className} disabled loading>
-        <Download size={16} aria-hidden="true" />
+        {/* The Button already renders a spinner while loading */}
         {t("hero.downloadResume")}
       </Button>
     );

@@ -3,6 +3,12 @@ import type { TranslationOverrides } from "@/types";
 export const frOverrides: TranslationOverrides = {
   meta: { multilingualExperience: "Expérience multilingue propulsée par l'IA" },
   language: { label: "Langue", selectLanguage: "Choisir la langue" },
+  theme: {
+    current: "Thème actuel : {theme}",
+    switchTo: "Passer au thème {theme}",
+    light: "Clair",
+    dark: "Sombre",
+  },
   nav: {
     home: "Accueil",
     about: "À propos",
@@ -10,10 +16,13 @@ export const frOverrides: TranslationOverrides = {
     experience: "Expérience",
     projects: "Projets",
     hackathons: "Hackathons",
+    volunteer: "Bénévolat",
+    certifications: "Certificats",
     contact: "Contact",
     hireMe: "M'embaucher",
     openMenu: "Ouvrir le menu",
     closeMenu: "Fermer le menu",
+    menu: "Menu",
   },
   hero: {
     availability: "Disponible pour de nouvelles opportunités",
@@ -44,6 +53,7 @@ export const frOverrides: TranslationOverrides = {
     title: "Tableau de bord IA des compétences",
     description:
       "Technologies et outils alimentant les applications de production et les intégrations IA.",
+    technologies: "{count} technologies",
   },
   experience: {
     label: "Expérience",
@@ -67,6 +77,18 @@ export const frOverrides: TranslationOverrides = {
     title: "Compétition & Innovation",
     description:
       "Participante active et team lead dans des hackathons IA et développeurs à l'international.",
+  },
+  volunteer: {
+    label: "Communauté",
+    title: "Expérience bénévole",
+    description:
+      "Recherche indépendante et contributions communautaires au-delà des missions clients et hackathons.",
+  },
+  certifications: {
+    label: "Diplômes",
+    title: "Certifications et formations",
+    description:
+      "Développement professionnel, formation au leadership et certifications obtenues au fil du parcours.",
   },
   contact: {
     label: "Contact",

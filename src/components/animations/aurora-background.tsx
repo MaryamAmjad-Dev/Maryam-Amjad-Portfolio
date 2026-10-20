@@ -9,7 +9,7 @@ interface AuroraBackgroundProps {
 export function AuroraBackground({ className }: AuroraBackgroundProps) {
   return (
     <div
-      className={cn("pointer-events-none absolute inset-0 overflow-hidden", className)}
+      className={cn("pointer-events-none absolute inset-0 overflow-hidden hidden sm:block", className)}
       aria-hidden="true"
     >
       <div className="aurora-blob aurora-blob-primary absolute -left-1/4 top-0 h-[640px] w-[640px] rounded-full blur-[140px]" />

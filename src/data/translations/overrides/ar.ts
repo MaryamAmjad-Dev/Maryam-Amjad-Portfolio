@@ -3,17 +3,26 @@ import type { TranslationOverrides } from "@/types";
 export const arOverrides: TranslationOverrides = {
   meta: { multilingualExperience: "تجربة متعددة اللغات مدعومة بالذكاء الاصطناعي" },
   language: { label: "اللغة", selectLanguage: "اختر اللغة" },
+  theme: {
+    current: "السمة الحالية: {theme}",
+    switchTo: "التبديل إلى السمة {theme}",
+    light: "فاتحة",
+    dark: "داكنة",
+  },
   nav: {
     home: "الرئيسية",
     about: "نبذة",
     skills: "المهارات",
     experience: "الخبرة",
     projects: "المشاريع",
-    hackathons: "الهاكathons",
+    hackathons: "الهاكاثون",
+    volunteer: "التطوع",
+    certifications: "الشهادات",
     contact: "التواصل",
     hireMe: "وظّفني",
     openMenu: "فتح القائمة",
     closeMenu: "إغلاق القائمة",
+    menu: "القائمة",
   },
   hero: {
     availability: "متاحة للفرص",
@@ -21,7 +30,7 @@ export const arOverrides: TranslationOverrides = {
     downloadResume: "تحميل السيرة الذاتية",
     github: "GitHub",
     linkedin: "LinkedIn",
-    stats: { projects: "المشاريع", hackathons: "الهاكathons", aiTools: "أدوات AI" },
+    stats: { projects: "المشاريع", hackathons: "الهاكاثون", aiTools: "أدوات AI" },
     roles: [
       "مطورة MERN Stack",
       "مطورة Next.js",
@@ -32,7 +41,7 @@ export const arOverrides: TranslationOverrides = {
     label: "نبذة",
     title: "حيث يلتقي إتقان MERN Stack بالأنظمة الذكية",
     description:
-      "خبرة SaaS إنتاجية، تخصص في أتمتة AI، وقيادة في الهاكathons — لمحة للمجندين والمتعاونين.",
+      "خبرة SaaS إنتاجية، تخصص في أتمتة AI، وقيادة في الهاكاثون — لمحة للمجندين والمتعاونين.",
     education: "التعليم",
     achievementHighlights: "أبرز الإنجازات",
     cgpa: "المعدل التراكمي",
@@ -43,6 +52,7 @@ export const arOverrides: TranslationOverrides = {
     label: "المهارات",
     title: "لوحة مهارات AI",
     description: "التقنيات والأدوات التي تدعم التطبيقات الإنتاجية وتكاملات AI.",
+    technologies: "{count} تقنية",
   },
   experience: {
     label: "الخبرة",
@@ -61,9 +71,19 @@ export const arOverrides: TranslationOverrides = {
     liveDemo: "عرض مباشر",
   },
   hackathons: {
-    label: "الهاكathons",
+    label: "الهاكاثون",
     title: "المنافسة والابتكار",
     description: "مشاركة نشطة وقيادة فريق في hackathons للذكاء الاصطناعي والمطورين عالمياً.",
+  },
+  volunteer: {
+    label: "المجتمع",
+    title: "خبرات التطوع",
+    description: "أبحاث مستقلة ومساهمات مجتمعية تتجاوز العمل مع العملاء وهاكاثون.",
+  },
+  certifications: {
+    label: "الاعتمادات",
+    title: "الشهادات والتدريب",
+    description: "التطوير المهني وتدريب القيادة والشهادات التي حصلت عليها على هذا الطريق.",
   },
   contact: {
     label: "التواصل",

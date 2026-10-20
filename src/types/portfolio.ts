@@ -43,6 +43,8 @@ export interface Experience extends WithId {
   description: string;
   highlights: string[];
   technologies: string[];
+  /** Completion / experience certificate (external URL) */
+  certificateUrl?: string;
 }
 
 /** Portfolio project showcase */
@@ -62,6 +64,10 @@ export interface Project extends WithId {
   /** @deprecated Use githubUrl */
   repoUrl?: string;
   featured: boolean;
+  /** Built collaboratively with a team rather than solo */
+  teamProject?: boolean;
+  /** Maryam's specific role and contributions on the project */
+  role?: string;
   completedAt?: ISODateString;
 }
 
@@ -86,6 +92,24 @@ export interface Hackathon extends WithId {
   year?: string;
 }
 
+/** Volunteer or community contribution entry */
+export interface VolunteerExperience extends WithId {
+  title: string;
+  /** Organizing body or "Independent Volunteer Project" */
+  organization?: string;
+  description: string;
+  date?: string;
+}
+
+/** Certification or training credential */
+export interface Certification extends WithId {
+  title: string;
+  organization: string;
+  date?: string;
+  /** Optional context (e.g. session format or facilitator) */
+  note?: string;
+}
+
 /** Animated achievement counter stat */
 export interface AchievementStat extends WithId {
   label: string;
@@ -105,5 +129,7 @@ export interface PortfolioData {
   projects: Project[];
   education: Education[];
   hackathons: Hackathon[];
+  volunteer: VolunteerExperience[];
+  certifications: Certification[];
   achievements: AchievementStat[];
 }

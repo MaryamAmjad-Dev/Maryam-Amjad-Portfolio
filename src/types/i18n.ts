@@ -1,14 +1,10 @@
 /** Supported UI locales */
-export type Locale = "en" | "ur" | "ar" | "fr" | "de" | "zh" | "ja" | "it";
+export type Locale = "en" | "ur" | "ar" | "fr" | "de" | "zh" | "ja" | "it" | "ko" | "es";
 
 /** Complete translation dictionary — English is the canonical baseline */
 export interface TranslationDictionary {
   meta: {
     multilingualExperience: string;
-  };
-  language: {
-    label: string;
-    selectLanguage: string;
   };
   nav: {
     home: string;
@@ -17,10 +13,26 @@ export interface TranslationDictionary {
     experience: string;
     projects: string;
     hackathons: string;
+    volunteer: string;
+    certifications: string;
     contact: string;
     hireMe: string;
     openMenu: string;
     closeMenu: string;
+    /** Accessible name for the mobile navigation drawer */
+    menu: string;
+  };
+  language: {
+    label: string;
+    selectLanguage: string;
+  };
+  theme: {
+    /** "Current theme: {theme}" */
+    current: string;
+    /** "Switch to {theme} theme" */
+    switchTo: string;
+    light: string;
+    dark: string;
   };
   hero: {
     availability: string;
@@ -49,7 +61,8 @@ export interface TranslationDictionary {
     label: string;
     title: string;
     description: string;
-    technologiesCount: string;
+    /** "{count} technologies" */
+    technologies: string;
   };
   experience: {
     label: string;
@@ -61,12 +74,24 @@ export interface TranslationDictionary {
     title: string;
     description: string;
     featured: string;
+    teamProject: string;
+    myRole: string;
     problem: string;
     solution: string;
     github: string;
     liveDemo: string;
   };
   hackathons: {
+    label: string;
+    title: string;
+    description: string;
+  };
+  volunteer: {
+    label: string;
+    title: string;
+    description: string;
+  };
+  certifications: {
     label: string;
     title: string;
     description: string;

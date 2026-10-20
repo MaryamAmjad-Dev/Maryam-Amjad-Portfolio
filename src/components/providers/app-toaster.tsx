@@ -25,7 +25,7 @@ export function AppToaster() {
         ),
         error: (
           <AlertCircle
-            className="h-5 w-5 shrink-0 text-red-400"
+            className="h-5 w-5 shrink-0 text-danger"
             aria-hidden="true"
           />
         ),
@@ -42,7 +42,7 @@ export function AppToaster() {
           closeButton:
             "!border-card-border !bg-card/80 !text-muted hover:!text-foreground !left-auto !right-0 !top-0 !translate-x-0 !translate-y-0 !border-0 !bg-transparent",
           success: "!border-success/20",
-          error: "!border-red-400/25",
+          error: "!border-danger/25",
         },
       }}
     />

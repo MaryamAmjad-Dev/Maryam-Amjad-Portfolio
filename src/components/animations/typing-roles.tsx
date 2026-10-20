@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { useReducedMotion } from "framer-motion";
 import { GradientText } from "@/components/ui";
 
 interface TypingRolesProps {
@@ -9,11 +10,15 @@ interface TypingRolesProps {
 }
 
 export function TypingRoles({ roles, className }: TypingRolesProps) {
+  const prefersReducedMotion = useReducedMotion();
   const [roleIndex, setRoleIndex] = useState(0);
   const [displayText, setDisplayText] = useState("");
   const [isDeleting, setIsDeleting] = useState(false);
 
   useEffect(() => {
+    // No typing loop for users who asked for reduced motion.
+    if (prefersReducedMotion) return;
+
     const currentRole = roles[roleIndex];
 
     const timeout = setTimeout(
@@ -37,12 +42,24 @@ export function TypingRoles({ roles, className }: TypingRolesProps) {
     );
 
     return () => clearTimeout(timeout);
-  }, [displayText, isDeleting, roleIndex, roles]);
+  }, [displayText, isDeleting, prefersReducedMotion, roleIndex, roles]);
+
+  if (prefersReducedMotion) {
+    return (
+      <GradientText as="p" className={className}>
+        {roles[0]}
+      </GradientText>
+    );
+  }
 
   return (
     <GradientText as="p" className={className}>
-      {displayText}
-      <span className="animate-pulse">|</span>
+      {/* Screen readers otherwise only ever hear a partial, mutating string. */}
+      <span className="sr-only">{roles.join(", ")}</span>
+      <span aria-hidden="true">
+        {displayText}
+        <span className="animate-pulse">|</span>
+      </span>
     </GradientText>
   );
 }

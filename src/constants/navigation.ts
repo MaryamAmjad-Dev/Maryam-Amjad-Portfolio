@@ -13,6 +13,8 @@ export const MAIN_NAV: MainNavItem[] = [
   { id: "experience", href: "#experience" },
   { id: "projects", href: "#projects" },
   { id: "hackathons", href: "#hackathons" },
+  { id: "volunteer", href: "#volunteer" },
+  { id: "certifications", href: "#certifications" },
   { id: "contact", href: "#contact" },
 ];
 

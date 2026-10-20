@@ -37,36 +37,36 @@ const CATEGORY_GRADIENTS: Record<string, string> = {
 };
 
 function SkillCategoryCard({ category }: { category: SkillCategory }) {
+  const { t } = useLanguage();
   const Icon = CATEGORY_ICONS[category.name] ?? Code2;
   const gradient = CATEGORY_GRADIENTS[category.name] ?? "from-primary/15 to-accent/8";
 
   return (
-    <motion.div variants={staggerItem} className="h-full">
+    <motion.div variants={staggerItem}>
       <TiltCard
-        className="h-full"
         intensity={8}
-        tintClassName={`bg-gradient-to-br ${gradient} opacity-80`}
+        tintClassName={`bg-linear-to-br ${gradient} opacity-80`}
       >
-        <div className="relative flex h-full min-h-[220px] flex-col">
+        <div className="relative flex flex-col">
           <div className="mb-6 flex items-center gap-3">
-            <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl border border-card-border bg-card text-primary shadow-inner">
+            <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl border border-primary/20 bg-primary/10 text-primary">
               <Icon size={20} aria-hidden="true" />
             </div>
             <div className="min-w-0">
-              <h3 className="text-heading text-base font-semibold sm:text-lg">
+              <h3 className="text-base font-semibold text-heading sm:text-lg">
                 {category.name}
               </h3>
               <p className="text-xs text-muted-subtle">
-                {category.skills.length} technologies
+                {t("skills.technologies", { count: category.skills.length })}
               </p>
             </div>
           </div>
 
-          <ul className="flex flex-1 flex-col justify-start space-y-2.5">
+          <ul className="flex flex-col justify-start space-y-1.5">
             {category.skills.map((skill) => (
               <li
                 key={skill.name}
-                className="flex items-center gap-2.5 text-sm text-foreground"
+                className="flex items-center gap-2 text-sm text-foreground"
               >
                 <span
                   className="h-1.5 w-1.5 shrink-0 rounded-full bg-primary"
@@ -94,7 +94,7 @@ export function SkillsSection() {
       className="relative"
     >
       <motion.div
-        className="grid auto-rows-fr gap-4 sm:grid-cols-2 sm:gap-6"
+        className="grid gap-4 sm:grid-cols-2 sm:gap-5"
         variants={staggerContainer}
         initial="hidden"
         whileInView="visible"

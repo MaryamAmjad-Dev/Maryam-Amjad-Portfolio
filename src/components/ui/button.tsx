@@ -20,13 +20,13 @@ interface ButtonProps
 const variants: Record<ButtonVariant, string> = {
   primary: "btn-gradient ai-glow ai-glow-hover",
   secondary: "glass text-foreground hover:bg-card-hover ai-glow-hover",
-  ghost: "text-muted hover:text-foreground hover:bg-white/5",
+  ghost: "text-muted hover:text-foreground hover:bg-card-hover",
   outline:
-    "border border-card-border text-foreground hover:bg-white/5 hover:border-white/20",
+    "border border-card-border text-foreground hover:bg-card-hover hover:border-primary/40",
 };
 
 const sizes: Record<ButtonSize, string> = {
-  sm: "px-4 py-2 text-sm",
+  sm: "px-4 py-2.5 text-sm",
   md: "px-6 py-2.5 text-sm",
   lg: "px-8 py-3 text-base",
 };
@@ -64,15 +64,25 @@ export function Button({
   );
 
   if (href) {
+    // Anchors accept a different prop surface than <button>, so button-only
+    // attributes are not forwarded — but consumer props (onClick, aria-*, data-*)
+    // still have to be, otherwise they are silently dropped.
     const anchorProps: AnchorHTMLAttributes<HTMLAnchorElement> = {
       href: isDisabled ? undefined : href,
       className: cn(classes, isDisabled && "pointer-events-none opacity-50"),
       "aria-disabled": isDisabled || undefined,
+      // Keep a disabled link out of the tab order — `pointer-events-none`
+      // only blocks the mouse.
+      tabIndex: isDisabled ? -1 : undefined,
       ...(external ? { target: "_blank", rel: "noopener noreferrer" } : {}),
       ...(download ? { download } : {}),
     };
 
-    return <a {...anchorProps}>{content}</a>;
+    return (
+      <a {...anchorProps} {...(props as AnchorHTMLAttributes<HTMLAnchorElement>)}>
+        {content}
+      </a>
+    );
   }
 
   return (

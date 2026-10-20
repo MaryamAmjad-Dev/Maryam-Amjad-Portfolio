@@ -14,6 +14,7 @@ export type {
 
 export type {
   AchievementStat,
+  Certification,
   Education,
   Experience,
   Hackathon,
@@ -22,4 +23,5 @@ export type {
   Project,
   SkillCategory,
   SkillItem,
+  VolunteerExperience,
 } from "./portfolio";

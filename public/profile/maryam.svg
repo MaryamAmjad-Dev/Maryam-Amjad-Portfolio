@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240" role="img" aria-labelledby="title">
+  <title id="title">Maryam Amjad</title>
+  <defs>
+    <linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#38bdf8" />
+      <stop offset="55%" stop-color="#6366f1" />
+      <stop offset="100%" stop-color="#8b5cf6" />
+    </linearGradient>
+    <radialGradient id="halo" cx="50%" cy="38%" r="60%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.35" />
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0" />
+    </radialGradient>
+    <clipPath id="round">
+      <rect width="240" height="240" rx="40" />
+    </clipPath>
+  </defs>
+  <g clip-path="url(#round)">
+    <rect width="240" height="240" fill="url(#grad)" />
+    <rect width="240" height="240" fill="url(#halo)" />
+    <circle cx="120" cy="92" r="42" fill="#ffffff" opacity="0.95" />
+    <path
+      d="M120 146c-42 0-64 24-64 52v10h128v-10c0-28-22-52-64-52z"
+      fill="#ffffff"
+      opacity="0.95"
+    />
+  </g>
+</svg>

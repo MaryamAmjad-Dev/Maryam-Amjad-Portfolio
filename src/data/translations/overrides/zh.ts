@@ -3,6 +3,12 @@ import type { TranslationOverrides } from "@/types";
 export const zhOverrides: TranslationOverrides = {
   meta: { multilingualExperience: "AI 驱动的多语言体验" },
   language: { label: "语言", selectLanguage: "选择语言" },
+  theme: {
+    current: "当前主题：{theme}",
+    switchTo: "切换到{theme}主题",
+    light: "浅色",
+    dark: "深色",
+  },
   nav: {
     home: "首页",
     about: "关于",
@@ -10,10 +16,13 @@ export const zhOverrides: TranslationOverrides = {
     experience: "经历",
     projects: "项目",
     hackathons: "黑客松",
+    volunteer: "志愿",
+    certifications: "证书",
     contact: "联系",
     hireMe: "雇佣我",
     openMenu: "打开菜单",
     closeMenu: "关闭菜单",
+    menu: "菜单",
   },
   hero: {
     availability: "开放机会中",
@@ -43,6 +52,7 @@ export const zhOverrides: TranslationOverrides = {
     label: "技能",
     title: "AI 技能面板",
     description: "支撑生产应用与 AI 集成的技术与工具。",
+    technologies: "{count} 项技术",
   },
   experience: {
     label: "经历",
@@ -63,6 +73,16 @@ export const zhOverrides: TranslationOverrides = {
     label: "黑客松",
     title: "竞赛与创新",
     description: "全球 AI 与开发者黑客松的活跃参与者与团队负责人。",
+  },
+  volunteer: {
+    label: "社区",
+    title: "志愿服务经历",
+    description: "在客户项目和黑客松之外的独立研究与社区贡献。",
+  },
+  certifications: {
+    label: "资质",
+    title: "认证与培训",
+    description: "职业发展、领导力培训以及沿途获得的各类认证。",
   },
   contact: {
     label: "联系",

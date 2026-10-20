@@ -8,6 +8,8 @@ import { jaOverrides } from "./translations/overrides/ja";
 import { itOverrides } from "./translations/overrides/it";
 import { urOverrides } from "./translations/overrides/ur";
 import { zhOverrides } from "./translations/overrides/zh";
+import { esOverrides } from "./translations/overrides/es";
+import { koOverrides } from "./translations/overrides/ko";
 
 export { enDictionary } from "./translations/en";
 
@@ -20,6 +22,8 @@ export const localeOverrides: Record<Exclude<Locale, "en">, TranslationOverrides
   zh: zhOverrides,
   ja: jaOverrides,
   it: itOverrides,
+  ko: koOverrides,
+  es: esOverrides,
 };
 
 /** Resolve a complete dictionary for the given locale */
@@ -37,6 +41,8 @@ export const translations: Record<Locale, TranslationDictionary> = {
   zh: mergeTranslations(enDictionary, zhOverrides),
   ja: mergeTranslations(enDictionary, jaOverrides),
   it: mergeTranslations(enDictionary, itOverrides),
+  ko: mergeTranslations(enDictionary, koOverrides),
+  es: mergeTranslations(enDictionary, esOverrides),
 };
 
 export type NavSectionId =
@@ -46,6 +52,8 @@ export type NavSectionId =
   | "experience"
   | "projects"
   | "hackathons"
+  | "volunteer"
+  | "certifications"
   | "contact";
 
 /** Map nav section ids to translation keys */
@@ -56,6 +64,8 @@ export const NAV_SECTION_IDS: NavSectionId[] = [
   "experience",
   "projects",
   "hackathons",
+  "volunteer",
+  "certifications",
   "contact",
 ];
 

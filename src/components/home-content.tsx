@@ -3,12 +3,14 @@
 import { BackgroundSystem } from "@/components/animations";
 import {
   AboutSection,
+  CertificationsSection,
   ContactSection,
   ExperienceSection,
   HackathonsSection,
   HeroSection,
   ProjectsSection,
   SkillsSection,
+  VolunteerSection,
 } from "@/components/sections";
 
 export function HomeContent() {
@@ -22,6 +24,8 @@ export function HomeContent() {
         <ExperienceSection />
         <ProjectsSection />
         <HackathonsSection />
+        <VolunteerSection />
+        <CertificationsSection />
         <ContactSection />
       </div>
     </>

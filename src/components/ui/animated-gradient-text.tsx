@@ -16,7 +16,7 @@ export function AnimatedGradientText({
     <Tag
       className={cn(
         "animate-gradient bg-[length:200%_auto] bg-clip-text text-transparent",
-        "bg-gradient-to-r from-primary via-secondary to-accent",
+        "bg-linear-to-r from-primary via-secondary to-accent",
         className,
       )}
     >

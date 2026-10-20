@@ -3,6 +3,12 @@ import type { TranslationOverrides } from "@/types";
 export const deOverrides: TranslationOverrides = {
   meta: { multilingualExperience: "KI-gestütztes mehrsprachiges Erlebnis" },
   language: { label: "Sprache", selectLanguage: "Sprache wählen" },
+  theme: {
+    current: "Aktuelles Design: {theme}",
+    switchTo: "Zu {theme} wechseln",
+    light: "Hell",
+    dark: "Dunkel",
+  },
   nav: {
     home: "Start",
     about: "Über mich",
@@ -10,10 +16,13 @@ export const deOverrides: TranslationOverrides = {
     experience: "Erfahrung",
     projects: "Projekte",
     hackathons: "Hackathons",
+    volunteer: "Engagement",
+    certifications: "Zertifikate",
     contact: "Kontakt",
     hireMe: "Einstellen",
     openMenu: "Menü öffnen",
     closeMenu: "Menü schließen",
+    menu: "Menü",
   },
   hero: {
     availability: "Verfügbar für neue Möglichkeiten",
@@ -44,6 +53,7 @@ export const deOverrides: TranslationOverrides = {
     title: "KI-Skill-Dashboard",
     description:
       "Technologien und Tools für Produktionsanwendungen und KI-Integrationen.",
+    technologies: "{count} Technologien",
   },
   experience: {
     label: "Erfahrung",
@@ -67,6 +77,18 @@ export const deOverrides: TranslationOverrides = {
     title: "Wettbewerb & Innovation",
     description:
       "Aktive Teilnehmerin und Team Lead bei KI- und Developer-Hackathons weltweit.",
+  },
+  volunteer: {
+    label: "Community",
+    title: "Ehrenamtliches Engagement",
+    description:
+      "Unabhängige Recherche und Community-Beiträge über Kunden- und Hackathon-Arbeit hinaus.",
+  },
+  certifications: {
+    label: "Nachweise",
+    title: "Zertifikate & Schulungen",
+    description:
+      "Berufliche Weiterbildung, Leadership-Training und im Lauf erworbene Zertifikate.",
   },
   contact: {
     label: "Kontakt",

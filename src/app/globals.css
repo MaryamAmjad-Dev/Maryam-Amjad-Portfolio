@@ -12,6 +12,7 @@
   --secondary: #8b5cf6;
   --accent: #22d3ee;
   --success: #10b981;
+  --danger: #f87171;
 
   /* Semantic text */
   --background: var(--bg-base);
@@ -38,6 +39,55 @@
   /* Navigation */
   --nav-bg: rgba(2, 6, 23, 0.72);
   --nav-bg-scrolled: rgba(15, 23, 42, 0.9);
+  --nav-backdrop-from: rgba(2, 6, 23, 0.92);
+  --nav-backdrop-mid: rgba(15, 23, 42, 0.8);
+  --nav-mobile-bg: rgba(15, 23, 42, 0.95);
+}
+
+.dark {
+  --bg-base: #020617;
+  --bg-elevated: #0f172a;
+  --bg-surface: #111827;
+  --primary: #38bdf8;
+  --secondary: #8b5cf6;
+  --accent: #22d3ee;
+  --success: #10b981;
+  --danger: #f87171;
+  --foreground: #e2e8f0;
+  --heading: #f1f5f9;
+  --muted: #94a3b8;
+  --muted-subtle: #64748b;
+  --card: rgba(255, 255, 255, 0.08);
+  --card-hover: rgba(255, 255, 255, 0.1);
+  --card-border: rgba(255, 255, 255, 0.12);
+  --nav-bg: rgba(2, 6, 23, 0.72);
+  --nav-bg-scrolled: rgba(15, 23, 42, 0.9);
+  --nav-backdrop-from: rgba(2, 6, 23, 0.92);
+  --nav-backdrop-mid: rgba(15, 23, 42, 0.8);
+  --nav-mobile-bg: rgba(15, 23, 42, 0.95);
+}
+
+.light {
+  --bg-base: #f8fbff;
+  --bg-elevated: #ffffff;
+  --bg-surface: #f1f5f9;
+  --primary: #0ea5e9;
+  --secondary: #7c3aed;
+  --accent: #0891b2;
+  --success: #059669;
+  --danger: #dc2626;
+  --foreground: #0f172a;
+  --heading: #0b1220;
+  --muted: #475569;
+  --muted-subtle: #6b7280;
+  --card: rgba(255, 255, 255, 0.7);
+  --card-hover: rgba(15, 23, 42, 0.04);
+  --card-border: rgba(15, 23, 42, 0.06);
+  --nav-bg: rgba(255, 255, 255, 0.9);
+  --nav-bg-scrolled: rgba(255, 255, 255, 0.95);
+  --nav-backdrop-from: rgba(255, 255, 255, 0.92);
+  --nav-backdrop-mid: rgba(241, 245, 249, 0.85);
+  --nav-mobile-bg: rgba(255, 255, 255, 0.95);
 }
 
 @theme inline {
@@ -50,6 +100,7 @@
   --color-secondary: var(--secondary);
   --color-accent: var(--accent);
   --color-success: var(--success);
+  --color-danger: var(--danger);
   --color-surface: var(--bg-surface);
   --color-elevated: var(--bg-elevated);
   --color-card: var(--card);
@@ -59,14 +110,22 @@
   --font-mono: var(--font-geist-mono);
 }
 
-* {
-  scroll-behavior: smooth;
-}
-
+/* Smooth scrolling belongs to the document only — applying it to `*` would
+   also smooth-scroll the mobile drawer and language dropdown panels. */
 html {
-  color-scheme: dark;
+  scroll-behavior: smooth;
   overflow-x: hidden;
   -webkit-text-size-adjust: 100%;
+  /* Keep anchor targets clear of the fixed header (varies 54–68px per breakpoint) */
+  scroll-padding-top: 6rem;
+}
+
+html.dark {
+  color-scheme: dark;
+}
+
+html.light {
+  color-scheme: light;
 }
 
 body {
@@ -77,6 +136,7 @@ body {
     radial-gradient(ellipse 40% 30% at 0% 100%, rgba(34, 211, 238, 0.04), transparent 50%);
   color: var(--foreground);
   overflow-x: hidden;
+  transition: background-color 280ms ease, color 280ms ease, background-image 420ms ease;
 }
 
 ::selection {
@@ -105,15 +165,15 @@ body {
 /* ─── Glass surfaces ─── */
 .glass {
   background: var(--card);
-  backdrop-filter: blur(20px) saturate(160%);
-  -webkit-backdrop-filter: blur(20px) saturate(160%);
+  backdrop-filter: blur(24px) saturate(180%);
+  -webkit-backdrop-filter: blur(24px) saturate(180%);
   border: 1px solid var(--card-border);
 }
 
 .glass-strong {
-  background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(28px) saturate(180%);
-  -webkit-backdrop-filter: blur(28px) saturate(180%);
+  background: var(--card);
+  backdrop-filter: blur(32px) saturate(190%);
+  -webkit-backdrop-filter: blur(32px) saturate(190%);
   border: 1px solid var(--card-border);
 }
 
@@ -134,7 +194,7 @@ body {
   background: var(--nav-bg-scrolled);
   backdrop-filter: blur(48px) saturate(200%);
   -webkit-backdrop-filter: blur(48px) saturate(200%);
-  border-color: rgba(255, 255, 255, 0.14);
+  border-color: var(--card-border);
   box-shadow:
     0 8px 32px rgba(0, 0, 0, 0.45),
     0 1px 0 rgba(255, 255, 255, 0.07) inset,
@@ -144,8 +204,8 @@ body {
 .nav-backdrop {
   background: linear-gradient(
     to bottom,
-    rgba(2, 6, 23, 0.92) 0%,
-    rgba(15, 23, 42, 0.8) 70%,
+    var(--nav-backdrop-from) 0%,
+    var(--nav-backdrop-mid) 70%,
     transparent 100%
   );
   backdrop-filter: blur(24px);
@@ -153,7 +213,7 @@ body {
 }
 
 .nav-mobile-menu {
-  background: rgba(15, 23, 42, 0.95);
+  background: var(--nav-mobile-bg);
   backdrop-filter: blur(48px) saturate(200%);
   -webkit-backdrop-filter: blur(48px) saturate(200%);
   border: 1px solid var(--card-border);
@@ -179,11 +239,12 @@ body {
 
 /* ─── Buttons ─── */
 .btn-gradient {
+  /* Deepened so white label text clears WCAG AA (≈4.5:1) against every stop */
   background: linear-gradient(
     135deg,
-    var(--primary) 0%,
-    var(--secondary) 50%,
-    var(--accent) 100%
+    #0284c7 0%,
+    #6d28d9 50%,
+    #0e7490 100%
   );
   color: #fff;
   box-shadow:
@@ -199,41 +260,6 @@ body {
     0 0 56px var(--glow-secondary);
 }
 
-/* ─── Aurora — soft AI atmosphere ─── */
-@keyframes aurora {
-  0%, 100% {
-    transform: translate(0, 0) scale(1);
-    opacity: 0.7;
-  }
-  50% {
-    transform: translate(20px, -30px) scale(1.05);
-    opacity: 1;
-  }
-}
-
-.aurora-blob {
-  animation: aurora 28s ease-in-out infinite;
-}
-
-.aurora-blob-delayed {
-  animation: aurora 34s ease-in-out infinite reverse;
-}
-
-.aurora-blob-slow {
-  animation: aurora 40s ease-in-out 4s infinite;
-}
-
-.aurora-blob-primary {
-  background: rgba(56, 189, 248, 0.07);
-}
-
-.aurora-blob-secondary {
-  background: rgba(139, 92, 246, 0.05);
-}
-
-.aurora-blob-accent {
-  background: rgba(34, 211, 238, 0.04);
-}
 
 /* ─── Floating animation ─── */
 @keyframes float {
@@ -272,6 +298,20 @@ body {
     var(--glow-primary),
     transparent 60%
   );
+}
+
+/* ─── Dropdown scrollbar ─── */
+.dropdown-scrollbar::-webkit-scrollbar {
+  width: 4px;
+}
+
+.dropdown-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.dropdown-scrollbar::-webkit-scrollbar-thumb {
+  background: var(--card-border);
+  border-radius: 2px;
 }
 
 /* ─── Section divider ─── */
@@ -328,15 +368,12 @@ body {
 /* ─── Reduced motion ─── */
 @media (prefers-reduced-motion: reduce) {
   .animate-gradient,
-  .aurora-blob,
-  .aurora-blob-delayed,
-  .aurora-blob-slow,
   .float,
   .float-delayed {
     animation: none;
   }
 
-  * {
+  html {
     scroll-behavior: auto;
   }
 }

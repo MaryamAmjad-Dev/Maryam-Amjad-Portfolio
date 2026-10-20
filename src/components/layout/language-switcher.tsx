@@ -14,11 +14,15 @@ export function LanguageSwitcher({ className }: { className?: string }) {
   const [open, setOpen] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
   const triggerRef = useRef<HTMLButtonElement>(null);
+  const listboxRef = useRef<HTMLDivElement>(null);
   const [menuStyle, setMenuStyle] = useState<{ top: number; left: number; width: number } | null>(
     null,
   );
 
-  const close = useCallback(() => setOpen(false), []);
+  const close = useCallback(() => {
+    setOpen(false);
+    triggerRef.current?.focus();
+  }, []);
 
   const updateMenuPosition = useCallback(() => {
     const trigger = triggerRef.current;
@@ -31,8 +35,18 @@ export function LanguageSwitcher({ className }: { className?: string }) {
       window.innerWidth - width - 12,
     );
 
+    // Approximate the panel height so we can flip it above the trigger when
+    // there is not enough room below (the trigger can sit near the bottom of
+    // the viewport once the drawer is scrolled).
+    const estimatedHeight = Math.min(360, window.innerHeight * 0.6);
+    const spaceBelow = window.innerHeight - rect.bottom - 12;
+    const spaceAbove = rect.top - 12;
+    const flip = spaceBelow < estimatedHeight && spaceAbove > spaceBelow;
+
     setMenuStyle({
-      top: rect.bottom + 8,
+      top: flip
+        ? Math.max(12, rect.top - 8 - estimatedHeight)
+        : rect.bottom + 8,
       left,
       width,
     });
@@ -40,13 +54,55 @@ export function LanguageSwitcher({ className }: { className?: string }) {
 
   useLayoutEffect(() => {
     if (!open) {
-      setMenuStyle(null);
-      return;
+      // defer clearing menu style to avoid synchronous setState in layout effect
+      const t = setTimeout(() => setMenuStyle(null), 0);
+      return () => clearTimeout(t);
     }
     updateMenuPosition();
   }, [open, updateMenuPosition]);
 
+  // Portaling the menu to <body> leaves focus behind on the trigger, so pull
+  // focus into the listbox (starting on the current locale) once it opens.
   useEffect(() => {
+    if (!open) return;
+    listboxRef.current
+      ?.querySelector<HTMLElement>('[role="option"][aria-selected="true"]')
+      ?.focus();
+  }, [open]);
+
+  const onListKeyDown = (event: React.KeyboardEvent<HTMLDivElement>) => {
+    const options = Array.from(
+      event.currentTarget.querySelectorAll<HTMLElement>('[role="option"]'),
+    );
+    if (options.length === 0) return;
+
+    const index = options.indexOf(document.activeElement as HTMLElement);
+    let next: number;
+
+    switch (event.key) {
+      case "ArrowDown":
+        next = index < 0 || index === options.length - 1 ? 0 : index + 1;
+        break;
+      case "ArrowUp":
+        next = index <= 0 ? options.length - 1 : index - 1;
+        break;
+      case "Home":
+        next = 0;
+        break;
+      case "End":
+        next = options.length - 1;
+        break;
+      default:
+        return;
+    }
+
+    event.preventDefault();
+    options[next]?.focus();
+  };
+
+  useEffect(() => {
+    if (!open) return;
+
     const onPointerDown = (event: MouseEvent) => {
       const target = event.target as Node;
       if (
@@ -65,7 +121,7 @@ export function LanguageSwitcher({ className }: { className?: string }) {
       document.removeEventListener("mousedown", onPointerDown);
       document.removeEventListener("keydown", onEscape);
     };
-  }, [close]);
+  }, [close, open]);
 
   useEffect(() => {
     if (!open) return;
@@ -83,7 +139,7 @@ export function LanguageSwitcher({ className }: { className?: string }) {
     return (
       <div
         className={cn(
-          "flex h-9 w-9 items-center justify-center rounded-full border border-card-border bg-card/60",
+          "flex h-10 items-center justify-center rounded-full border border-card-border bg-card/60 px-3",
           className,
         )}
         aria-hidden="true"
@@ -107,84 +163,88 @@ export function LanguageSwitcher({ className }: { className?: string }) {
         }}
         className={cn(
           "fixed z-[9999] overflow-hidden rounded-xl",
-          "border border-cyan-400/35",
-          "bg-[rgba(5,12,30,0.95)]",
-          "bg-gradient-to-b from-[rgba(10,22,48,0.98)] via-[rgba(7,16,38,0.97)] to-[rgba(5,12,30,0.95)]",
+          "border border-card-border",
+          "bg-card",
           "backdrop-blur-xl backdrop-saturate-150",
-          "shadow-[0_12px_40px_rgba(0,0,0,0.65),0_0_28px_rgba(34,211,238,0.22),0_0_56px_rgba(59,130,246,0.12)]",
-          "ring-1 ring-cyan-300/15 ring-inset",
+          "shadow-[0_12px_40px_rgba(0,0,0,0.12)]",
         )}
-        role="listbox"
-        aria-label={t("language.selectLanguage")}
       >
         <div
-          className="border-b border-cyan-400/20 bg-gradient-to-r from-cyan-500/10 via-blue-500/5 to-transparent px-3.5 py-2.5"
+          className="border-b border-card-border bg-card/60 px-3.5 py-2.5"
           aria-hidden="true"
         >
-          <p className="text-[10px] font-semibold uppercase tracking-[0.2em] text-slate-300">
+          <p className="text-[10px] font-semibold uppercase tracking-[0.2em] text-muted-subtle">
             {t("language.label")}
           </p>
-          <p className="mt-1 text-[10px] font-medium leading-snug text-cyan-300/90">
+          <p className="mt-1 text-[10px] font-medium leading-snug text-muted">
             {t("meta.multilingualExperience")}
           </p>
         </div>
 
-        <ul className="max-h-[min(18rem,60vh)] overflow-y-auto p-2">
+        {/* The listbox owns the option buttons directly — a wrapping <ul>/<li>
+            would break the required listbox > option ownership. */}
+        <div
+          ref={listboxRef}
+          id="language-listbox"
+          role="listbox"
+          aria-label={t("language.selectLanguage")}
+          onKeyDown={onListKeyDown}
+          className="dropdown-scrollbar max-h-[min(60dvh,calc(100dvh-140px))] overflow-y-auto overscroll-contain p-2"
+        >
           {LANGUAGES.map((option) => {
             const selected = option.code === locale;
             return (
-              <li key={option.code}>
-                <button
-                  type="button"
-                  role="option"
-                  aria-selected={selected}
-                  onClick={() => {
-                    setLocale(option.code as Locale);
-                    close();
-                  }}
-                  className={cn(
-                    "group flex w-full items-center justify-between gap-3 rounded-lg px-3 py-2.5 text-left transition-all duration-200",
-                    selected
-                      ? "border border-cyan-400/40 bg-gradient-to-r from-cyan-500/20 via-blue-500/15 to-transparent text-white shadow-[inset_0_0_20px_rgba(34,211,238,0.08)]"
-                      : "border border-transparent text-slate-100 hover:border-cyan-400/25 hover:bg-cyan-500/10 hover:text-white",
-                  )}
-                >
-                  <span className="flex min-w-0 items-start gap-2.5">
+              <button
+                key={option.code}
+                type="button"
+                role="option"
+                aria-selected={selected}
+                onClick={() => {
+                  setLocale(option.code as Locale);
+                  close();
+                }}
+                className={cn(
+                  "group flex w-full items-center justify-between gap-3 rounded-lg px-3 py-2.5 text-left transition-all duration-200",
+                  selected
+                    ? "border border-card-border bg-card/70 text-foreground"
+                    : "border border-transparent text-muted hover:border-card-border hover:bg-card-hover hover:text-foreground",
+                )}
+              >
+                <span className="flex min-w-0 items-start gap-2.5">
+                  <span
+                    className="mt-0.5 shrink-0 text-base leading-none"
+                    aria-hidden="true"
+                  >
+                    {option.flag}
+                  </span>
+                  <span className="min-w-0">
                     <span
-                      className="mt-0.5 shrink-0 text-base leading-none"
-                      aria-hidden="true"
+                      className={cn(
+                        "block truncate text-sm font-semibold leading-tight",
+                        selected ? "text-heading" : "text-foreground/90 group-hover:text-heading",
+                      )}
                     >
-                      {option.flag}
+                      {option.nativeLabel}
                     </span>
-                    <span className="min-w-0">
-                      <span
-                        className={cn(
-                          "block truncate text-sm font-semibold leading-tight",
-                          selected ? "text-white" : "text-slate-50 group-hover:text-white",
-                        )}
-                      >
-                        {option.nativeLabel}
-                      </span>
-                      <span
-                        className={cn(
-                          "mt-0.5 block truncate text-xs leading-tight",
-                          selected ? "text-cyan-200/90" : "text-slate-400 group-hover:text-slate-300",
-                        )}
-                      >
-                        {option.label}
-                      </span>
+                    <span
+                      className={cn(
+                        "mt-0.5 block truncate text-xs leading-tight",
+                        selected ? "text-muted" : "text-muted-subtle group-hover:text-muted",
+                      )}
+                    >
+                      {option.label}
                     </span>
                   </span>
-                  {selected && (
-                    <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-cyan-400/20 text-cyan-300">
-                      <Check size={12} strokeWidth={2.5} aria-hidden="true" />
-                    </span>
-                  )}
-                </button>
-              </li>
+                </span>
+                {selected && (
+                  <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/20 text-primary">
+                    <Check size={12} strokeWidth={2.5} aria-hidden="true" />
+                  </span>
+                )}
+              </button>
             );
           })}
-        </ul>
+        </div>
       </motion.div>
     ) : null;
 
@@ -195,12 +255,13 @@ export function LanguageSwitcher({ className }: { className?: string }) {
         type="button"
         onClick={() => setOpen((prev) => !prev)}
         className={cn(
-          "group flex items-center gap-1.5 rounded-full border border-card-border bg-card/70 px-2.5 py-1.5 text-xs font-medium text-muted backdrop-blur-md transition-all",
-          "hover:border-primary/40 hover:text-primary hover:shadow-[0_0_20px_rgba(99,102,241,0.15)]",
+          "group flex h-10 items-center gap-1.5 rounded-full border border-card-border bg-card/70 px-3 text-xs font-medium text-muted backdrop-blur-md transition-all",
+          "hover:border-primary/40 hover:text-primary hover:shadow-[0_0_20px_var(--glow-primary)]",
           open && "border-primary/40 text-primary ai-glow",
         )}
         aria-expanded={open}
         aria-haspopup="listbox"
+        aria-controls="language-listbox"
         aria-label={t("language.selectLanguage")}
       >
         <Globe

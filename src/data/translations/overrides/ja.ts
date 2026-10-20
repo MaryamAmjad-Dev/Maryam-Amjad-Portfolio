@@ -3,6 +3,12 @@ import type { TranslationOverrides } from "@/types";
 export const jaOverrides: TranslationOverrides = {
   meta: { multilingualExperience: "AI による多言語体験" },
   language: { label: "言語", selectLanguage: "言語を選択" },
+  theme: {
+    current: "現在のテーマ: {theme}",
+    switchTo: "{theme}テーマに切り替える",
+    light: "ライト",
+    dark: "ダーク",
+  },
   nav: {
     home: "ホーム",
     about: "About",
@@ -10,10 +16,13 @@ export const jaOverrides: TranslationOverrides = {
     experience: "経歴",
     projects: "プロジェクト",
     hackathons: "ハッカソン",
+    volunteer: "ボランティア",
+    certifications: "資格・認定",
     contact: "連絡",
     hireMe: "採用する",
     openMenu: "メニューを開く",
     closeMenu: "メニューを閉じる",
+    menu: "メニュー",
   },
   hero: {
     availability: "新しい機会を受け付けています",
@@ -43,6 +52,7 @@ export const jaOverrides: TranslationOverrides = {
     label: "スキル",
     title: "AI スキルダッシュボード",
     description: "本番アプリケーションと AI 統合を支える技術とツール。",
+    technologies: "{count} 件の技術",
   },
   experience: {
     label: "経歴",
@@ -64,6 +74,16 @@ export const jaOverrides: TranslationOverrides = {
     label: "ハッカソン",
     title: "Competition & Innovation",
     description: "世界中の AI・開発者ハッカソンでのアクティブな参加者・team lead。",
+  },
+  volunteer: {
+    label: "コミュニティ",
+    title: "ボランティア経験",
+    description: "クライアントやハッカソン以外での、独立したリサーチとコミュニティへの貢献。",
+  },
+  certifications: {
+    label: "資格・認定",
+    title: "認定資格・研修",
+    description: "プロフェッショナルな成長、リーダーシップ研修、そして取得した各種認定。",
   },
   contact: {
     label: "連絡",

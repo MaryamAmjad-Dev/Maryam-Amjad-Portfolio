@@ -22,6 +22,8 @@ export const LANGUAGES: LanguageOption[] = [
   { code: "zh", label: "Chinese", nativeLabel: "中文", flag: "🇨🇳", bcp47: "zh", dir: "ltr" },
   { code: "ja", label: "Japanese", nativeLabel: "日本語", flag: "🇯🇵", bcp47: "ja", dir: "ltr" },
   { code: "it", label: "Italian", nativeLabel: "Italiano", flag: "🇮🇹", bcp47: "it", dir: "ltr" },
+  { code: "ko", label: "Korean", nativeLabel: "한국어", flag: "🇰🇷", bcp47: "ko", dir: "ltr" },
+  { code: "es", label: "Spanish", nativeLabel: "Español", flag: "🇪🇸", bcp47: "es", dir: "ltr" },
 ];
 
 export const DEFAULT_LOCALE: Locale = "en";

@@ -1,6 +1,6 @@
 "use client";
 
-import { ExternalLink, Sparkles } from "lucide-react";
+import { ExternalLink, Sparkles, UserRound } from "lucide-react";
 import { motion } from "framer-motion";
 import { GitHubIcon } from "@/components/shared";
 import { staggerContainer, staggerItem } from "@/components/animations";
@@ -20,6 +20,8 @@ function ProjectCard({
   project: Project;
   labels: {
     featured: string;
+    teamProject: string;
+    myRole: string;
     problem: string;
     solution: string;
     github: string;
@@ -32,21 +34,26 @@ function ProjectCard({
     <motion.div variants={staggerItem} className="h-full">
       <TiltCard className="h-full" intensity={10} interactive>
         <div className="flex h-full flex-col">
-          <div className="mb-4 flex items-start justify-between gap-3">
+          <div className="mb-4 flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
             <div className="min-w-0 flex-1">
-              <div className="mb-2 flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-primary/20 to-accent/10 text-primary">
-                <Sparkles size={18} aria-hidden="true" />
+              <div className="mb-2 flex h-11 w-11 items-center justify-center rounded-xl border border-primary/20 bg-primary/10 text-primary">
+                <Sparkles size={20} aria-hidden="true" />
               </div>
-              <h3 className="text-xl font-semibold tracking-tight">{project.title}</h3>
+              <h3 className="text-xl font-semibold tracking-tight text-heading">
+                {project.title}
+              </h3>
             </div>
-            <div className="flex shrink-0 items-start gap-2">
+            <div className="flex flex-wrap items-start justify-start gap-2 sm:justify-end">
               {project.featured && <Badge variant="accent">{labels.featured}</Badge>}
+              {project.teamProject && (
+                <Badge variant="outline">{labels.teamProject}</Badge>
+              )}
               <a
                 href={githubUrl}
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label={`${project.title} on GitHub`}
-                className="flex h-9 w-9 cursor-pointer items-center justify-center rounded-full border border-card-border bg-card text-muted transition-all duration-300 hover:scale-110 hover:border-primary/40 hover:bg-primary/10 hover:text-primary"
+                className="flex h-10 w-10 cursor-pointer items-center justify-center rounded-full border border-card-border bg-card text-muted transition-all duration-300 hover:scale-110 hover:border-primary/40 hover:bg-primary/10 hover:text-primary"
               >
                 <GitHubIcon size={16} />
               </a>
@@ -55,14 +62,32 @@ function ProjectCard({
 
           <p className="text-sm leading-relaxed text-muted">{project.description}</p>
 
-          <div className="mt-5 space-y-3 rounded-xl border border-white/5 bg-white/[0.02] p-4">
+          {project.role && (
+            <div className="mt-4 flex items-start gap-2.5 rounded-xl border border-primary/20 bg-primary/10 px-4 py-3">
+              <UserRound
+                size={15}
+                className="mt-0.5 shrink-0 text-primary"
+                aria-hidden="true"
+              />
+              <div>
+                <p className="text-[10px] font-semibold uppercase tracking-widest text-primary/80">
+                  {labels.myRole}
+                </p>
+                <p className="mt-1 text-sm leading-relaxed text-foreground">
+                  {project.role}
+                </p>
+              </div>
+            </div>
+          )}
+
+          <div className="mt-5 space-y-3 rounded-xl border border-card-border bg-card p-4">
             <div>
               <p className="text-[10px] font-semibold uppercase tracking-widest text-muted-subtle">
                 {labels.problem}
               </p>
               <p className="mt-1.5 text-sm leading-relaxed text-foreground">{project.problem}</p>
             </div>
-            <div className="h-px bg-white/5" />
+            <div className="h-px bg-card-border" />
             <div>
               <p className="text-[10px] font-semibold uppercase tracking-widest text-muted-subtle">
                 {labels.solution}
@@ -133,6 +158,8 @@ export function ProjectsSection() {
             project={project}
             labels={{
               featured: projectLabels.featured,
+              teamProject: projectLabels.teamProject,
+              myRole: projectLabels.myRole,
               problem: projectLabels.problem,
               solution: projectLabels.solution,
               github: projectLabels.github,

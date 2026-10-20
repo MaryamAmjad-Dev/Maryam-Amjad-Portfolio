@@ -12,10 +12,12 @@ import {
 } from "@/components/animations";
 import {
   AnimatedGradientText,
+  Badge,
   Button,
   ProfileAvatar,
   TiltCard,
 } from "@/components/ui";
+import { PROFESSIONAL_BADGES } from "@/constants/badges";
 import { SOCIAL_LINKS } from "@/constants";
 import { heroStats, portfolioData } from "@/data";
 import { useLanguage } from "@/hooks";
@@ -67,6 +69,16 @@ export function HeroSection() {
               <p className="mt-5 text-xl font-medium text-heading sm:text-2xl md:text-3xl">
                 <AnimatedGradientText as="span">{profile.title}</AnimatedGradientText>
               </p>
+            </FadeIn>
+
+            <FadeIn direction="up" delay={0.25}>
+              <div className="mt-4 flex flex-wrap gap-2">
+                {PROFESSIONAL_BADGES.map((b) => (
+                  <Badge key={b} variant="outline">
+                    {b}
+                  </Badge>
+                ))}
+              </div>
             </FadeIn>
 
             <FadeIn direction="up" delay={0.3}>
@@ -124,7 +136,7 @@ export function HeroSection() {
                 <div className="flex flex-col items-center">
                   <div className="relative">
                     <div
-                      className="absolute -inset-4 rounded-full bg-gradient-to-br from-primary/20 to-accent/10 blur-2xl"
+                      className="absolute -inset-4 rounded-full bg-linear-to-br from-primary/20 to-accent/10 blur-2xl"
                       aria-hidden="true"
                     />
                     <ProfileAvatar
@@ -136,17 +148,17 @@ export function HeroSection() {
                     />
                   </div>
 
-                  <p className="text-heading mt-6 text-lg font-semibold">{profile.name}</p>
+                  <p className="mt-6 text-lg font-semibold text-heading">{profile.name}</p>
                   <p className="mt-1 text-sm text-primary">{profile.title}</p>
 
                   <div className="mt-6 grid w-full grid-cols-3 gap-2 sm:gap-3">
                     {heroStats.map((stat, index) => (
                       <div
                         key={stat.label}
-                        className="rounded-xl border border-card-border bg-card px-1.5 py-2.5 text-center backdrop-blur-sm sm:px-2 sm:py-3"
+                        className="min-w-0 rounded-xl border border-card-border bg-card px-2 py-2.5 text-center backdrop-blur-sm sm:px-2.5 sm:py-3"
                       >
                         <p className="text-base font-bold gradient-text sm:text-lg">{stat.value}</p>
-                        <p className="mt-0.5 text-[10px] uppercase tracking-wider text-muted-subtle sm:text-xs">
+                        <p className="mt-0.5 break-words text-[10px] uppercase leading-tight tracking-wider text-muted-subtle sm:text-xs">
                           {t(`hero.stats.${HERO_STAT_KEYS[index]}`)}
                         </p>
                       </div>

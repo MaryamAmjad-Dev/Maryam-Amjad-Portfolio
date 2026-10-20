@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { useState } from "react";
 import { motion } from "framer-motion";
+import { UserRound } from "lucide-react";
 import { cn } from "@/lib";
 
 interface ProfileAvatarProps {
@@ -16,20 +17,11 @@ interface ProfileAvatarProps {
 }
 
 const sizeMap = {
-  sm: { dim: 48, text: "text-lg" },
-  md: { dim: 80, text: "text-2xl" },
-  lg: { dim: 128, text: "text-4xl" },
-  xl: { dim: 200, text: "text-5xl" },
+  sm: { dim: 48, icon: 22 },
+  md: { dim: 80, icon: 36 },
+  lg: { dim: 128, icon: 56 },
+  xl: { dim: 200, icon: 88 },
 };
-
-function getInitials(name: string) {
-  return name
-    .split(" ")
-    .map((n) => n[0])
-    .join("")
-    .slice(0, 2)
-    .toUpperCase();
-}
 
 export function ProfileAvatar({
   image,
@@ -40,23 +32,23 @@ export function ProfileAvatar({
 }: ProfileAvatarProps) {
   const resolvedSrc = (image ?? src)?.trim();
   const [hasError, setHasError] = useState(false);
-  const { dim, text } = sizeMap[size];
+  const { dim, icon } = sizeMap[size];
   const showImage = Boolean(resolvedSrc) && !hasError;
 
   if (!showImage) {
     return (
       <motion.div
         className={cn(
-          "relative flex items-center justify-center rounded-full bg-gradient-to-br from-primary via-secondary to-accent font-bold text-white ai-glow",
-          text,
+          "relative flex items-center justify-center rounded-full bg-linear-to-br from-primary via-secondary to-accent text-white ai-glow",
           className,
         )}
         style={{ width: dim, height: dim }}
+        role="img"
         aria-label={`${name} avatar`}
         whileHover={{ scale: 1.02 }}
         transition={{ type: "spring", stiffness: 300 }}
       >
-        <span className="drop-shadow-lg">{getInitials(name)}</span>
+        <UserRound size={icon} strokeWidth={1.75} className="drop-shadow-lg" aria-hidden="true" />
       </motion.div>
     );
   }
@@ -75,7 +67,7 @@ export function ProfileAvatar({
         alt={`${name} profile photo`}
         width={dim}
         height={dim}
-        sizes={`(max-width: 768px) ${dim}px, ${dim}px`}
+        sizes={`${dim}px`}
         className="h-full w-full object-cover"
         priority
         onError={() => setHasError(true)}
