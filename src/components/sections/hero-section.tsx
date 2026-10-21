@@ -173,14 +173,19 @@ export function HeroSection() {
                     {t("hero.profileCardRole")}
                   </p>
 
+                  {/* 3 fixed columns leave each label ~85px, so the cell is
+                      deliberately px-2 (not sm:px-2.5) and the label stops at
+                      11px: "HACKATHONS" uppercase + tracking-wider needs ~80px
+                      at 11px and ~87px at 12px, and `break-words` will happily
+                      split the word mid-syllable if it doesn't fit. */}
                   <div className="mt-6 grid w-full grid-cols-3 gap-2 sm:gap-3">
                     {heroStats.map((stat, index) => (
                       <div
                         key={stat.label}
-                        className="min-w-0 rounded-xl border border-card-border bg-card px-2 py-2.5 text-center backdrop-blur-sm sm:px-2.5 sm:py-3"
+                        className="min-w-0 rounded-xl border border-card-border bg-card px-2 py-2.5 text-center backdrop-blur-sm sm:py-3"
                       >
                         <p className="text-base font-bold gradient-text sm:text-lg">{stat.value}</p>
-                        <p className="mt-0.5 break-words text-[10px] font-medium uppercase leading-tight tracking-wider text-muted-subtle sm:text-xs">
+                        <p className="mt-0.5 break-words text-[10px] font-medium uppercase leading-tight tracking-wider text-muted-subtle sm:text-[11px]">
                           {t(`hero.stats.${HERO_STAT_KEYS[index]}`)}
                         </p>
                       </div>

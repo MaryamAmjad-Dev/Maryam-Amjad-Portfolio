@@ -47,7 +47,11 @@ export const esOverrides: TranslationOverrides = {
     stats: {
       projects: "Proyectos",
       hackathons: "Hackathons",
-      aiTools: "Herramientas IA",
+      // Short form on purpose: "Herramientas" alone is 12 characters and renders
+      // wider than the hero stat cell, where break-words would split it
+      // mid-syllable. Matches the brevity of the other locales (fr "Outils IA",
+      // de "KI-Tools"), and es.ts already uses loanwords such as "Hackathons".
+      aiTools: "Tools IA",
     },
     roles: [
       "Líder de equipo en hackathons",
