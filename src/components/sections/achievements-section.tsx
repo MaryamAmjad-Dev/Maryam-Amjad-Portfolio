@@ -2,8 +2,6 @@
 
 import {
   Award,
-  Bot,
-  Globe,
   GraduationCap,
   Sparkles,
   Trophy,
@@ -26,17 +24,19 @@ import type { AchievementStat } from "@/types";
  * Display order for the achievement cards.
  *
  * 1. Hackathon participation (the headline number)
- * 2. Autovance AI — the team's HEC Generative AI Cohort 3 build
- * 3. Stanford Code in Place X — selected on the first attempt
- * 4. UNESCO Youth Hackathon — VeriVoice
- * 5. QuizOff — international quiz competition
- * 6-8. Team-lead count, CodeSprint LA ranking and the LinkedIn community
+ * 2. Stanford Code in Place X — selected on the first attempt
+ * 3. QuizOff — international quiz competition
+ * 4. Team-lead count (the CV's "led 3 teams")
+ * 5. CodeSprint LA ranking
+ * 6. LinkedIn community
+ *
+ * Autovance AI and UNESCO Youth Hackathon deliberately have no card of their
+ * own any more: the team-lead count and the projects grid already carry both,
+ * and dropping them lands the section on an even 2x3 grid at `lg`.
  */
 const ACHIEVEMENT_ORDER = [
   "ach-participant",
-  "ach-autovance",
   "ach-stanford",
-  "ach-unesco",
   "ach-quizoff",
   "ach-lead",
   "ach-codesprint",
@@ -45,9 +45,7 @@ const ACHIEVEMENT_ORDER = [
 
 const ACHIEVEMENT_ICONS: Record<string, LucideIcon> = {
   "ach-participant": Trophy,
-  "ach-autovance": Bot,
   "ach-stanford": GraduationCap,
-  "ach-unesco": Globe,
   "ach-quizoff": Sparkles,
   "ach-lead": Users,
   "ach-codesprint": Award,

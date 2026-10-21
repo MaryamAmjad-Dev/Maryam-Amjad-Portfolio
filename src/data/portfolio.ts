@@ -246,16 +246,6 @@ function buildAchievements(
       suffix: "+",
     },
     {
-      // Autovance AI — the HEC Generative AI Cohort 3 entry the team delivered
-      // under Maryam's leadership. Highlighted as a milestone rather than a
-      // number, in the same way the Stanford card shows "1st Try".
-      id: "ach-autovance",
-      label: "Autovance AI",
-      subtitle: "HEC Generative AI Cohort 3",
-      displayValue: "Team Lead",
-      value: 1,
-    },
-    {
       id: "ach-lead",
       label: "Team Lead",
       subtitle: "Generative AI hackathons",
@@ -274,14 +264,6 @@ function buildAchievements(
       subtitle: "Selected on the first attempt",
       value: 1,
       displayValue: "1st Try",
-    },
-    {
-      // UNESCO Youth Hackathon 2026 — VeriVoice.
-      id: "ach-unesco",
-      label: "UNESCO Youth Hackathon 2026",
-      subtitle: "VeriVoice — UNESCO Media & Information Literacy",
-      displayValue: "Frontend Developer",
-      value: 1,
     },
     {
       id: "ach-quizoff",

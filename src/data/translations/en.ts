@@ -82,10 +82,6 @@ export const enDictionary: TranslationDictionary = {
         label: "National and International Hackathons",
         subtitle: "AI and web competitions",
       },
-      "ach-autovance": {
-        label: "Autovance AI",
-        subtitle: "HEC Generative AI Cohort 3",
-      },
       "ach-lead": {
         label: "Team Lead",
         subtitle: "Generative AI hackathons",
@@ -96,10 +92,6 @@ export const enDictionary: TranslationDictionary = {
       "ach-stanford": {
         label: "Section Leader at Stanford Code in Place X",
         subtitle: "Selected on the first attempt",
-      },
-      "ach-unesco": {
-        label: "UNESCO Youth Hackathon 2026",
-        subtitle: "VeriVoice — UNESCO Media & Information Literacy",
       },
       "ach-quizoff": {
         label: "QuizOff",
