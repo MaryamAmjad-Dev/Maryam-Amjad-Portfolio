@@ -12,7 +12,8 @@ export const deOverrides: TranslationOverrides = {
   nav: {
     home: "Start",
     about: "Über mich",
-    skills: "Skills",
+    achievements: "Erfolge",
+    education: "Ausbildung",
     experience: "Erfahrung",
     projects: "Projekte",
     hackathons: "Hackathons",
@@ -28,25 +29,33 @@ export const deOverrides: TranslationOverrides = {
     availability: "Verfügbar für neue Möglichkeiten",
     hireMe: "Einstellen",
     downloadResume: "Lebenslauf herunterladen",
+    viewProjects: "Projekte ansehen",
+    contactMe: "Kontakt aufnehmen",
     github: "GitHub",
     linkedin: "LinkedIn",
     stats: { projects: "Projekte", hackathons: "Hackathons", aiTools: "KI-Tools" },
-    roles: [
-      "MERN Stack Developer",
-      "Next.js Developer",
-      "AI Automation & Agentic AI Enthusiast",
-    ],
+    roles: ["Full-Stack-Entwicklerin", "Trainerin", "Gastrednerin", "Moderatorin"],
   },
   about: {
     label: "Über mich",
-    title: "Wo MERN-Stack-Handwerk auf intelligente Systeme trifft",
+    title: "KI-Engineering, Bildung und Community-Leadership",
     description:
-      "Production-SaaS-Erfahrung, KI-Automatisierung und Hackathon-Leadership — ein Überblick für Recruiter und Partner.",
-    education: "Ausbildung",
-    achievementHighlights: "Highlights",
-    cgpa: "Notendurchschnitt",
+      "Ich baue KI-gestützte Anwendungen, teile technisches Wissen und helfe anderen beim Wachstum durch Unterricht und Community-Engagement.",
     summary:
-      "MERN Stack Developer mit Leidenschaft für skalierbare, leistungsstarke Full-Stack-Anwendungen mit MongoDB, Express.js, React.js, Next.js, Node.js, TypeScript und Tailwind CSS.\n\nGetrieben von Neugier für intelligente Systeme entwickle ich KI-gestützte Lösungen mit AI Automation, Agentic AI Workflows, LLM APIs, Gemini API, Groq API und Machine-Learning-Konzepten.\n\nMeine Erfahrung umfasst Beiträge zu echten SaaS-Produkten, Frontend- und Backend-Entwicklung, API-Integration und produktionsreife Webanwendungen in professionellen Workflows.\n\nDarüber hinaus engagiere ich mich aktiv in KI- und Web-Hackathons als Contributor und Team Lead und verwandle Ideen in wirkungsvolle digitale Lösungen.",
+      "Informatik-Absolventin der Government College University Faisalabad mit Erfahrung im Bau von Full-Stack-Webanwendungen und KI-gestützten Lösungen.\n\nIch bin derzeit Section Leader bei Stanford Universitys Code in Place X. Zusätzlich engagiere ich mich in der Tech-Community als Trainerin, Gastrednerin und Webinar-Moderatorin sowie als freiwillige Lehrerin.\n\nMeine Projekte umfassen KI-Anwendungsentwicklung, mehrsprachige Voice-basierte Verifizierung und kostenoptimierte KI-Systeme. Ich habe an nationalen und internationalen Hackathons teilgenommen, Teams geleitet und mit technischen Communities an praktischen Lösungen gearbeitet.",
+  },
+  achievements: {
+    label: "Erfolge",
+    title: "Erfolge & Auszeichnungen",
+    description:
+      "Verifizierte Wettbewerbsergebnisse, Leadership-Meilensteine und Anerkennung aus nationalen und internationalen Programmen.",
+  },
+  education: {
+    label: "Ausbildung",
+    title: "Ausbildung",
+    description: "Abschluss, akademischer Stand und die Kursinhalte hinter der Arbeit.",
+    cgpa: "Notendurchschnitt",
+    coursework: "Kursinhalt",
   },
   skills: {
     label: "Skills",
@@ -57,44 +66,46 @@ export const deOverrides: TranslationOverrides = {
   },
   experience: {
     label: "Erfahrung",
-    title: "Beruflicher Werdegang",
+    title: "Berufliche Erfahrung",
     description:
-      "Praxiserfahrung beim Aufbau von SaaS-Produkten, API-Integration und Lieferung produktiver Features.",
+      "Praktika und rollenbasierte Arbeit an Produktionsprodukten, virtuellen Simulationen und Beratungsprojekten.",
+    simulation: "Virtuelle Simulation",
+    certificate: "Zertifikat",
   },
   projects: {
     label: "Projekte",
-    title: "Projekt-Showcase",
+    title: "Akademische Projekte",
     description:
-      "KI-gestützte SaaS-Plattformen, Security-Middleware und produktive Webanwendungen.",
+      "Abschluss-, akademische und Hackathon-Projekte aus KI-Anwendungen, Automatisierung und Full-Stack-Engineering.",
     featured: "Featured",
     problem: "Problem",
     solution: "Lösung",
-    github: "GitHub",
+    github: "Repository ansehen",
     liveDemo: "Live-Demo",
   },
   hackathons: {
     label: "Hackathons",
-    title: "Wettbewerb & Innovation",
+    title: "Internationale Hackathons",
     description:
-      "Aktive Teilnehmerin und Team Lead bei KI- und Developer-Hackathons weltweit.",
+      "Teilnehmerin und Team Lead bei nationalen und internationalen KI- und Developer-Hackathons, mit einem Top-25-Ergebnis bei CodeSprint LA.",
   },
   volunteer: {
     label: "Community",
     title: "Ehrenamtliches Engagement",
     description:
-      "Unabhängige Recherche und Community-Beiträge über Kunden- und Hackathon-Arbeit hinaus.",
+      "Unterricht, Mentoring und Community-Beiträge über Kunden- und Hackathon-Arbeit hinaus.",
   },
   certifications: {
     label: "Nachweise",
-    title: "Zertifikate & Schulungen",
+    title: "Schulungen und Zertifikate",
     description:
-      "Berufliche Weiterbildung, Leadership-Training und im Lauf erworbene Zertifikate.",
+      "Berufliche Weiterbildung, Leadership-Training und Zertifikate, jeweils mit Link zum überprüften Dokument.",
   },
   contact: {
     label: "Kontakt",
     title: "Lass uns etwas Intelligentes bauen",
     description:
-      "Offen für MERN Stack Developer Rollen, Kooperationen und KI-gestützte Projekte.",
+      "Offen für Full-Stack- und KI-Engineering-Rollen, Kooperationen und KI-gestützte Projekte.",
     aiPoweredContact: "KI-gestützter Kontakt",
     getInTouch: "Kontakt aufnehmen",
     intro:

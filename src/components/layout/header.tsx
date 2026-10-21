@@ -130,11 +130,17 @@ export function Header() {
             <Sparkles className="h-4 w-4 shrink-0 text-primary" aria-hidden="true" />
             <span className="truncate min-w-0 block">
               Maryam Amjad
-              <span className="hidden sm:inline text-primary"> Portfolio</span>
+              <span className="hidden xl:inline text-primary"> Portfolio</span>
             </span>
           </a>
 
-          <ul className="relative z-10 hidden items-center gap-0.5 lg:flex">
+          {/* 10 destinations do not fit the `lg` bar at 1024px with the full
+              action cluster present. The brand link is the element that yields
+              (it is `min-w-0 flex-1` + truncate), nav items stay nowrap so no
+              label is ever cut, and the two social icon buttons — duplicated in
+              the hero, contact and footer — only surface from `xl` up. The ul
+              also scrolls as a last-resort net for unusually long translations. */}
+          <ul className="relative z-10 hidden min-w-0 shrink-0 items-center gap-0 overflow-x-auto py-1 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden lg:flex xl:gap-1">
             {MAIN_NAV.map((item) => {
               const isActive = activeSection === item.href;
               return (
@@ -142,7 +148,7 @@ export function Header() {
                   <a
                     href={item.href}
                     className={cn(
-                      "relative rounded-lg px-3 py-2 text-sm font-medium transition-colors",
+                      "relative whitespace-nowrap rounded-lg px-1.5 py-2 text-[12px] font-medium transition-colors xl:px-3 xl:text-sm",
                       isActive
                         ? "text-heading"
                         : "text-muted hover:text-foreground",
@@ -153,7 +159,7 @@ export function Header() {
                     {isActive && (
                       <motion.span
                         layoutId="nav-indicator"
-                        className="absolute inset-x-2 -bottom-0.5 h-0.5 rounded-full bg-linear-to-r from-primary to-accent"
+                        className="absolute inset-x-1.5 -bottom-0.5 h-0.5 rounded-full bg-linear-to-r from-primary to-accent xl:inset-x-3"
                         transition={{ type: "spring", stiffness: 380, damping: 30 }}
                       />
                     )}
@@ -165,14 +171,16 @@ export function Header() {
 
           {/* Desktop actions — must share the `lg` breakpoint with the nav above,
               otherwise both action clusters render between md and lg. */}
-          <div className="relative z-10 hidden items-center gap-2 lg:flex">
+          <div className="relative z-10 hidden items-center gap-2 lg:flex xl:gap-2">
             <ThemeToggle />
             <LanguageSwitcher />
+            {/* Also reachable from the hero, contact section, footer and mobile
+                drawer — held back below `xl` so the nav labels keep their room. */}
             <a
               href={SOCIAL_LINKS.github}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex h-10 w-10 items-center justify-center rounded-full border border-card-border bg-card text-muted transition-all hover:border-primary/40 hover:text-primary"
+              className="hidden h-10 w-10 items-center justify-center rounded-full border border-card-border bg-card text-muted transition-all hover:border-primary/40 hover:text-primary xl:flex"
               aria-label="GitHub profile"
             >
               <GitHubIcon size={16} />
@@ -181,7 +189,7 @@ export function Header() {
               href={SOCIAL_LINKS.linkedin}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex h-10 w-10 items-center justify-center rounded-full border border-card-border bg-card text-muted transition-all hover:border-primary/40 hover:text-primary"
+              className="hidden h-10 w-10 items-center justify-center rounded-full border border-card-border bg-card text-muted transition-all hover:border-primary/40 hover:text-primary xl:flex"
               aria-label="LinkedIn profile"
             >
               <LinkedInIcon size={16} />

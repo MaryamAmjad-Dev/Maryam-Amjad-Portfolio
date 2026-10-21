@@ -9,7 +9,8 @@ export interface TranslationDictionary {
   nav: {
     home: string;
     about: string;
-    skills: string;
+    achievements: string;
+    education: string;
     experience: string;
     projects: string;
     hackathons: string;
@@ -39,6 +40,10 @@ export interface TranslationDictionary {
     tagline: string;
     hireMe: string;
     downloadResume: string;
+    /** Hero CTA linking to the projects section */
+    viewProjects: string;
+    /** Hero CTA linking to the contact section */
+    contactMe: string;
     github: string;
     linkedin: string;
     stats: {
@@ -52,10 +57,22 @@ export interface TranslationDictionary {
     label: string;
     title: string;
     description: string;
-    education: string;
-    achievementHighlights: string;
-    cgpa: string;
     summary: string;
+  };
+  /** Section 1 of the main portfolio content */
+  achievements: {
+    label: string;
+    title: string;
+    description: string;
+  };
+  /** Section 2 of the main portfolio content */
+  education: {
+    label: string;
+    title: string;
+    description: string;
+    cgpa: string;
+    /** Label above the education coursework list */
+    coursework: string;
   };
   skills: {
     label: string;
@@ -68,6 +85,10 @@ export interface TranslationDictionary {
     label: string;
     title: string;
     description: string;
+    /** Badge marking a virtual job simulation rather than employment */
+    simulation: string;
+    /** Label for the experience certificate link */
+    certificate: string;
   };
   projects: {
     label: string;

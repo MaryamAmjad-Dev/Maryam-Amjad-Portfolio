@@ -1,15 +1,9 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { MapPin, Sparkles } from "lucide-react";
+import { GraduationCap, MapPin } from "lucide-react";
 import { GitHubIcon, LinkedInIcon, ResumeDownloadButton } from "@/components/shared";
-import {
-  AIParticles,
-  AuroraBackground,
-  FadeIn,
-  FloatingIcons,
-  TypingRoles,
-} from "@/components/animations";
+import { AuroraBackground, FadeIn, TypingRoles } from "@/components/animations";
 import {
   AnimatedGradientText,
   Badge,
@@ -17,7 +11,7 @@ import {
   ProfileAvatar,
   TiltCard,
 } from "@/components/ui";
-import { PROFESSIONAL_BADGES } from "@/constants/badges";
+import { PROFILE_CARD_ROLE, PROFESSIONAL_BADGES, STANFORD_ROLE } from "@/constants/badges";
 import { SOCIAL_LINKS } from "@/constants";
 import { heroStats, portfolioData } from "@/data";
 import { useLanguage } from "@/hooks";
@@ -33,25 +27,25 @@ export function HeroSection() {
   return (
     <section
       id="home"
-      className="relative flex min-h-[100dvh] items-center overflow-hidden pt-24 pb-12 sm:pt-28 sm:pb-16"
+      className="relative flex min-h-[100dvh] items-center overflow-hidden pt-28 pb-16 sm:pt-32 sm:pb-20"
     >
+      {/* Single decorative layer. The floating icon set and the 30-particle
+          wash were removed — both were absolutely positioned over the content
+          column and made the hero hard to read. */}
       <AuroraBackground />
-      <AIParticles />
-      <FloatingIcons />
 
       <div className="relative z-10 mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="grid items-center gap-8 sm:gap-12 lg:grid-cols-[1.1fr_0.9fr] lg:gap-16">
+        <div className="grid items-center gap-10 sm:gap-12 lg:grid-cols-[1.1fr_0.9fr] lg:gap-16">
           <div className="flex flex-col items-center text-center lg:items-start lg:text-left">
             <FadeIn direction="up">
               <motion.div
-                className="mb-6 inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/10 px-4 py-2 text-sm text-primary backdrop-blur-sm"
+                className="mb-6 inline-flex items-center gap-2 rounded-full border border-card-border bg-card px-4 py-2 text-sm font-medium text-muted backdrop-blur-sm"
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ delay: 0.2 }}
               >
-                <Sparkles size={14} aria-hidden="true" />
                 <span className="relative flex h-2 w-2">
-                  <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-primary opacity-75" />
+                  <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-success opacity-75" />
                   <span className="relative inline-flex h-2 w-2 rounded-full bg-success" />
                 </span>
                 {t("hero.availability")}
@@ -65,14 +59,23 @@ export function HeroSection() {
               </h1>
             </FadeIn>
 
+            {/* Primary professional identity — deliberately the first thing
+                under the name, ahead of the generic technology stack. */}
+            <FadeIn direction="up" delay={0.15}>
+              <p className="mt-5 inline-flex items-center gap-2.5 rounded-full border border-primary/30 bg-primary/10 px-4 py-2 text-sm font-semibold text-primary sm:text-base">
+                <GraduationCap size={18} className="shrink-0" aria-hidden="true" />
+                {STANFORD_ROLE}
+              </p>
+            </FadeIn>
+
             <FadeIn direction="up" delay={0.2}>
-              <p className="mt-5 text-xl font-medium text-heading sm:text-2xl md:text-3xl">
-                <AnimatedGradientText as="span">{profile.title}</AnimatedGradientText>
+              <p className="mt-5 text-lg font-medium text-muted sm:text-xl md:text-2xl">
+                {profile.title}
               </p>
             </FadeIn>
 
             <FadeIn direction="up" delay={0.25}>
-              <div className="mt-4 flex flex-wrap gap-2">
+              <div className="mt-5 flex flex-wrap justify-center gap-2 lg:justify-start">
                 {PROFESSIONAL_BADGES.map((b) => (
                   <Badge key={b} variant="outline">
                     {b}
@@ -82,7 +85,7 @@ export function HeroSection() {
             </FadeIn>
 
             <FadeIn direction="up" delay={0.3}>
-              <div className="mt-4 min-h-8">
+              <div className="mt-5 min-h-8">
                 <TypingRoles
                   roles={dictionary.hero.roles}
                   className="text-base font-medium sm:text-lg"
@@ -105,7 +108,23 @@ export function HeroSection() {
 
             <FadeIn direction="up" delay={0.5}>
               <div className="mt-8 flex w-full max-w-md flex-col gap-3 sm:max-w-none sm:flex-row sm:flex-wrap sm:items-center sm:justify-center lg:justify-start">
+                <Button
+                  href="#projects"
+                  variant="primary"
+                  size="lg"
+                  className="w-full sm:w-auto"
+                >
+                  {t("hero.viewProjects")}
+                </Button>
                 <ResumeDownloadButton size="lg" className="w-full sm:w-auto" />
+                <Button
+                  href="#contact"
+                  variant="outline"
+                  size="lg"
+                  className="w-full sm:w-auto"
+                >
+                  {t("hero.contactMe")}
+                </Button>
                 <Button
                   href={SOCIAL_LINKS.github}
                   variant="outline"
@@ -132,11 +151,11 @@ export function HeroSection() {
 
           <FadeIn direction="right" delay={0.3}>
             <div className="flex justify-center lg:justify-end">
-              <TiltCard className="w-full max-w-sm" intensity={14}>
+              <TiltCard className="w-full max-w-sm" intensity={10}>
                 <div className="flex flex-col items-center">
                   <div className="relative">
                     <div
-                      className="absolute -inset-4 rounded-full bg-linear-to-br from-primary/20 to-accent/10 blur-2xl"
+                      className="absolute -inset-4 rounded-full bg-linear-to-br from-primary/15 to-accent/5 blur-2xl"
                       aria-hidden="true"
                     />
                     <ProfileAvatar
@@ -149,7 +168,9 @@ export function HeroSection() {
                   </div>
 
                   <p className="mt-6 text-lg font-semibold text-heading">{profile.name}</p>
-                  <p className="mt-1 text-sm text-primary">{profile.title}</p>
+                  <p className="mt-2 text-center text-sm font-medium leading-snug text-primary">
+                    {PROFILE_CARD_ROLE}
+                  </p>
 
                   <div className="mt-6 grid w-full grid-cols-3 gap-2 sm:gap-3">
                     {heroStats.map((stat, index) => (
@@ -158,7 +179,7 @@ export function HeroSection() {
                         className="min-w-0 rounded-xl border border-card-border bg-card px-2 py-2.5 text-center backdrop-blur-sm sm:px-2.5 sm:py-3"
                       >
                         <p className="text-base font-bold gradient-text sm:text-lg">{stat.value}</p>
-                        <p className="mt-0.5 break-words text-[10px] uppercase leading-tight tracking-wider text-muted-subtle sm:text-xs">
+                        <p className="mt-0.5 break-words text-[10px] font-medium uppercase leading-tight tracking-wider text-muted-subtle sm:text-xs">
                           {t(`hero.stats.${HERO_STAT_KEYS[index]}`)}
                         </p>
                       </div>

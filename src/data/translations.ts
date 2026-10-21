@@ -48,7 +48,8 @@ export const translations: Record<Locale, TranslationDictionary> = {
 export type NavSectionId =
   | "home"
   | "about"
-  | "skills"
+  | "achievements"
+  | "education"
   | "experience"
   | "projects"
   | "hackathons"
@@ -60,7 +61,8 @@ export type NavSectionId =
 export const NAV_SECTION_IDS: NavSectionId[] = [
   "home",
   "about",
-  "skills",
+  "achievements",
+  "education",
   "experience",
   "projects",
   "hackathons",

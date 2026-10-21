@@ -6,42 +6,84 @@ import type {
   VolunteerExperience,
 } from "@/types";
 
+/**
+ * Content model sourced from the CV (`reference-docs/Maryam_Amjad_CV - Updated.pdf`).
+ *
+ * Every external URL below was resolved from the CV's own hyperlink annotations
+ * and then fetched to confirm it resolves. Where the CV renders a link label
+ * ("Acknowledgement Letter", "QuizOff Certificate") without embedding a
+ * destination, no URL is modelled and no external-link control is rendered.
+ */
+
+/** Verified — GitHub profile for the "MaryamAmjad-Dev" account */
+const GITHUB_PROFILE = "https://github.com/MaryamAmjad-Dev";
+
+/**
+ * Verified follower count read from the public LinkedIn profile page.
+ * Used for the community achievement stat.
+ */
+const LINKEDIN_FOLLOWERS = 5989;
+
 const hackathonEntries: Hackathon[] = [
   {
     id: "hack-nasa",
     title: "NASA Space Apps Challenge",
     event: "NASA International Hackathon",
-    role: "Team Lead",
     description:
-      "Currently enrolled as Team Lead for the upcoming global hackathon on November 14–15, 2026.",
-    year: "Nov 14–15, 2026",
+      "Participated in the 2026 edition of NASA's global space and science hackathon.",
+    year: "2026",
   },
   {
     id: "hack-amd",
-    title: "AMD Developer Hackathon ACT II",
-    event: "International — lablab.ai",
-    description: "Built AI-powered solutions on AMD hardware infrastructure.",
+    title: "AMD Developer Hackathon: Act II",
+    event: "AMD Developer Hackathon — Team Shaheen",
+    description:
+      "Built AMD ZeroToken, a cost-optimised AI router, under the 4 GB RAM / 2 vCPU / no GPU constraint.",
     year: "2026",
   },
   {
     id: "hack-codesprint",
     title: "CodeSprint LA",
-    event: "Los Angeles Hackathon",
+    event: "ACM at UCLA — international coding competition",
     placement: "25th out of 137 teams",
     year: "2026",
+    links: [
+      {
+        label: "View Post",
+        url: "https://lnkd.in/p/d2BJPfm5",
+      },
+    ],
   },
   {
     id: "hack-hec2",
-    title: "HEC GenAI Cohort 2",
+    title: "HEC Generative AI Cohort 2",
     event: "Higher Education Commission Pakistan",
     role: "Team Lead",
+    description: "Led the team that delivered HireGen AI.",
     year: "2026",
   },
   {
     id: "hack-hec3",
-    title: "HEC GenAI Cohort 3",
+    title: "HEC Generative AI Cohort 3",
     event: "Higher Education Commission Pakistan",
     role: "Team Lead",
+    description: "Led the team that delivered Autovance AI.",
+    year: "2026",
+  },
+  {
+    id: "hack-unesco",
+    title: "UNESCO Youth Hackathon",
+    event: "UNESCO Youth Hackathon 2026",
+    description:
+      "Frontend Developer for VeriVoice, aligned with UNESCO Media and Information Literacy.",
+    year: "2026",
+  },
+  {
+    id: "hack-quizoff",
+    title: "QuizOff",
+    event: "International quiz competition",
+    description:
+      "Competed among 525,000+ students from 35+ countries.",
     year: "2026",
   },
   {
@@ -50,27 +92,141 @@ const hackathonEntries: Hackathon[] = [
     event: "Developer Community Event",
     year: "2026",
   },
+];
+
+const volunteerEntries: VolunteerExperience[] = [
   {
-    id: "hack-unesco",
-    title: "UNESCO Youth Hackathon",
-    event: "UNESCO International",
-    year: "2026",
+    id: "vol-stanford-cipx",
+    title: "Section Leader (Volunteer)",
+    organization: "Stanford University — Code in Place X",
+    date: "Oct 2026 to Present",
+    description:
+      "Selected on the first attempt from over a thousand applications. Teaches a section of beginner Python students as part of an international volunteer team drawn from 87 countries (around 3,500 students).",
+    links: [
+      {
+        label: "View Post",
+        url: "https://lnkd.in/p/dj9vuVxZ",
+      },
+    ],
   },
   {
-    id: "hack-gemini-quizoff",
-    title: "Google Gemini Quizoff Challenge",
-    event: "Google Gemini Quizoff Challenge 2026",
-    description: "Participated and attended the global AI challenge focused on Gemini-powered solutions.",
-    year: "2026",
+    id: "vol-icodeguru",
+    title: "Trainer, Guest Speaker and Moderator",
+    organization: "iCodeGuru",
+    date: "Sep 2026 to Present",
+    description:
+      "Moderated five and spoke at three webinars on Stanford's Code in Place X and PAI at universities including Ghazi University Karachi, NED, Iqra, KUST and GCUF. Spoke at the Stanford Section Leader Info Session at GCUF on 22 September 2026, and reviewed Section Leader applications with written feedback.",
+    links: [
+      {
+        label: "View Post",
+        url: "https://lnkd.in/p/dx9jsmd2",
+      },
+    ],
+  },
+  {
+    id: "vol-ielts",
+    title: "IELTS Trainer (Volunteer)",
+    organization: "Volunteer",
+    date: "Sep 2026 to Oct 2026",
+    description:
+      "Delivered IELTS Reading, Writing and Speaking sessions with techniques and solved examples.",
+    links: [
+      {
+        label: "View Session Post",
+        url: "https://lnkd.in/p/d7rjUK4B",
+      },
+      {
+        label: "Watch Playlist",
+        url: "https://youtube.com/playlist?list=PLKEpHNyU9j9o&si=5s2Kz3vjMC_-y4lu",
+      },
+    ],
+  },
+  {
+    id: "vol-hci-research",
+    title: "HCI Research Report and Presentation",
+    organization: "Independent Volunteer Project",
+    description:
+      "Co-authored and presented a Human-Computer Interaction report on procrastination and digital distraction among STEM students.",
+    links: [
+      {
+        label: "View Report",
+        url: "https://drive.google.com/file/d/1jbYeRUv7bczTRSL0Zg_xY6-OFx5yL2GX/view?usp=drive_link",
+      },
+    ],
   },
 ];
 
-const LINKEDIN_FOLLOWERS = 4000;
+const certificationEntries: Certification[] = [
+  {
+    id: "cert-wpbrigade",
+    title: "Web Development Bootcamp",
+    organization: "WPBrigade",
+    date: "Sep 2026",
+    note: "Delivered in collaboration with iCodeGuru.",
+    links: [
+      {
+        label: "View Post",
+        url: "https://lnkd.in/p/d-re-Fjt",
+      },
+    ],
+  },
+  {
+    id: "cert-genai-mastermind",
+    title: "Generative AI Mastermind",
+    organization: "Outskill",
+    note: "Led by Vaibhav Sisinty.",
+    links: [
+      {
+        label: "View Certificate",
+        url: "https://drive.google.com/file/d/1BzFw-XUYDjPm6H6YCfpoHC4p-M4oNX9x/view?usp=drive_link",
+      },
+    ],
+  },
+  {
+    id: "cert-aspire",
+    title: "Aspire Leaders Program (Cohort 3, 2026)",
+    organization: "Aspire Institute",
+    date: "2026",
+    note: "Graduate and alumna of the 2026 cohort.",
+    links: [
+      {
+        label: "View Certificate",
+        url: "https://drive.google.com/file/d/1_T-idPmiRPMIl8MYWAfHXRzP2iqqMI5Z/view?usp=sharing",
+      },
+      {
+        label: "View Post",
+        url: "https://lnkd.in/p/dXRRfJPB",
+      },
+    ],
+  },
+  {
+    id: "cert-gydf-mindset",
+    title:
+      "Developing the Mindset and Skills Young People Need to Succeed in a Global World",
+    organization: "Global Youth Development Forum, Sierra Leone Chapter",
+    date: "Aug 2026",
+    note: "Training led by Coach Alie Bangoura.",
+    links: [
+      {
+        label: "View Certificate",
+        url: "https://drive.google.com/file/d/14TUAxZmfPehZ9mbDMy4cnHTEP9cIPD0C/view?usp=drive_link",
+      },
+    ],
+  },
+];
 
-/** Derive achievement stats from portfolio data — avoids hardcoded counts */
+/**
+ * Derive the hackathon achievement stats from the entries above.
+ *
+ * `teamLeadCount` is taken directly from the CV ("led 3 teams, including two
+ * Higher Education Commission Generative AI cohorts") rather than derived from
+ * the card list, because the CV states the total without naming the third
+ * team-lead engagement.
+ */
 function buildAchievements(
   events: Hackathon[],
   linkedinFollowers: number,
+  teamLeadCount: number,
 ): AchievementStat[] {
   const codesprint = events.find((h) => h.id === "hack-codesprint");
   const placementMatch = codesprint?.placement?.match(
@@ -91,7 +247,7 @@ function buildAchievements(
       id: "ach-lead",
       label: "Team Lead",
       subtitle: "GenAI Hackathons",
-      value: events.filter((h) => h.role === "Team Lead").length,
+      value: teamLeadCount,
       suffix: "x",
     },
     {
@@ -99,6 +255,20 @@ function buildAchievements(
       label: "CodeSprint LA Ranking",
       value: rank ? Number(rank) : 25,
       displayValue: rank && total ? `Top ${rank} / ${total}` : undefined,
+    },
+    {
+      id: "ach-stanford",
+      label: "Stanford Section Leader",
+      subtitle: "Code in Place X — first attempt",
+      value: 1,
+      displayValue: "1st Try",
+    },
+    {
+      id: "ach-quizoff",
+      label: "QuizOff",
+      subtitle: "35+ countries",
+      value: 525000,
+      displayValue: "525K+",
     },
     {
       id: "ach-linkedin",
@@ -109,45 +279,23 @@ function buildAchievements(
   ];
 }
 
-const GITHUB_PROFILE = "https://github.com/MaryamAmjad-Dev";
-
-const volunteerEntries: VolunteerExperience[] = [
-  {
-    id: "vol-hci-research",
-    title: "HCI Research Report and Presentation",
-    organization: "Independent Volunteer Project",
-    description:
-      "Co-authored an independent Human Computer Interaction research report with group mates, analyzing survey data on procrastination and digital distraction among STEM students. Built and delivered the companion presentation deck.",
-  },
-];
-
-const certificationEntries: Certification[] = [
-  {
-    id: "cert-gydf-mindset",
-    title:
-      "Developing the Mindset and Skills Young People Need to Succeed in a Global World",
-    organization: "Global Youth Development Forum, Sierra Leone Chapter",
-    date: "August 2026",
-    note: "Attended an online training session led by Coach Alie Bangoura.",
-  },
-];
-
 export const portfolioData: PortfolioData = {
   profile: {
     name: "Maryam Amjad",
-    title: "AI Engineer • Full Stack Developer • MERN Stack Developer",
+    title: "Full-Stack Developer • Trainer • Guest Speaker • Moderator",
     tagline:
       "Building scalable, AI-enabled web applications with modern full-stack technology.",
-    bio: "AI engineer and full-stack developer delivering production SaaS experiences, API integrations, and intelligent systems.",
+    bio: "Information Technology graduate and full-stack developer building production web applications and AI applications, with experience in technical leadership, teaching, and community work.",
     summary:
-      "A global-minded AI engineer and full-stack developer who builds scalable web products with MERN, Next.js, TypeScript, and Tailwind CSS.\n\nI combine production SaaS experience with AI automation, Gemini and Groq APIs, and intelligent systems design.\n\nI also contribute to international hackathons as a participant and team lead, bringing practical development and collaboration to fast-moving AI challenges.",
+      "I am an Information Technology graduate from Government College University Faisalabad, with experience building full-stack web applications and AI-powered solutions.\n\nI currently serve as a Section Leader for Stanford University's Code in Place X. I also contribute to the tech community as a trainer, guest speaker, webinar moderator, and volunteer instructor.\n\nMy projects span AI application development, multilingual voice-based verification, and cost-optimised AI systems. I have participated in national and international hackathons, led teams, and collaborated with technical communities to build practical solutions.",
     location: "Pakistan",
     email: "maryamamjad621@gmail.com",
     phone: "+92 314 7390062",
     roles: [
-      "MERN Stack Developer",
-      "Next.js Developer",
-      "AI Automation & Agentic AI Enthusiast",
+      "Full-Stack Developer",
+      "Trainer",
+      "Guest Speaker",
+      "Moderator",
     ],
     image: "/profile/maryam.svg",
     avatarUrl: "/profile/maryam.svg",
@@ -155,12 +303,12 @@ export const portfolioData: PortfolioData = {
     socialLinks: [
       {
         platform: "github",
-        url: "https://github.com/MaryamAmjad-Dev",
+        url: GITHUB_PROFILE,
         label: "GitHub",
       },
       {
         platform: "linkedin",
-        url: "https://www.linkedin.com/in/maryam-amjad-3a235a315/",
+        url: "https://www.linkedin.com/in/maryam-amjad-6a7a8m/",
         label: "LinkedIn",
       },
     ],
@@ -171,142 +319,107 @@ export const portfolioData: PortfolioData = {
       id: "edu-gcuf",
       institution: "Government College University Faisalabad",
       degree: "Bachelor of Science in Information Technology",
+      field: "Information Technology",
+      startDate: "2021-11",
+      endDate: "2025-10",
+      cgpa: "3.45",
+      achievement: "Ranked 4th in the BS class by CGPA.",
+      coursework: [
+        "Data Structures",
+        "Object-Oriented Programming",
+        "Databases",
+        "Software Engineering",
+        "Quality Assurance",
+        "Human-Computer Interaction",
+        "Web Development",
+      ],
     },
   ],
 
   skills: [
     {
-      id: "mern",
-      name: "MERN Stack Development",
+      id: "languages",
+      name: "Languages",
       skills: [
-        { name: "React.js", level: 92 },
-        { name: "Next.js", level: 90 },
-        { name: "Node.js", level: 88 },
-        { name: "Express.js", level: 85 },
-        { name: "MongoDB", level: 87 },
+        { name: "Python" },
+        { name: "JavaScript" },
+        { name: "TypeScript" },
       ],
     },
     {
       id: "frontend",
-      name: "Frontend Development",
+      name: "Frontend",
       skills: [
-        {
-          name: "Tailwind CSS",
-          level: 93,
-          note: "Primary styling framework — modern utility-first CSS for production React and Next.js projects",
-        },
-        {
-          name: "Bootstrap",
-          level: 80,
-          note: "Component-based responsive development with Bootstrap grids, utilities, and components",
-        },
-        { name: "HTML5", level: 95 },
-        { name: "CSS3", level: 92 },
+        { name: "React.js" },
+        { name: "Next.js" },
+        { name: "Tailwind CSS" },
+        { name: "HTML5" },
+        { name: "CSS3" },
       ],
     },
     {
       id: "backend",
-      name: "Backend Development",
+      name: "Backend & Databases",
       skills: [
-        { name: "Node.js", level: 88 },
-        { name: "Express.js", level: 85 },
-        {
-          name: "MongoDB",
-          level: 87,
-          note: "Maryam uses MongoDB for MERN applications",
-        },
-        {
-          name: "SQL",
-          level: 85,
-          note: "Maryam uses SQL for relational database knowledge",
-        },
-        { name: "REST APIs", level: 90 },
-        { name: "API Integration", level: 88 },
-        { name: "Serverless APIs", level: 82 },
+        { name: "Node.js" },
+        { name: "Express.js" },
+        { name: "FastAPI" },
+        { name: "REST APIs" },
+        { name: "JWT" },
+        { name: "MongoDB" },
+        { name: "MySQL" },
       ],
     },
     {
       id: "ai",
-      name: "AI & Data Tools",
+      name: "AI",
       skills: [
-        {
-          name: "Google Colab",
-          level: 80,
-          note: "Maryam uses Google Colab for AI/ML experiments and notebooks",
-        },
-        { name: "Gemini API", level: 88 },
-        { name: "Groq API", level: 85 },
-        { name: "Llama 3.3 70B", level: 82 },
-        { name: "Google ADK", level: 78 },
-        { name: "Google Antigravity", level: 72 },
-        { name: "Hugging Face API", level: 86 },
-        { name: "AI Agents", level: 84 },
-        { name: "Prompt Engineering", level: 88 },
-        { name: "LLM Integration", level: 86 },
-        { name: "Speech Processing", level: 82 },
-        { name: "Fact Verification", level: 80 },
-        { name: "RAG", level: 80 },
-        { name: "Make.com", level: 80 },
+        { name: "Agentic AI" },
+        { name: "Generative AI" },
+        { name: "Prompt Engineering" },
+        { name: "LLM Application Development" },
+        { name: "Multi-Agent Systems" },
       ],
     },
     {
-      id: "programming-languages",
-      name: "Programming Languages",
+      id: "quality",
+      name: "Quality & Usability",
       skills: [
-        { name: "JavaScript", level: 90 },
-        { name: "TypeScript", level: 88 },
-        {
-          name: "Python",
-          level: 82,
-          note: "AI/ML exploration and automation scripting",
-        },
-        {
-          name: "C++",
-          level: 78,
-          note: "Programming fundamentals, object-oriented programming, and problem solving",
-        },
+        { name: "Software Quality Assurance" },
+        { name: "Manual Testing" },
+        { name: "Usability Testing" },
+        { name: "Human-Computer Interaction" },
       ],
     },
     {
-      id: "developer-tools",
-      name: "Developer Tools",
+      id: "deployment",
+      name: "Deployment",
       skills: [
-        { name: "Git", level: 90 },
-        { name: "GitHub", level: 92 },
-        {
-          name: "VS Code",
-          level: 88,
-          note: "Maryam uses VS Code for development",
-        },
-        {
-          name: "Cursor AI",
-          level: 90,
-          note: "Maryam uses Cursor AI for AI-assisted development workflows",
-        },
-        { name: "Claude Code", level: 78 },
-        { name: "Google AI Studio", level: 78 },
-        { name: "Vercel", level: 88 },
-        { name: "MongoDB Atlas", level: 86 },
-        { name: "Postman", level: 80 },
-        { name: "Figma", level: 75 },
-        { name: "Canva", level: 78 },
-        { name: "Linear", level: 85 },
+        { name: "Vercel" },
+        { name: "Render" },
+        { name: "MongoDB Atlas" },
       ],
     },
     {
-      id: "collaboration",
-      name: "Collaboration Tools",
+      id: "tools",
+      name: "Tools",
       skills: [
-        {
-          name: "Slack",
-          level: 82,
-          note: "Maryam uses Slack for professional team collaboration",
-        },
-        {
-          name: "Discord",
-          level: 80,
-          note: "Maryam uses Discord for developer communities, hackathons, and technical collaboration",
-        },
+        { name: "Git" },
+        { name: "GitHub" },
+        { name: "VS Code" },
+        { name: "Cursor" },
+        { name: "Claude Code" },
+        { name: "Figma" },
+      ],
+    },
+    {
+      id: "soft-skills",
+      name: "Soft Skills",
+      skills: [
+        { name: "Public Speaking" },
+        { name: "Training and Mentoring" },
+        { name: "Webinar Moderation" },
+        { name: "Content Writing" },
       ],
     },
   ],
@@ -317,57 +430,55 @@ export const portfolioData: PortfolioData = {
       company: "MatchHalf",
       role: "MERN Stack Developer Intern",
       location: "Hybrid, Pakistan",
-      startDate: "2026-02",
-      endDate: "2026-04",
+      startDate: "2026-03",
+      endDate: "2026-07",
       description:
-        "Contributed to production-grade SaaS development at MatchHalf — building features, integrating APIs, and resolving 50+ Linear tickets across the full stack.",
+        "Built features for a production social networking application, working across the full stack with modern React tooling.",
       highlights: [
-        "Developed and optimized production-grade SaaS features using Next.js, React.js, TypeScript, and Tailwind CSS",
-        "Built responsive frontend interfaces and integrated backend APIs",
-        "Implemented MSA Driving School contact and booking system using Next.js, MongoDB, and server-side data handling",
-        "Resolved 50+ Linear tickets covering bug fixes, feature enhancements, API integrations, and UI improvements",
-        "Collaborated with team using Git, GitHub pull requests, Linear, Slack, and modern development workflows",
+        "Built 10+ features for a production social networking application using Next.js, React, TypeScript and Tailwind CSS",
+        "Integrated 5+ REST APIs",
+        "Resolved 50+ tickets through pull requests",
       ],
       technologies: [
         "Next.js",
-        "React.js",
+        "React",
         "TypeScript",
         "Tailwind CSS",
-        "MongoDB",
         "REST APIs",
-        "Git",
-        "GitHub",
-        "Linear",
-        "Slack",
       ],
+      certificateUrl:
+        "https://drive.google.com/file/d/1bD5s1Feg_bg8Tj6xt5Dq9Sb1mIRImS7b/view?usp=sharing",
     },
     {
       id: "exp-deloitte",
-      company: "Deloitte",
-      role: "Technology Intern",
-      location: "Remote, Australia",
-      startDate: "2026-07",
+      company: "Deloitte Australia",
+      role: "Technology Job Simulation",
+      location: "Virtual (Forage)",
+      startDate: "2026-06",
       endDate: "2026-08",
+      simulation: true,
       description:
-        "Technology work with the team to deliver Deloitte expertise to clients.",
+        "Completed Deloitte Australia's virtual technology job simulation hosted on Forage.",
       highlights: [
-        "Supported remote technology delivery for client engagements with Deloitte subject matter experts",
-        "Assisted in developing process improvements, documentation, and technical recommendations",
-        "Collaborated across teams to align solutions with client requirements and Deloitte quality standards",
+        "Analysed client system data to identify faults",
+        "Documented solutions for the identified issues",
       ],
-      technologies: ["Documentation", "Client Collaboration", "Process Improvement"],
+      technologies: ["Data Analysis", "Documentation"],
+      certificateUrl:
+        "https://drive.google.com/file/d/1TIcqgh-Fay6_LS21KddYqjrUJ_PI_W2v/view?usp=sharing",
     },
     {
       id: "exp-gaotek",
-      company: "GAOTek Inc",
-      role: "Content Writing Intern",
+      company: "GAOTek Incorporated, Canada",
+      role: "Technical Content Writing Intern",
       location: "Remote, Canada",
       startDate: "2025-07",
-      endDate: "2025-09",
-      description: "Created technical and marketing content for global technology products.",
+      endDate: "2025-10",
+      description:
+        "Produced technical content for a global technology audience on a remote basis.",
       highlights: [
-        "Wrote SEO-optimized technical articles and product descriptions",
-        "Researched emerging tech trends for content strategy",
+        "Wrote 15+ SEO-focused technical articles",
+        "Delivered all assignments on time",
       ],
       technologies: ["SEO", "Technical Writing"],
     },
@@ -378,114 +489,167 @@ export const portfolioData: PortfolioData = {
       id: "proj-feature-kit",
       title: "AI Feature Kit",
       slug: "ai-feature-kit",
-      description: "Final Year Project — multi-modal AI toolkit.",
+      description:
+        "Modular AI platform combining text-to-image, text-to-speech, voice conversion, summarisation and background removal.",
       problem:
-        "Users needed a single platform for common AI tasks without switching between tools.",
+        "Common AI tasks were spread across separate tools, with no single place to run them.",
       solution:
-        "Built a unified toolkit with Text to Image, Text to Voice, Background Removal, Text Summarizer, and Voice Changer.",
-      technologies: ["React", "AI APIs", "Python", "Node.js"],
-      tags: ["FYP", "AI", "Multi-modal", "Final Year Project", "1st Position"],
-      thumbnailUrl: "/images/projects/feature-kit.jpg",
+        "Built a modular platform on React, Node.js, Express and MySQL that keeps each AI capability independent and interchangeable.",
+      technologies: ["React", "Node.js", "Express", "MySQL"],
+      tags: ["Final Year Project", "AI", "Multi-modal"],
       featured: true,
-      githubUrl: GITHUB_PROFILE,
+      role: "Final Year Project",
+      liveUrl: "https://fyp-ai-feature-kit-web-app.vercel.app",
+      githubUrl: "https://github.com/MaryamAmjad-Dev/FYP-AI-Feature-Kit-Web-App",
     },
     {
       id: "proj-verivoice",
       title: "VeriVoice",
       slug: "verivoice",
       description:
-        "AI-powered multilingual voice fact verification platform built using a modular multi-agent architecture.",
+        "Voice-first multilingual verification assistant built for the UNESCO Youth Hackathon 2026, aligned with UNESCO Media and Information Literacy.",
       problem:
-        "Misinformation in audio content is hard to verify quickly across languages and formats.",
+        "Misinformation in vulnerable communities spreads through forwarded voice notes, while existing fact-checking platforms rely on lengthy English text and assume advanced digital literacy.",
       solution:
-        "A pipelined multi-agent system performs speech analysis, language detection, translation, fact verification, evidence retrieval, and explainable reporting with confidence scoring.",
+        "A voice-in, voice-out verification loop built around the real communication habits of these communities: browser microphone or Discord voice note in, and a concise spoken response in, Urdu, Spanish, Indonesian or English. Claim classification, evidence retrieval from institutional sources, and citation guardrails keep answers tied to the retrieved sources rather than the model's memory.",
       technologies: [
-        "Python",
-        "Next.js",
-        "React",
+        "React 18",
+        "Vite",
         "TypeScript",
         "Tailwind CSS",
-        "Google Gemini API",
-        "FastAPI",
-        "MongoDB",
+        "Groq (Whisper, Llama 3.3 70B)",
+        "Zod",
+        "Edge Neural TTS",
+        "Discord.js",
       ],
-      tags: [
-        "Featured",
-        "Team Project",
-        "UNESCO Youth Hackathon 2026",
-        "AI",
-        "Multilingual",
-      ],
-      thumbnailUrl: "/images/projects/verivoice.jpg",
+      tags: ["UNESCO Youth Hackathon 2026", "AI", "Multilingual", "Voice"],
       featured: true,
       teamProject: true,
-      role: "Frontend Developer — design systems, 3D Evidence Constellation visualizer, and multilingual UI/UX.",
+      role:
+        "Frontend Developer — built the audio visualizer, hands-free voice mode, Evidence Drawer, emergency alerts and the multilingual UI/UX. Supports Urdu, Indonesian, Spanish and English; the CV reports 170 passing tests.",
       liveUrl: "https://verivoice-ten.vercel.app",
-      githubUrl: "https://github.com/MaryamAmjad-Dev/Veri-Voice-Unesco-Hackathon",
+      githubUrl:
+        "https://github.com/MaryamAmjad-Dev/Veri-Voice-Unesco-Hackathon",
     },
     {
       id: "proj-amd-zerotoken",
-      title: "AMD ZeroToken Hybrid AI Router",
+      title: "AMD Model Router",
       slug: "amd-zerotoken",
       description:
-        "An intelligent AI routing platform minimizing inference costs by dynamically selecting between local and cloud AI models.",
+        "Resource-aware AI inference router designed for Track 1 of the AMD Developer Hackathon, balancing task accuracy, API-token usage, and strict compute limits.",
       problem:
-        "Inference costs and latency can make AI deployment expensive; choosing the right model dynamically is non-trivial.",
+        "An all-cloud routing setup burns API tokens, while a local-only setup cannot hold accuracy on harder tasks — inside a judging container limited to 4 GB RAM, 2 vCPUs, no GPU and a 10-minute execution limit.",
       solution:
-        "A five-layer decision pipeline routes requests between local and cloud models, optimizing for cost, latency, and quality while providing token savings analytics.",
-      technologies: ["Python", "FastAPI", "Machine Learning", "Next.js", "React", "TypeScript"],
-      tags: ["AMD Developer Hackathon", "Routing", "Cost Optimisation"],
-      thumbnailUrl: "/images/projects/amd-zerotoken.jpg",
+        "Routes tasks across eight categories: deterministic solvers handle structured problems at zero token cost, a quantized local Qwen 2.5 3B GGUF model handles low-complexity tasks, an output validation gate checks responses for truncation or missing markers, and dynamic cloud escalation is limited to models named in the ALLOWED_MODELS environment variable. Prompt pruning strips bloat while bypassing code tasks to preserve indentation, and token ceilings, concurrency clamps and timeouts keep runs inside the resource budget. The 80% figure in the hackathon brief is the eligibility gate for scoring, not a measured result of this build.",
+      technologies: [
+        "Python",
+        "Docker",
+        "llama.cpp",
+        "Qwen 2.5 3B (GGUF)",
+        "Fireworks API",
+        "Next.js",
+        "Tailwind CSS",
+      ],
+      tags: [
+        "AMD Developer Hackathon: Act II",
+        "Team Shaheen",
+        "Cost Optimisation",
+      ],
       featured: false,
-      githubUrl: GITHUB_PROFILE,
-    },
-    {
-      id: "proj-mira-ai",
-      title: "MIRA AI",
-      slug: "mira-ai",
-      description:
-        "AI-powered MERN application supporting emotional well-being, productivity, intelligent insights, mood journaling, and habit tracking.",
-      problem:
-        "Users need personalized, privacy-first tools for mental wellbeing and productivity that adapt over time.",
-      solution:
-        "Built a MERN app with mood journaling, habit tracking, and intelligent insights driven by AI models and privacy-preserving design.",
-      technologies: ["React", "Vite", "Node.js", "Express", "MongoDB", "JWT"],
-      tags: ["MERN", "Wellbeing", "AI"],
-      thumbnailUrl: "/images/projects/mira-ai.jpg",
-      featured: false,
-      githubUrl: GITHUB_PROFILE,
-    },
-    {
-      id: "proj-hiregen",
-      title: "HireGen AI",
-      slug: "hiregen-ai",
-      description:
-        "AI hiring platform generating interviews, scoring responses, and reports.",
-      problem:
-        "Hiring teams struggle to conduct consistent, scalable technical interviews.",
-      solution:
-        "Developed an AI platform that auto-generates interview questions, scores candidate responses, and produces hiring reports.",
-      technologies: ["Next.js", "AI", "Node.js", "MongoDB"],
-      tags: ["AI", "Hiring", "SaaS"],
-      thumbnailUrl: "/images/projects/hiregen.jpg",
-      featured: true,
-      githubUrl: `${GITHUB_PROFILE}/hiregen-ai`,
+      teamProject: true,
+      liveUrl: "https://amd-zero-token-ai-router.vercel.app",
+      githubUrl:
+        "https://github.com/MaryamAmjad-Dev/AMD-ZeroToken-AI-Router-Project",
+      links: [
+        {
+          label: "View Certificate",
+          url: "https://drive.google.com/file/d/1vO8gwTVjY9XZo9QPsLhlK3s6SVq2VF4n/view?usp=drive_link",
+        },
+      ],
     },
     {
       id: "proj-autovance",
       title: "Autovance AI",
       slug: "autovance-ai",
       description:
-        "AI SaaS automation platform supporting English/Urdu natural commands.",
+        "AI-powered automation platform combining email automation, secure webhook execution, cron job scheduling, custom form actions, and an experimental explainable AI workflow builder in one dashboard.",
       problem:
-        "Businesses needed a way to automate workflows using natural language in multiple languages.",
+        "Email sending, webhooks, scheduled jobs and custom forms usually live in separate tools, and AI-generated work is hard to trust when the underlying provider fails or is never configured.",
       solution:
-        "Built a MERN SaaS platform with Groq API and Llama 3.3 for bilingual command processing and workflow automation.",
-      technologies: ["MERN", "Groq API", "Llama 3.3", "MongoDB"],
-      tags: ["AI", "SaaS", "Automation"],
-      thumbnailUrl: "/images/projects/autovance.jpg",
+        "Built with Next.js (Pages Router) on Vercel with Neon PostgreSQL for persistence, OpenRouter for AI generation, and configurable email providers. Security covers server-side validation, session-based authentication, rate limiting, password hashing and SSRF protection for outbound webhook requests. The workflow builder is presented as a research prototype with a dry-run preview, and the platform reports provider failures and missing configuration honestly instead of claiming success.",
+      technologies: [
+        "Next.js (Pages Router)",
+        "React",
+        "Node.js",
+        "PostgreSQL (Neon)",
+        "OpenRouter",
+        "React Flow",
+        "Vercel",
+      ],
+      tags: ["HEC Generative AI Cohort 3", "AI", "Automation"],
       featured: true,
-      githubUrl: GITHUB_PROFILE,
+      teamProject: true,
+      role: "Team Lead",
+      liveUrl: "https://autovance-ai.vercel.app",
+      githubUrl: "https://github.com/MaryamAmjad-Dev/Autovance-AI",
+    },
+    {
+      id: "proj-hiregen",
+      title: "HireGen AI",
+      slug: "hiregen-ai",
+      description:
+        "Recruitment platform that automates interview questions and candidate scoring, built for HEC Generative AI Cohort 2.",
+      problem:
+        "Recruitment teams need consistent, scalable technical interviewing and scoring.",
+      solution:
+        "Led the team that built a platform that auto-generates interview questions, scores candidate responses and produces hiring reports.",
+      technologies: ["Next.js", "AI", "Node.js", "MongoDB"],
+      tags: ["HEC Generative AI Cohort 2", "AI", "Hiring"],
+      featured: true,
+      teamProject: true,
+      role: "Team Lead",
+      liveUrl: "https://hiregen-ai.vercel.app",
+      githubUrl: "https://github.com/MaryamAmjad-Dev/hiregen-ai",
+    },
+    {
+      id: "proj-mira-ai",
+      title: "MIRA AI",
+      slug: "mira-ai",
+      description:
+        "Personal growth platform with mood journaling, habit tracking and goal analytics.",
+      problem:
+        "Personal growth tooling tends to be scattered, and account security is often an afterthought.",
+      solution:
+        "Built a MERN application with JWT and Google OAuth authentication alongside the journaling, habit and analytics features.",
+      technologies: ["MERN", "JWT", "Google OAuth"],
+      tags: ["Personal Project", "MERN", "Wellbeing"],
+      featured: false,
+      githubUrl:
+        "https://github.com/MaryamAmjad-Dev/MIRA-AI-Personal-Growth-Assistant",
+    },
+    {
+      id: "proj-lakki-marwat",
+      title: "University of Lakki Marwat Website Evaluation",
+      slug: "lakki-marwat-website-evaluation",
+      description:
+        "Academic project for the HCI mid-semester: a full evaluation of the University of Lakki Marwat website with a detailed written report.",
+      problem:
+        "The university website needed a structured usability and heuristic review for the HCI course.",
+      solution:
+        "Evaluated the website against HCI heuristics and produced both a presentation and a detailed report, assessed through Hirestive.",
+      technologies: ["Human-Computer Interaction", "Heuristic Evaluation"],
+      tags: ["Academic Project", "HCI", "Mid Semester"],
+      featured: false,
+      links: [
+        {
+          label: "View Presentation",
+          url: "https://docs.google.com/presentation/d/17H6NsZhOOeXh7tgE09xO1KK0DHyOTUOD/edit?slide=id.p1&slide=id.p1",
+        },
+        {
+          label: "View Report",
+          url: "https://docs.google.com/document/d/1tvl6LJONnrjT3y9Kf_We101-cwWqWdkO/edit",
+        },
+      ],
     },
     {
       id: "proj-portfolio",
@@ -497,8 +661,7 @@ export const portfolioData: PortfolioData = {
         "Designed an AI-driven portfolio with Gemini integration, animations, and premium SaaS UI.",
       technologies: ["Next.js", "TypeScript", "Tailwind", "Generative AI"],
       tags: ["Portfolio", "AI", "Next.js"],
-      thumbnailUrl: "/images/projects/portfolio.jpg",
-      featured: true,
+      featured: false,
       liveUrl: "https://maryam-amjad-portfolio.vercel.app/",
       githubUrl: `${GITHUB_PROFILE}/Maryam-Amjad-Portfolio`,
     },
@@ -510,7 +673,7 @@ export const portfolioData: PortfolioData = {
 
   certifications: certificationEntries,
 
-  achievements: buildAchievements(hackathonEntries, LINKEDIN_FOLLOWERS),
+  achievements: buildAchievements(hackathonEntries, LINKEDIN_FOLLOWERS, 3),
 };
 
 export const featuredProjects = portfolioData.projects.filter((p) => p.featured);
@@ -526,6 +689,8 @@ export function formatEducationSummary(
   return education
     .map((edu) => {
       const lines = [edu.institution, edu.degree];
+      if (edu.cgpa) lines.push(`CGPA: ${edu.cgpa}`);
+      if (edu.achievement) lines.push(edu.achievement);
       return lines.join("\n");
     })
     .join("\n\n");
@@ -538,7 +703,7 @@ export const heroStats = [
   { label: "Projects", value: `${portfolioData.projects.length}+` },
   { label: "Hackathons", value: `${portfolioData.hackathons.length}+` },
   {
-    label: "AI Tools",
+    label: "AI Skills",
     value: `${portfolioData.skills.find((c) => c.id === "ai")?.skills.length ?? 0}+`,
   },
 ] as const;

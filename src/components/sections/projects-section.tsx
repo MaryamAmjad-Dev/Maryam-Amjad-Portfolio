@@ -9,8 +9,8 @@ import { portfolioData } from "@/data";
 import { useLanguage } from "@/hooks";
 import type { Project } from "@/types";
 
-function getGithubUrl(project: Project): string {
-  return project.githubUrl || project.repoUrl || "";
+function getGithubUrl(project: Project): string | undefined {
+  return project.githubUrl || project.repoUrl || undefined;
 }
 
 function ProjectCard({
@@ -48,15 +48,17 @@ function ProjectCard({
               {project.teamProject && (
                 <Badge variant="outline">{labels.teamProject}</Badge>
               )}
-              <a
-                href={githubUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label={`${project.title} on GitHub`}
-                className="flex h-10 w-10 cursor-pointer items-center justify-center rounded-full border border-card-border bg-card text-muted transition-all duration-300 hover:scale-110 hover:border-primary/40 hover:bg-primary/10 hover:text-primary"
-              >
-                <GitHubIcon size={16} />
-              </a>
+              {githubUrl && (
+                <a
+                  href={githubUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={`${project.title} on GitHub`}
+                  className="flex h-10 w-10 cursor-pointer items-center justify-center rounded-full border border-card-border bg-card text-muted transition-all duration-300 hover:scale-110 hover:border-primary/40 hover:bg-primary/10 hover:text-primary"
+                >
+                  <GitHubIcon size={16} />
+                </a>
+              )}
             </div>
           </div>
 
@@ -80,21 +82,33 @@ function ProjectCard({
             </div>
           )}
 
-          <div className="mt-5 space-y-3 rounded-xl border border-card-border bg-card p-4">
-            <div>
-              <p className="text-[10px] font-semibold uppercase tracking-widest text-muted-subtle">
-                {labels.problem}
-              </p>
-              <p className="mt-1.5 text-sm leading-relaxed text-foreground">{project.problem}</p>
+          {(project.problem || project.solution) && (
+            <div className="mt-5 space-y-3 rounded-xl border border-card-border bg-card p-4">
+              {project.problem && (
+                <div>
+                  <p className="text-[10px] font-semibold uppercase tracking-widest text-muted-subtle">
+                    {labels.problem}
+                  </p>
+                  <p className="mt-1.5 text-sm leading-relaxed text-foreground">
+                    {project.problem}
+                  </p>
+                </div>
+              )}
+              {project.problem && project.solution && (
+                <div className="h-px bg-card-border" />
+              )}
+              {project.solution && (
+                <div>
+                  <p className="text-[10px] font-semibold uppercase tracking-widest text-muted-subtle">
+                    {labels.solution}
+                  </p>
+                  <p className="mt-1.5 text-sm leading-relaxed text-foreground">
+                    {project.solution}
+                  </p>
+                </div>
+              )}
             </div>
-            <div className="h-px bg-card-border" />
-            <div>
-              <p className="text-[10px] font-semibold uppercase tracking-widest text-muted-subtle">
-                {labels.solution}
-              </p>
-              <p className="mt-1.5 text-sm leading-relaxed text-foreground">{project.solution}</p>
-            </div>
-          </div>
+          )}
 
           <div className="mt-5 flex flex-wrap gap-2">
             {project.technologies.map((tech) => (
@@ -105,16 +119,18 @@ function ProjectCard({
           </div>
 
           <div className="relative z-10 mt-auto flex flex-wrap gap-2 pt-6">
-            <Button
-              href={githubUrl}
-              variant="outline"
-              size="sm"
-              external
-              className="cursor-pointer transition-transform hover:scale-105"
-            >
-              <GitHubIcon size={14} />
-              {labels.github}
-            </Button>
+            {githubUrl && (
+              <Button
+                href={githubUrl}
+                variant="outline"
+                size="sm"
+                external
+                className="cursor-pointer transition-transform hover:scale-105"
+              >
+                <GitHubIcon size={14} />
+                {labels.github}
+              </Button>
+            )}
             {project.liveUrl && (
               <Button
                 href={project.liveUrl}
@@ -127,6 +143,19 @@ function ProjectCard({
                 {labels.liveDemo}
               </Button>
             )}
+            {project.links?.map((link) => (
+              <Button
+                key={link.url}
+                href={link.url}
+                variant="ghost"
+                size="sm"
+                external
+                className="cursor-pointer transition-transform hover:scale-105"
+              >
+                <ExternalLink size={14} aria-hidden="true" />
+                {link.label}
+              </Button>
+            ))}
           </div>
         </div>
       </TiltCard>

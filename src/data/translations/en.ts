@@ -21,7 +21,8 @@ export const enDictionary: TranslationDictionary = {
   nav: {
     home: "Home",
     about: "About",
-    skills: "Skills",
+    achievements: "Achievements",
+    education: "Education",
     experience: "Experience",
     projects: "Projects",
     hackathons: "Hackathons",
@@ -37,7 +38,9 @@ export const enDictionary: TranslationDictionary = {
     availability: "Available for opportunities",
     tagline: profile.tagline,
     hireMe: "Hire Me",
-    downloadResume: "Download Resume",
+    downloadResume: "Download CV",
+    viewProjects: "View Projects",
+    contactMe: "Contact Me",
     github: "GitHub",
     linkedin: "LinkedIn",
     stats: {
@@ -49,13 +52,23 @@ export const enDictionary: TranslationDictionary = {
   },
   about: {
     label: "About",
-    title: "Where MERN Stack craft meets intelligent systems",
+    title: "AI Engineering, Education & Community Leadership",
     description:
-      "Production SaaS experience, AI automation expertise, and hackathon leadership — a snapshot for recruiters and collaborators.",
-    education: "Education",
-    achievementHighlights: "Achievement Highlights",
-    cgpa: "CGPA",
+      "Building AI-powered applications, sharing technical knowledge, and helping others grow through teaching and community engagement.",
     summary: profile.summary,
+  },
+  achievements: {
+    label: "Achievements",
+    title: "Achievements & Recognition",
+    description:
+      "Verified competition results, leadership milestones, and recognition from national and international programmes.",
+  },
+  education: {
+    label: "Education",
+    title: "Education",
+    description: "Degree, academic standing, and the coursework behind the work.",
+    cgpa: "CGPA",
+    coursework: "Coursework",
   },
   skills: {
     label: "Skills",
@@ -66,46 +79,48 @@ export const enDictionary: TranslationDictionary = {
   },
   experience: {
     label: "Experience",
-    title: "Professional Journey",
+    title: "Professional Experience",
     description:
-      "Real-world experience building SaaS products, integrating APIs, and delivering production features.",
+      "Internship and role-based work across production products, virtual simulations, and consulting engagements.",
+    simulation: "Virtual Simulation",
+    certificate: "Certificate",
   },
   projects: {
     label: "Projects",
-    title: "Project Showcase",
+    title: "Academic Projects",
     description:
-      "AI-powered SaaS platforms, security middleware, and production web applications.",
+      "Final-year, academic, and hackathon projects spanning AI applications, automation, and full-stack engineering.",
     featured: "Featured",
     teamProject: "Team Project",
     myRole: "My Role",
     problem: "Problem",
     solution: "Solution",
-    github: "GitHub",
+    github: "View Repository",
     liveDemo: "Live Demo",
   },
   hackathons: {
     label: "Hackathons",
-    title: "Competition & Innovation",
+    title: "International Hackathons",
     description:
-      "Active participant and team lead in AI and developer hackathons worldwide, including Google Gemini Quizoff Challenge 2026.",
+      "Participant and team lead across national and international AI and developer hackathons, with a top-25 finish at CodeSprint LA.",
   },
   volunteer: {
     label: "Community",
     title: "Volunteer Experience",
     description:
-      "Independent research and community contributions beyond client and hackathon work.",
+      "Teaching, mentoring, and community contributions beyond client and hackathon work.",
   },
   certifications: {
     label: "Credentials",
-    title: "Certifications & Training",
+    title: "Training and Certificates",
     description:
-      "Professional development, leadership training, and certifications earned along the way.",
+      "Professional development, leadership training, and certifications, each linked to its verified document.",
   },
   contact: {
     label: "Contact",
     title: "Let's Build Something Intelligent",
     description:
-      "Open to MERN Stack Developer opportunities, collaborations, and AI-powered projects.",
+      "Open to full-stack and AI engineering opportunities, collaborations, and AI-powered projects.",
     aiPoweredContact: "AI-Powered Contact",
     getInTouch: "Get in Touch",
     intro:

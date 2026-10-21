@@ -1,6 +1,6 @@
 "use client";
 
-import { Award, Trophy, Users } from "lucide-react";
+import { Award, ExternalLink, Trophy, Users } from "lucide-react";
 import { motion } from "framer-motion";
 import { staggerContainer, staggerItem } from "@/components/animations";
 import { Badge, Section, TiltCard } from "@/components/ui";
@@ -32,7 +32,8 @@ export function HackathonsSection() {
       >
         {portfolioData.hackathons.map((hackathon) => (
           <motion.div key={hackathon.id} variants={staggerItem} className="h-full">
-            <TiltCard className="h-full" intensity={7}>
+            {/* `interactive` keeps the placement/post link stationary. */}
+            <TiltCard className="h-full" intensity={7} interactive>
               <div className="flex h-full flex-col">
                 <div className="mb-4 flex items-center justify-between gap-3">
                   <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl border border-primary/20 bg-primary/10 text-primary">
@@ -57,9 +58,28 @@ export function HackathonsSection() {
                 )}
 
                 {hackathon.description && (
-                  <p className="mt-3 text-sm leading-relaxed text-muted-subtle">
+                  <p className="mt-3 text-sm leading-relaxed text-muted">
                     {hackathon.description}
                   </p>
+                )}
+
+                {/* Previously unrendered — the CodeSprint LA post link was in
+                    the data but had no control in the DOM. */}
+                {hackathon.links && hackathon.links.length > 0 && (
+                  <div className="mt-4 flex flex-wrap gap-2">
+                    {hackathon.links.map((link) => (
+                      <a
+                        key={link.url}
+                        href={link.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex cursor-pointer items-center gap-1.5 rounded-full border border-card-border bg-card px-3 py-1.5 text-xs font-medium text-muted transition-colors duration-200 hover:border-primary/40 hover:bg-primary/10 hover:text-primary focus-visible:border-primary/40"
+                      >
+                        <ExternalLink size={12} aria-hidden="true" />
+                        {link.label}
+                      </a>
+                    ))}
+                  </div>
                 )}
 
                 {hackathon.year && (

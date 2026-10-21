@@ -12,7 +12,8 @@ export const koOverrides: TranslationOverrides = {
   nav: {
     home: "홈",
     about: "소개",
-    skills: "기술",
+    achievements: "성과",
+    education: "학력",
     experience: "경력",
     projects: "프로젝트",
     hackathons: "해커톤",
@@ -28,6 +29,8 @@ export const koOverrides: TranslationOverrides = {
     availability: "기회에 열려 있습니다",
     hireMe: "채용하기",
     downloadResume: "이력서 다운로드",
+    viewProjects: "프로젝트 보기",
+    contactMe: "연락하기",
     github: "GitHub",
     linkedin: "LinkedIn",
     stats: {
@@ -35,22 +38,28 @@ export const koOverrides: TranslationOverrides = {
       hackathons: "해커톤",
       aiTools: "AI 도구",
     },
-    roles: [
-      "MERN 스택 개발자",
-      "Next.js 개발자",
-      "AI 자동화 및 에이전트 AI 열정가",
-    ],
+    roles: ["풀스택 개발자", "트레이너", "게스트 연사", "사회자"],
   },
   about: {
     label: "소개",
-    title: "MERN 스택 개발과 지능형 시스템의 만남",
+    title: "AI 엔지니어링, 교육, 커뮤니티 리더십",
     description:
-      "프로덕션 SaaS 경험, AI 자동화 전문성, 해커톤 리더십 — 채용 담당자와 협력자를 위한 스냅샷.",
-    education: "학력",
-    achievementHighlights: "주요 성과",
-    cgpa: "평점",
+      "AI 기반 애플리케이션을 만들고, 기술 지식을 공유하며, 교육과 커뮤니티 활동을 통해 다른 사람의 성장을 돕습니다.",
     summary:
-      "MERN 스택 개발자로서 MongoDB, Express.js, React.js, Next.js, Node.js, TypeScript 및 Tailwind CSS로 확장 가능하고 고성능인 풀스택 애플리케이션을 구축하는 데 열정이 있습니다.\n\n지능형 시스템에 대한 호기심으로 AI 자동화, 에이전트 기반 워크플로우, 언어 모델 API 및 머신 러닝 개념을 탐구하고 구축합니다.\n\n저의 경험에는 실제 SaaS 제품 기여, 프론트엔드 및 백엔드 개발, API 통합, 프로덕션 준비 웹 애플리케이션 제공이 포함됩니다.",
+      "파키스탄 파이살라바드 정부대학교 Government College University Faisalabad에서 정보기술을 전공하고 졸업했습니다. 풀스택 웹 애플리케이션과 AI 기반 솔루션을 구축해 왔습니다.\n\n현재 Stanford University Code in Place X의 Section Leader로 활동하고 있습니다. 또한 트레이너, 게스트 연사, 웨비나 진행자, 자원봉사 강사로 기술 커뮤니티에 기여하고 있습니다.\n\n제 프로젝트는 AI 애플리케이션 개발, 다국어 음성 기반 검증, 비용 최적화 AI 시스템에 걸쳐 있습니다. 국내외 해커톤에 참여해 팀을 이끌고, 실용적인 솔루션을 만들기 위해 기술 커뮤니티와 협력해 왔습니다.",
+  },
+  achievements: {
+    label: "성과",
+    title: "성과와 인정",
+    description:
+      "국내외 프로그램으로부터 검증된 대회 결과, 리더십의 이정표, 그리고 인정.",
+  },
+  education: {
+    label: "학력",
+    title: "학력",
+    description: "학위, 학업 성적, 그리고 일의 토대가 되는 이수 과목.",
+    cgpa: "평점",
+    coursework: "이수 과목",
   },
   skills: {
     label: "기술",
@@ -61,43 +70,45 @@ export const koOverrides: TranslationOverrides = {
   },
   experience: {
     label: "경력",
-    title: "전문 여정",
+    title: "전문 경력",
     description:
-      "SaaS 제품 구축, API 통합 및 프로덕션 기능 제공 경험이 있습니다.",
+      "프로덕션 제품, 가상 시뮬레이션, 컨설팅 프로젝트에서의 인턴십 및 역할 기반 경력.",
+    simulation: "가상 시뮬레이션",
+    certificate: "수료증",
   },
   projects: {
     label: "프로젝트",
-    title: "프로젝트 쇼케이스",
+    title: "학술 프로젝트",
     description:
-      "AI 기반 SaaS 플랫폼, 보안 미들웨어 및 프로덕션 웹 애플리케이션입니다.",
+      "AI 애플리케이션, 자동화, 풀스택 엔지니어링에 걸친 졸업 프로젝트와 학술·해커톤 프로젝트.",
     featured: "추천",
     problem: "문제",
     solution: "해결책",
-    github: "GitHub",
+    github: "저장소 보기",
     liveDemo: "라이브 데모",
   },
   hackathons: {
     label: "해커톤",
-    title: "경쟁 및 혁신",
+    title: "국제 해커톤",
     description:
-      "전 세계 AI 및 개발 해커톤에 적극적으로 참여하고 팀을 이끄는 중입니다.",
+      "국내외 AI 및 개발자 해커톤의 참여자이자 팀 리더. CodeSprint LA에서는 상위 25위에 올랐습니다.",
   },
   volunteer: {
     label: "커뮤니티",
     title: "봉사 활동 경험",
-    description:
-      "클라이언트 및 해커톤 활동을 넘어 수행한 독립 연구와 커뮤니티 기여입니다.",
+    description: "클라이언트 및 해커톤을 넘어 수행한 교육, 멘토링과 커뮤니티 기여.",
   },
   certifications: {
     label: "자격 및 인증",
-    title: "자격증 및 교육",
-    description: "전문성 개발, 리더십 교육, 그리고 그동안 취득한 자격증입니다.",
+    title: "교육과 자격증",
+    description:
+      "전문성 개발, 리더십 교육, 그리고 자격증. 각각 검증된 문서로 연결되어 있습니다.",
   },
   contact: {
     label: "연락처",
     title: "무언가 지능적인 것을 만들어 봅시다",
     description:
-      "MERN 스택 개발자 기회, 협업 및 AI 기반 프로젝트를 환영합니다.",
+      "풀스택 및 AI 엔지니어링 기회, 협업 및 AI 기반 프로젝트를 환영합니다.",
     aiPoweredContact: "AI 기반 연락처",
     getInTouch: "문의하기",
     intro:

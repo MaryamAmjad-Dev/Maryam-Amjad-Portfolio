@@ -12,7 +12,8 @@ export const jaOverrides: TranslationOverrides = {
   nav: {
     home: "ホーム",
     about: "About",
-    skills: "スキル",
+    achievements: "実績",
+    education: "学歴",
     experience: "経歴",
     projects: "プロジェクト",
     hackathons: "ハッカソン",
@@ -28,25 +29,33 @@ export const jaOverrides: TranslationOverrides = {
     availability: "新しい機会を受け付けています",
     hireMe: "採用する",
     downloadResume: "履歴書をダウンロード",
+    viewProjects: "プロジェクトを見る",
+    contactMe: "お問い合わせ",
     github: "GitHub",
     linkedin: "LinkedIn",
     stats: { projects: "プロジェクト", hackathons: "ハッカソン", aiTools: "AI ツール" },
-    roles: [
-      "MERN Stack Developer",
-      "Next.js Developer",
-      "AI Automation & Agentic AI Enthusiast",
-    ],
+    roles: ["フルスタック開発者", "トレーナー", "ゲスト講演者", "モデレーター"],
   },
   about: {
     label: "About",
-    title: "MERN Stack の技とインテリジェントシステムの融合",
+    title: "AI エンジニアリング、教育、コミュニティリーダーシップ",
     description:
-      "本番 SaaS 経験、AI 自動化の専門性、ハッカソンリーダーシップ — 採用担当者と協力者向けの概要。",
-    education: "学歴",
-    achievementHighlights: "主な実績",
-    cgpa: "GPA",
+      "AI 駆動のアプリケーションを構築し、技術知識を共有し、教育とコミュニティ活動を通じて他の人の成長を支えます。",
     summary:
-      "MongoDB、Express.js、React.js、Next.js、Node.js、TypeScript、Tailwind CSS を用いたスケーラブルで高性能なフルスタックアプリケーションの構築に情熱を注ぐ MERN Stack Developer です。\n\nインテリジェントシステムへの好奇心から、AI Automation、Agentic AI ワークフロー、LLM API、Gemini API、Groq API、機械学習の概念を活用した AI ソリューションを探求・構築しています。\n\n実際の SaaS プロダクトへの貢献、フロントエンド・バックエンド機能の開発、API 統合、プロフェッショナルな開発ワークフローでの本番 Web アプリケーション構築の経験があります。\n\nエンジニアリング以外にも、AI・Web ハッカソンに contributor および team lead として積極参加し、継続的な学習とイノベーションでアイデアを impactful なデジタルソリューションに変えています。",
+      "Government College University Faisalabad（ファイサラーバード政府大学）で情報技術を学び卒業。フルスタック Web アプリケーションと AI 駆動のソリューションを構築してきました。\n\n現在は Stanford University Code in Place X の Section Leader を務めています。並行して、トレーナー、ゲスト講演者、ウェビナーモデレーター、ボランティア講師として技術コミュニティに貢献しています。\n\nプロジェクトは AI アプリケーション開発、多言語の音声ベース検証、コスト最適化 AI システムにわたります。国内外のハッカソンに参加し、チームを率い、実践的なソリューションづくりに取り組んできました。",
+  },
+  achievements: {
+    label: "実績",
+    title: "実績と評価",
+    description:
+      "国内外のプログラムによる検証済みの大会結果、リーダーシップの節目、そして評価。",
+  },
+  education: {
+    label: "学歴",
+    title: "学歴",
+    description: "学位、学業成績、そして仕事の土台となる履修科目。",
+    cgpa: "GPA",
+    coursework: "履修科目",
   },
   skills: {
     label: "スキル",
@@ -56,40 +65,45 @@ export const jaOverrides: TranslationOverrides = {
   },
   experience: {
     label: "経歴",
-    title: "プロフェッショナルジャーニー",
+    title: "プロフェッショナル経験",
     description:
-      "SaaS プロダクト構築、API 統合、本番機能の提供における実務経験。",
+      "本番プロダクト、バーチャルシミュレーション、コンサルティング案件におけるインターンシップと職務経験。",
+    simulation: "バーチャルシミュレーション",
+    certificate: "証明書",
   },
   projects: {
     label: "プロジェクト",
-    title: "プロジェクトショーケース",
-    description: "AI 駆動 SaaS プラットフォーム、セキュリティ middleware、本番 Web アプリ。",
+    title: "学術プロジェクト",
+    description:
+      "AI アプリケーション、自動化、フルスタックエンジニアリングにわたる卒業制作・学術・ハッカソンの各プロジェクト。",
     featured: "Featured",
     problem: "課題",
     solution: "ソリューション",
-    github: "GitHub",
+    github: "リポジトリを見る",
     liveDemo: "ライブデモ",
   },
   hackathons: {
     label: "ハッカソン",
-    title: "Competition & Innovation",
-    description: "世界中の AI・開発者ハッカソンでのアクティブな参加者・team lead。",
+    title: "国際ハッカソン",
+    description:
+      "国内外の AI・開発者ハッカソンでの参加とチームリーダー経験。CodeSprint LA では上位 25 位に入りました。",
   },
   volunteer: {
     label: "コミュニティ",
     title: "ボランティア経験",
-    description: "クライアントやハッカソン以外での、独立したリサーチとコミュニティへの貢献。",
+    description: "クライアントやハッカソンに加えて、教育・指導とコミュニティ貢献。",
   },
   certifications: {
     label: "資格・認定",
-    title: "認定資格・研修",
-    description: "プロフェッショナルな成長、リーダーシップ研修、そして取得した各種認定。",
+    title: "研修と認定資格",
+    description:
+      "プロフェッショナルな成長、リーダーシップ研修、そして各種認定。いずれも検証済みの書類にリンクしています。",
   },
   contact: {
     label: "連絡",
     title: "インテリジェントなものを一緒に作りましょう",
     description:
-      "MERN Stack Developer の機会、コラボレーション、AI プロジェクトを歓迎します。",
+      "フルスタックおよび AI エンジニアリングの機会、コラボレーション、AI プロジェクトを歓迎します。",
     aiPoweredContact: "AI パワードコンタクト",
     getInTouch: "お問い合わせ",
     intro: "採用、フリーランス、ハッカソンコラボのご連絡をお待ちしています。",

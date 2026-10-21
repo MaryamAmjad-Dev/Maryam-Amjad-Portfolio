@@ -12,15 +12,16 @@ export const SITE = {
   author: profile.name,
   keywords: [
     profile.name,
-    "MERN Stack Developer",
+    "Full-Stack Developer",
+    "Trainer",
+    "Guest Speaker",
+    "Moderator",
     "Next.js Developer",
     "AI Automation",
     "Agentic AI",
     "LLM APIs",
     "TypeScript",
     "React",
-    "Gemini API",
-    "Groq API",
     "Pakistan Developer",
   ],
 } as const;
@@ -31,7 +32,7 @@ export const SITE_ROUTES = {
 
 export const SOCIAL_LINKS = {
   github: "https://github.com/MaryamAmjad-Dev",
-  linkedin: "https://www.linkedin.com/in/maryam-amjad-3a235a315/",
+  linkedin: "https://www.linkedin.com/in/maryam-amjad-6a7a8m/",
   email: "mailto:maryamamjad621@gmail.com",
   phone: "tel:+923147390062",
 } as const;

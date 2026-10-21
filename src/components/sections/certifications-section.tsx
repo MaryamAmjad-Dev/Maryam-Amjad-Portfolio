@@ -1,6 +1,6 @@
 "use client";
 
-import { BadgeCheck } from "lucide-react";
+import { BadgeCheck, ExternalLink } from "lucide-react";
 import { motion } from "framer-motion";
 import { staggerContainer, staggerItem } from "@/components/animations";
 import { Section, TiltCard } from "@/components/ui";
@@ -27,7 +27,9 @@ export function CertificationsSection() {
       >
         {certifications.map((cert) => (
           <motion.div key={cert.id} variants={staggerItem} className="h-full">
-            <TiltCard className="h-full" intensity={7}>
+            {/* `interactive` disables the 3D tilt so the certificate/post
+                links inside stay stationary and reliably clickable. */}
+            <TiltCard className="h-full" intensity={7} interactive>
               <div className="flex h-full flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
                 <div className="flex min-w-0 gap-4">
                   <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl border border-primary/20 bg-primary/10 text-primary">
@@ -44,6 +46,22 @@ export function CertificationsSection() {
                       <p className="mt-2 text-sm leading-relaxed text-muted">
                         {cert.note}
                       </p>
+                    )}
+                    {cert.links && cert.links.length > 0 && (
+                      <div className="mt-3 flex flex-wrap gap-2">
+                        {cert.links.map((link) => (
+                          <a
+                            key={link.url}
+                            href={link.url}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-flex cursor-pointer items-center gap-1.5 rounded-full border border-card-border bg-card px-3 py-1.5 text-xs font-medium text-muted transition-colors duration-200 hover:border-primary/40 hover:bg-primary/10 hover:text-primary focus-visible:border-primary/40"
+                          >
+                            <ExternalLink size={12} aria-hidden="true" />
+                            {link.label}
+                          </a>
+                        ))}
+                      </div>
                     )}
                   </div>
                 </div>

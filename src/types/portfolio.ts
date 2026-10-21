@@ -1,5 +1,12 @@
 import type { ISODateString, SocialLink, WithId } from "./common";
 
+/** External reference to a post, certificate, report, or deck */
+export interface ResourceLink {
+  /** Descriptive link text, e.g. "Certificate", "Post", "Report" */
+  label: string;
+  url: string;
+}
+
 /** Core identity and positioning */
 export interface Profile {
   name: string;
@@ -18,10 +25,14 @@ export interface Profile {
   socialLinks: SocialLink[];
 }
 
-/** Individual skill with proficiency level (0–100) */
+/**
+ * Individual skill entry.
+ *
+ * Deliberately carries no proficiency rating, percentage, or years-of-experience
+ * figure — the CV does not substantiate any, so none are modelled.
+ */
 export interface SkillItem {
   name: string;
-  level: number;
   /** Optional context for AI knowledge base (e.g. how the tool is used) */
   note?: string;
 }
@@ -40,6 +51,8 @@ export interface Experience extends WithId {
   startDate: ISODateString;
   endDate?: ISODateString;
   current?: boolean;
+  /** True for virtual job simulations rather than conventional employment */
+  simulation?: boolean;
   description: string;
   highlights: string[];
   technologies: string[];
@@ -52,15 +65,19 @@ export interface Project extends WithId {
   title: string;
   slug: string;
   description: string;
-  problem: string;
-  solution: string;
+  /** Optional: only present when the CV or repo states the problem explicitly */
+  problem?: string;
+  /** Optional: only present when the CV or repo states the approach explicitly */
+  solution?: string;
   longDescription?: string;
-  thumbnailUrl: string;
+  /** Optional — several verified projects ship no image asset */
+  thumbnailUrl?: string;
   images?: string[];
   tags: string[];
   technologies: string[];
   liveUrl?: string;
-  githubUrl: string;
+  /** Optional — academic and research projects may have no repository */
+  githubUrl?: string;
   /** @deprecated Use githubUrl */
   repoUrl?: string;
   featured: boolean;
@@ -69,6 +86,8 @@ export interface Project extends WithId {
   /** Maryam's specific role and contributions on the project */
   role?: string;
   completedAt?: ISODateString;
+  /** Supporting material such as certificates, slides, or reports */
+  links?: ResourceLink[];
 }
 
 /** Education or certification entry */
@@ -79,6 +98,9 @@ export interface Education extends WithId {
   startDate?: ISODateString;
   endDate?: ISODateString;
   cgpa?: string;
+  /** e.g. "4th in the BS class by CGPA" */
+  achievement?: string;
+  coursework?: string[];
   description?: string;
 }
 
@@ -90,6 +112,7 @@ export interface Hackathon extends WithId {
   role?: string;
   description?: string;
   year?: string;
+  links?: ResourceLink[];
 }
 
 /** Volunteer or community contribution entry */
@@ -99,6 +122,7 @@ export interface VolunteerExperience extends WithId {
   organization?: string;
   description: string;
   date?: string;
+  links?: ResourceLink[];
 }
 
 /** Certification or training credential */
@@ -108,6 +132,7 @@ export interface Certification extends WithId {
   date?: string;
   /** Optional context (e.g. session format or facilitator) */
   note?: string;
+  links?: ResourceLink[];
 }
 
 /** Animated achievement counter stat */

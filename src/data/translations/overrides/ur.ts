@@ -12,7 +12,8 @@ export const urOverrides: TranslationOverrides = {
   nav: {
     home: "ہوم",
     about: "تعارف",
-    skills: "مہارتیں",
+    achievements: "کامیابیاں",
+    education: "تعلیم",
     experience: "تجربہ",
     projects: "پروجیکٹس",
     hackathons: "ہیکیاثون",
@@ -28,25 +29,38 @@ export const urOverrides: TranslationOverrides = {
     availability: "مواقع کے لیے دستیاب",
     hireMe: "ملازمت دیں",
     downloadResume: "ریزیومے ڈاؤن لوڈ",
+    viewProjects: "پروجیکٹس دیکھیں",
+    contactMe: "رابطہ کریں",
     github: "GitHub",
     linkedin: "LinkedIn",
     stats: { projects: "پروجیکٹس", hackathons: "ہیکیاثون", aiTools: "AI ٹولز" },
     roles: [
-      "MERN Stack Developer",
-      "Next.js Developer",
-      "AI Automation & Agentic AI Enthusiast",
+      "فل اسٹیک ڈویلپر",
+      "ٹرینر",
+      "گیسٹ اسپیکر",
+      "ماڈریٹر",
     ],
   },
   about: {
     label: "تعارف",
-    title: "جہاں MERN Stack کاریگری intelligent systems سے ملتی ہے",
+    title: "AI انجینئرنگ، تعلیم اور کمیونٹی قیادت",
     description:
-      "Production SaaS تجربہ، AI automation مہارت، اور hackathon leadership — recruiters اور collaborators کے لیے ایک snapshot۔",
-    education: "تعلیم",
-    achievementHighlights: "اہم کامیابیاں",
-    cgpa: "CGPA",
+      "AI-powered ایپلیکیشنز بنانا، تکنیکی معلومات بانٹنا، اور تدریس اور کمیونٹی کی شرکت کے ذریعے دوسروں کی ترقی میں مدد کرنا۔",
     summary:
-      "میں ایک MERN Stack Developer ہوں جو MongoDB، Express.js، React.js، Next.js، Node.js، TypeScript، اور Tailwind CSS کے ساتھ scalable، high-performance full-stack applications بنانے کا شوق رکھتی ہوں۔\n\nIntelligent systems کی تجسس مجھے AI Automation، Agentic AI workflows، LLM APIs، Gemini API، Groq API، اور Machine Learning concepts استعمال کرتے ہوئے AI-powered solutions explore اور build کرنے پر آمادہ کرتی ہے۔\n\nمیرے تجربے میں real-world SaaS products میں contribution، frontend اور backend features develop کرنا، APIs integrate کرنا، اور professional development workflows میں production-ready web applications بنانا شامل ہے۔\n\nEngineering سے آگے، میں AI اور Web hackathons میں contributor اور team lead کے طور پر actively حصہ لیتی ہوں، continuous learning اور innovation کے ذریعے ideas کو impactful digital solutions میں بدلتی ہوں۔",
+      "میں گورنمنٹ کالج یونیورسٹی فیصل آباد سے انفارمیشن ٹیکنالوجی کی گریجویٹ ہوں، اور فل اسٹیک ویب ایپلیکیشنز اور AI-powered حل بنانے کا تجربہ رکھتی ہوں۔\n\nمیں فی الحال Stanford University کے Code in Place X میں سیکشن لیڈر ہوں۔ میں تکنیکی معلومات بانٹنے کے لیے ترینر، گیسٹ اسپیکر، ویبینار ماڈریٹر اور رضاکارہ انسٹرکٹر کے طور پر بھی ٹیک کمیونٹی میں شرکت کرتی ہوں۔\n\nمیرے پروجیکٹس AI ایپلیکیشن ڈویلپمنٹ، بہو زبانی وائس مبنی تصدیق، اور لاگت میں مؤثر AI سسٹمز تک پھیلے ہیں۔ میں قومی اور بین القوامی ہیکیاثونز میں شرکت کر چکی ہوں، ٹیموں کی قیادت کی ہے، اور عملی حل بنانے کے لیے تکنیکی کمیونٹیز کے ساتھ مل کر کام کیا ہے۔",
+  },
+  achievements: {
+    label: "کامیابیاں",
+    title: "کامیابیاں اور پہچان",
+    description:
+      "قومی اور بین القوامی پروگراموں سے تصدیق شدہ مقابلے کے نتائج، قیادت کے سنگ میل، اور پہچان۔",
+  },
+  education: {
+    label: "تعلیم",
+    title: "تعلیم",
+    description: "ڈگری، تعلیمی حیثیت، اور کام کے پس منظر کا کورس ورک۔",
+    cgpa: "CGPA",
+    coursework: "کورس ورک",
   },
   skills: {
     label: "مہارتیں",
@@ -57,42 +71,44 @@ export const urOverrides: TranslationOverrides = {
   },
   experience: {
     label: "تجربہ",
-    title: "Professional Journey",
+    title: "پیشہ ورانہ تجربہ",
     description:
-      "SaaS products بنانے، APIs integrate کرنے، اور production features deliver کرنے کا real-world تجربہ۔",
+      "پیداواری مصنوعات، APIs اور پیشہ ورانہ فیچرز بنانے میں انٹرنشپ اور مبنی بر تجربہ۔",
+    simulation: "ورچوئل سیمولیشن",
+    certificate: "سرٹیفکیٹ",
   },
   projects: {
     label: "پروجیکٹس",
-    title: "Project Showcase",
+    title: "تعلیمی پروجیکٹس",
     description:
-      "AI-powered SaaS platforms، security middleware، اور production web applications۔",
+      "AI ایپلیکیشنز، خودکار کارروائی اور فل اسٹیک انجینئرنگ میں فرسٹ ایئر، تعلیمی اور ہیکیاثون پروجیکٹس۔",
     featured: "Featured",
     problem: "مسئلہ",
     solution: "حل",
-    github: "GitHub",
+    github: "ریپوزٹری دیکھیں",
     liveDemo: "Live Demo",
   },
   hackathons: {
     label: "ہیکیاثون",
-    title: "Competition & Innovation",
+    title: "بین القوامی ہیکیاثون",
     description:
-      "دنیا بھر میں AI اور developer hackathons میں active participant اور team lead۔",
+      "قومی اور بین القوامی AI اور ڈویلپر ہیکیاثونز میں شرکت کنندہ اور ٹیم لیڈر، اور CodeSprint LA میں ٹاپ 25 میں مقام۔",
   },
   volunteer: {
     label: "کمیونٹی",
     title: "رضاکارانہ تجربہ",
-    description: "کلائنٹس اور ہیکیاثونز سے مزید آزادانہ تحقیق اور کمیونٹی کی شراکتیں۔",
+    description: "کلائنٹس اور ہیکیاثونز سے مزید تدریس، رہنمائی اور کمیونٹی کی شراکتیں۔",
   },
   certifications: {
     label: "تصدیق نامے",
-    title: "تصدیقات اور تربیت",
-    description: "پیشہ ورانہ ترقی، قیادت کی تربیت اور راستے میں حاصل کردہ تصدیق نامے۔",
+    title: "تربیت اور تصدیق نامے",
+    description: "پیشہ ورانہ ترقی، قیادت کی تربیت اور تصدیق نامے، جن میں سے ہر ایک کا تصدیق شدہ دستاویز سے لنک ہے۔",
   },
   contact: {
     label: "رابطہ",
     title: "آئیے کچھ Intelligent بنائیں",
     description:
-      "MERN Stack Developer opportunities، collaborations، اور AI-powered projects کے لیے open۔",
+      "فل اسٹیک اور AI انجینئرنگ کے مواقع، تعاون، اور AI-powered پروجیکٹس کے لیے open۔",
     aiPoweredContact: "AI-Powered Contact",
     getInTouch: "رابطہ کریں",
     intro:

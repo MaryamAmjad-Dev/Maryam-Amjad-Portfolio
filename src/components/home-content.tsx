@@ -3,24 +3,30 @@
 import { BackgroundSystem } from "@/components/animations";
 import {
   AboutSection,
+  AchievementsSection,
   CertificationsSection,
   ContactSection,
+  EducationSection,
   ExperienceSection,
   HackathonsSection,
   HeroSection,
   ProjectsSection,
-  SkillsSection,
   VolunteerSection,
 } from "@/components/sections";
 
+/**
+ * Page order: hero → About (introduction) → the seven main portfolio sections
+ * in sequence → contact.
+ */
 export function HomeContent() {
   return (
     <>
-      <BackgroundSystem showCursorGlow />
+      <BackgroundSystem />
       <div className="relative z-10">
         <HeroSection />
         <AboutSection />
-        <SkillsSection />
+        <AchievementsSection />
+        <EducationSection />
         <ExperienceSection />
         <ProjectsSection />
         <HackathonsSection />

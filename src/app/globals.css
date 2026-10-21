@@ -1,93 +1,118 @@
 @import "tailwindcss";
 
-/* ─── Design tokens — Premium AI SaaS palette ─── */
+/* ─── Design tokens — professional navy/slate palette ───
+   Contrast targets (WCAG AA, 4.5:1 body / 3:1 large):
+     dark  bg #0b1120 → heading 17:1, muted 12.7:1, muted-subtle 7.4:1, primary 8.8:1
+     light bg #f8fafc → heading 17:1, muted 7.6:1, muted-subtle 4.6:1, primary 5.7:1
+*/
 :root {
-  /* Backgrounds */
-  --bg-base: #020617;
-  --bg-elevated: #0f172a;
-  --bg-surface: #111827;
+  /* Backgrounds — deep navy slate */
+  --bg-base: #0b1120;
+  --bg-elevated: #131c31;
+  --bg-surface: #172033;
 
-  /* Brand colors */
+  /* Brand — one restrained blue accent + one complementary violet accent */
   --primary: #38bdf8;
   --secondary: #8b5cf6;
   --accent: #22d3ee;
-  --success: #10b981;
+  --success: #34d399;
   --danger: #f87171;
 
   /* Semantic text */
   --background: var(--bg-base);
   --foreground: #e2e8f0;
-  --heading: #f1f5f9;
-  --muted: #94a3b8;
-  --muted-subtle: #64748b;
+  --heading: #f8fafc;
+  --muted: #cbd5e1;
+  --muted-subtle: #94a3b8;
 
   /* Surfaces */
-  --card: rgba(255, 255, 255, 0.08);
-  --card-hover: rgba(255, 255, 255, 0.1);
-  --card-border: rgba(255, 255, 255, 0.12);
+  --card: rgba(255, 255, 255, 0.045);
+  --card-hover: rgba(255, 255, 255, 0.075);
+  --card-border: rgba(255, 255, 255, 0.1);
+  --shadow-card: 0 1px 2px rgba(2, 6, 23, 0.4), 0 12px 28px -16px rgba(2, 6, 23, 0.6);
 
-  /* Gradients */
+  /* Gradients — reserved for the primary CTA and name highlight only */
   --gradient-start: var(--primary);
   --gradient-mid: var(--secondary);
   --gradient-end: var(--accent);
 
-  /* Glows */
-  --glow-primary: rgba(56, 189, 248, 0.18);
-  --glow-secondary: rgba(139, 92, 246, 0.14);
-  --glow-accent: rgba(34, 211, 238, 0.12);
+  /* Glows — restrained; used only on the active nav pill and the primary CTA */
+  --glow-primary: rgba(56, 189, 248, 0.12);
+  --glow-secondary: rgba(139, 92, 246, 0.1);
+  --glow-accent: rgba(34, 211, 238, 0.08);
 
   /* Navigation */
-  --nav-bg: rgba(2, 6, 23, 0.72);
-  --nav-bg-scrolled: rgba(15, 23, 42, 0.9);
-  --nav-backdrop-from: rgba(2, 6, 23, 0.92);
-  --nav-backdrop-mid: rgba(15, 23, 42, 0.8);
-  --nav-mobile-bg: rgba(15, 23, 42, 0.95);
+  --nav-bg: rgba(11, 17, 32, 0.78);
+  --nav-bg-scrolled: rgba(11, 17, 32, 0.92);
+  --nav-shadow: 0 4px 24px rgba(2, 6, 23, 0.4);
+  --nav-shadow-scrolled: 0 8px 32px rgba(2, 6, 23, 0.5);
+  --nav-backdrop-from: rgba(11, 17, 32, 0.94);
+  --nav-backdrop-mid: rgba(19, 28, 49, 0.82);
+  --nav-mobile-bg: rgba(15, 23, 42, 0.97);
+
+  /* Aurora — deliberately faint so it never competes with content */
+  --aurora-primary: rgba(56, 189, 248, 0.2);
+  --aurora-secondary: rgba(139, 92, 246, 0.16);
+  --aurora-accent: rgba(34, 211, 238, 0.12);
+  --aurora-opacity: 0.55;
 }
 
 .dark {
-  --bg-base: #020617;
-  --bg-elevated: #0f172a;
-  --bg-surface: #111827;
+  --bg-base: #0b1120;
+  --bg-elevated: #131c31;
+  --bg-surface: #172033;
   --primary: #38bdf8;
   --secondary: #8b5cf6;
   --accent: #22d3ee;
-  --success: #10b981;
+  --success: #34d399;
   --danger: #f87171;
   --foreground: #e2e8f0;
-  --heading: #f1f5f9;
-  --muted: #94a3b8;
-  --muted-subtle: #64748b;
-  --card: rgba(255, 255, 255, 0.08);
-  --card-hover: rgba(255, 255, 255, 0.1);
-  --card-border: rgba(255, 255, 255, 0.12);
-  --nav-bg: rgba(2, 6, 23, 0.72);
-  --nav-bg-scrolled: rgba(15, 23, 42, 0.9);
-  --nav-backdrop-from: rgba(2, 6, 23, 0.92);
-  --nav-backdrop-mid: rgba(15, 23, 42, 0.8);
-  --nav-mobile-bg: rgba(15, 23, 42, 0.95);
+  --heading: #f8fafc;
+  --muted: #cbd5e1;
+  --muted-subtle: #94a3b8;
+  --card: rgba(255, 255, 255, 0.045);
+  --card-hover: rgba(255, 255, 255, 0.075);
+  --card-border: rgba(255, 255, 255, 0.1);
+  --shadow-card: 0 1px 2px rgba(2, 6, 23, 0.4), 0 12px 28px -16px rgba(2, 6, 23, 0.6);
+  --nav-bg: rgba(11, 17, 32, 0.78);
+  --nav-bg-scrolled: rgba(11, 17, 32, 0.92);
+  --nav-shadow: 0 4px 24px rgba(2, 6, 23, 0.4);
+  --nav-shadow-scrolled: 0 8px 32px rgba(2, 6, 23, 0.5);
+  --nav-backdrop-from: rgba(11, 17, 32, 0.94);
+  --nav-backdrop-mid: rgba(19, 28, 49, 0.82);
+  --nav-mobile-bg: rgba(15, 23, 42, 0.97);
+  --aurora-opacity: 0.55;
 }
 
 .light {
-  --bg-base: #f8fbff;
+  --bg-base: #f8fafc;
   --bg-elevated: #ffffff;
   --bg-surface: #f1f5f9;
-  --primary: #0ea5e9;
+  /* Deepened so white-on-accent and accent-on-white both clear WCAG AA */
+  --primary: #0369a1;
   --secondary: #7c3aed;
-  --accent: #0891b2;
-  --success: #059669;
-  --danger: #dc2626;
-  --foreground: #0f172a;
+  --accent: #0e7490;
+  --success: #047857;
+  --danger: #b91c1c;
+  --foreground: #1e293b;
   --heading: #0b1220;
   --muted: #475569;
-  --muted-subtle: #6b7280;
-  --card: rgba(255, 255, 255, 0.7);
+  --muted-subtle: #64748b;
+  --card: #ffffff;
   --card-hover: rgba(15, 23, 42, 0.04);
-  --card-border: rgba(15, 23, 42, 0.06);
+  --card-border: rgba(15, 23, 42, 0.1);
+  --shadow-card: 0 1px 2px rgba(15, 23, 42, 0.06), 0 12px 28px -18px rgba(15, 23, 42, 0.18);
   --nav-bg: rgba(255, 255, 255, 0.9);
-  --nav-bg-scrolled: rgba(255, 255, 255, 0.95);
-  --nav-backdrop-from: rgba(255, 255, 255, 0.92);
+  --nav-bg-scrolled: rgba(255, 255, 255, 0.96);
+  --nav-shadow: 0 4px 20px rgba(15, 23, 42, 0.08);
+  --nav-shadow-scrolled: 0 8px 28px rgba(15, 23, 42, 0.12);
+  --nav-backdrop-from: rgba(255, 255, 255, 0.94);
   --nav-backdrop-mid: rgba(241, 245, 249, 0.85);
-  --nav-mobile-bg: rgba(255, 255, 255, 0.95);
+  --nav-mobile-bg: rgba(255, 255, 255, 0.98);
+  --aurora-primary: rgba(2, 132, 199, 0.12);
+  --aurora-secondary: rgba(124, 58, 237, 0.1);
+  --aurora-accent: rgba(14, 116, 144, 0.08);
+  --aurora-opacity: 0.3;
 }
 
 @theme inline {
@@ -131,9 +156,8 @@ html.light {
 body {
   background-color: var(--bg-base);
   background-image:
-    radial-gradient(ellipse 90% 60% at 50% -30%, rgba(56, 189, 248, 0.07), transparent 55%),
-    radial-gradient(ellipse 50% 40% at 100% 0%, rgba(139, 92, 246, 0.05), transparent 50%),
-    radial-gradient(ellipse 40% 30% at 0% 100%, rgba(34, 211, 238, 0.04), transparent 50%);
+    radial-gradient(ellipse 90% 60% at 50% -30%, rgba(56, 189, 248, 0.06), transparent 55%),
+    radial-gradient(ellipse 50% 40% at 100% 0%, rgba(139, 92, 246, 0.04), transparent 50%);
   color: var(--foreground);
   overflow-x: hidden;
   transition: background-color 280ms ease, color 280ms ease, background-image 420ms ease;
@@ -141,7 +165,7 @@ body {
 
 ::selection {
   background: rgba(56, 189, 248, 0.28);
-  color: #fff;
+  color: var(--heading);
 }
 
 /* ─── Typography ─── */
@@ -149,7 +173,7 @@ body {
   color: var(--heading);
 }
 
-/* ─── Gradient text ─── */
+/* ─── Gradient text — name highlight only ─── */
 .gradient-text {
   background: linear-gradient(
     135deg,
@@ -165,28 +189,25 @@ body {
 /* ─── Glass surfaces ─── */
 .glass {
   background: var(--card);
-  backdrop-filter: blur(24px) saturate(180%);
-  -webkit-backdrop-filter: blur(24px) saturate(180%);
+  backdrop-filter: blur(24px) saturate(160%);
+  -webkit-backdrop-filter: blur(24px) saturate(160%);
   border: 1px solid var(--card-border);
 }
 
 .glass-strong {
   background: var(--card);
-  backdrop-filter: blur(32px) saturate(190%);
-  -webkit-backdrop-filter: blur(32px) saturate(190%);
+  backdrop-filter: blur(32px) saturate(170%);
+  -webkit-backdrop-filter: blur(32px) saturate(170%);
   border: 1px solid var(--card-border);
 }
 
-/* ─── Navigation — Vercel-style frosted glass ─── */
+/* ─── Navigation — frosted glass, no glow ─── */
 .nav-glass {
   background: var(--nav-bg);
   backdrop-filter: blur(40px) saturate(180%);
   -webkit-backdrop-filter: blur(40px) saturate(180%);
   border: 1px solid var(--card-border);
-  box-shadow:
-    0 4px 24px rgba(0, 0, 0, 0.35),
-    0 1px 0 rgba(255, 255, 255, 0.05) inset,
-    0 0 48px var(--glow-primary);
+  box-shadow: var(--nav-shadow);
   isolation: isolate;
 }
 
@@ -195,10 +216,7 @@ body {
   backdrop-filter: blur(48px) saturate(200%);
   -webkit-backdrop-filter: blur(48px) saturate(200%);
   border-color: var(--card-border);
-  box-shadow:
-    0 8px 32px rgba(0, 0, 0, 0.45),
-    0 1px 0 rgba(255, 255, 255, 0.07) inset,
-    0 0 64px var(--glow-secondary);
+  box-shadow: var(--nav-shadow-scrolled);
 }
 
 .nav-backdrop {
@@ -217,54 +235,97 @@ body {
   backdrop-filter: blur(48px) saturate(200%);
   -webkit-backdrop-filter: blur(48px) saturate(200%);
   border: 1px solid var(--card-border);
-  box-shadow:
-    0 12px 40px rgba(0, 0, 0, 0.5),
-    0 0 0 1px rgba(255, 255, 255, 0.04) inset;
+  box-shadow: var(--nav-shadow-scrolled);
 }
 
-/* ─── AI glow ─── */
+/* ─── Card elevation — professional, not neon ─── */
 .ai-glow {
-  box-shadow:
-    0 0 24px var(--glow-primary),
-    0 0 48px var(--glow-accent),
-    inset 0 1px 0 rgba(255, 255, 255, 0.06);
+  box-shadow: var(--shadow-card);
 }
 
 .ai-glow-hover:hover {
-  box-shadow:
-    0 0 32px var(--glow-primary),
-    0 0 64px var(--glow-secondary),
-    inset 0 1px 0 rgba(255, 255, 255, 0.09);
+  box-shadow: var(--shadow-card);
+  border-color: color-mix(in srgb, var(--primary) 32%, transparent);
 }
 
-/* ─── Buttons ─── */
+/* ─── Primary CTA gradient — the only full gradient surface ─── */
 .btn-gradient {
   /* Deepened so white label text clears WCAG AA (≈4.5:1) against every stop */
   background: linear-gradient(
     135deg,
-    #0284c7 0%,
-    #6d28d9 50%,
+    #0369a1 0%,
+    #6d28d9 52%,
     #0e7490 100%
   );
   color: #fff;
-  box-shadow:
-    0 4px 20px var(--glow-primary),
-    0 0 40px var(--glow-accent);
-  transition: all 0.3s ease;
+  box-shadow: 0 4px 16px rgba(3, 105, 161, 0.35);
+  transition: filter 0.25s ease, box-shadow 0.25s ease, transform 0.25s ease;
 }
 
 .btn-gradient:hover {
   filter: brightness(1.08);
-  box-shadow:
-    0 6px 28px var(--glow-primary),
-    0 0 56px var(--glow-secondary);
+  box-shadow: 0 6px 22px rgba(3, 105, 161, 0.45);
 }
 
+.btn-gradient:active {
+  filter: brightness(0.96);
+}
+
+/* ─── Aurora blobs — previously referenced but never defined ─── */
+.aurora-blob {
+  opacity: var(--aurora-opacity);
+  will-change: transform;
+}
+
+.aurora-blob-primary {
+  background: radial-gradient(circle, var(--aurora-primary), transparent 68%);
+  animation: aurora-drift 24s ease-in-out infinite;
+}
+
+.aurora-blob-secondary {
+  background: radial-gradient(circle, var(--aurora-secondary), transparent 68%);
+  animation: aurora-drift 32s ease-in-out infinite reverse;
+}
+
+.aurora-blob-accent {
+  background: radial-gradient(circle, var(--aurora-accent), transparent 68%);
+  animation: aurora-drift 40s ease-in-out infinite;
+}
+
+.aurora-blob-delayed {
+  animation-delay: -10s;
+}
+
+.aurora-blob-slow {
+  animation-duration: 48s;
+}
+
+@keyframes aurora-drift {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  33% {
+    transform: translate3d(28px, -36px, 0) scale(1.05);
+  }
+  66% {
+    transform: translate3d(-22px, 22px, 0) scale(0.96);
+  }
+}
+
+.light .aurora-blob {
+  filter: saturate(0.9);
+}
 
 /* ─── Floating animation ─── */
 @keyframes float {
-  0%, 100% { transform: translateY(0px); }
-  50% { transform: translateY(-10px); }
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
 }
 
 .float {
@@ -283,6 +344,12 @@ body {
   background-size: 64px 64px;
 }
 
+.light .grid-pattern {
+  background-image:
+    linear-gradient(rgba(15, 23, 42, 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(15, 23, 42, 0.035) 1px, transparent 1px);
+}
+
 .ai-grid {
   background-image:
     linear-gradient(rgba(56, 189, 248, 0.03) 1px, transparent 1px),
@@ -291,13 +358,10 @@ body {
   mask-image: radial-gradient(ellipse 80% 60% at 50% 40%, black, transparent);
 }
 
-/* ─── Card shine (tilt effect) ─── */
-.card-shine {
-  background: radial-gradient(
-    circle at var(--shine-x, 50%) var(--shine-y, 50%),
-    var(--glow-primary),
-    transparent 60%
-  );
+.light .ai-grid {
+  background-image:
+    linear-gradient(rgba(2, 132, 199, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(2, 132, 199, 0.05) 1px, transparent 1px);
 }
 
 /* ─── Dropdown scrollbar ─── */
@@ -319,9 +383,8 @@ body {
   background: linear-gradient(
     90deg,
     transparent,
-    rgba(56, 189, 248, 0.25),
-    rgba(139, 92, 246, 0.2),
-    rgba(34, 211, 238, 0.25),
+    rgba(56, 189, 248, 0.28),
+    rgba(139, 92, 246, 0.22),
     transparent
   );
   height: 1px;
@@ -334,7 +397,7 @@ body {
 
 /* ─── Scrollbar ─── */
 ::-webkit-scrollbar {
-  width: 6px;
+  width: 8px;
 }
 
 ::-webkit-scrollbar-track {
@@ -342,18 +405,23 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: rgba(56, 189, 248, 0.35);
-  border-radius: 3px;
+  background: color-mix(in srgb, var(--primary) 40%, transparent);
+  border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(56, 189, 248, 0.5);
+  background: color-mix(in srgb, var(--primary) 60%, transparent);
 }
 
 /* ─── Animated gradient shimmer ─── */
 @keyframes gradient-shift {
-  0%, 100% { background-position: 0% center; }
-  50% { background-position: 100% center; }
+  0%,
+  100% {
+    background-position: 0% center;
+  }
+  50% {
+    background-position: 100% center;
+  }
 }
 
 .animate-gradient {
@@ -369,7 +437,10 @@ body {
 @media (prefers-reduced-motion: reduce) {
   .animate-gradient,
   .float,
-  .float-delayed {
+  .float-delayed,
+  .aurora-blob-primary,
+  .aurora-blob-secondary,
+  .aurora-blob-accent {
     animation: none;
   }
 
@@ -378,8 +449,16 @@ body {
   }
 }
 
-/* ─── Focus ─── */
+/* ─── Focus — visible ring on every interactive element ─── */
 :focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* Ensure anchor-wrapped icon buttons never lose their ring to overflow */
+a:focus-visible,
+button:focus-visible {
   outline: 2px solid var(--primary);
   outline-offset: 2px;
 }

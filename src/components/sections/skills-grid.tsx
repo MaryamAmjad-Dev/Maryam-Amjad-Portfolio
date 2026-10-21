@@ -11,29 +11,31 @@ import {
   Wrench,
 } from "lucide-react";
 import { staggerContainer, staggerItem } from "@/components/animations";
-import { Section, TiltCard } from "@/components/ui";
+import { TiltCard } from "@/components/ui";
 import { portfolioData } from "@/data";
 import { useLanguage } from "@/hooks";
 import type { SkillCategory } from "@/types";
 
 const CATEGORY_ICONS: Record<string, React.ElementType> = {
-  "MERN Stack Development": Layers,
-  "Frontend Development": Code2,
-  "Backend Development": Database,
-  "AI & Data Tools": Brain,
-  "Programming Languages": Terminal,
-  "Developer Tools": Wrench,
-  "Collaboration Tools": Users,
+  Languages: Terminal,
+  Frontend: Code2,
+  "Backend & Databases": Database,
+  AI: Brain,
+  "Quality & Usability": Layers,
+  Deployment: Wrench,
+  Tools: Wrench,
+  "Soft Skills": Users,
 };
 
 const CATEGORY_GRADIENTS: Record<string, string> = {
-  "MERN Stack Development": "from-primary/18 to-secondary/10",
-  "Frontend Development": "from-primary/15 to-accent/8",
-  "Backend Development": "from-success/15 to-primary/8",
-  "AI & Data Tools": "from-secondary/15 to-primary/8",
-  "Programming Languages": "from-accent/12 to-primary/8",
-  "Developer Tools": "from-accent/12 to-secondary/8",
-  "Collaboration Tools": "from-primary/12 to-success/8",
+  Languages: "from-accent/12 to-primary/8",
+  Frontend: "from-primary/15 to-accent/8",
+  "Backend & Databases": "from-success/15 to-primary/8",
+  AI: "from-secondary/15 to-primary/8",
+  "Quality & Usability": "from-primary/18 to-secondary/10",
+  Deployment: "from-accent/12 to-secondary/8",
+  Tools: "from-primary/12 to-success/8",
+  "Soft Skills": "from-secondary/12 to-accent/8",
 };
 
 function SkillCategoryCard({ category }: { category: SkillCategory }) {
@@ -82,28 +84,26 @@ function SkillCategoryCard({ category }: { category: SkillCategory }) {
   );
 }
 
-export function SkillsSection() {
-  const { t } = useLanguage();
-
+/**
+ * Skills dashboard grid.
+ *
+ * Rendered inside the About section rather than as its own section: the main
+ * portfolio content follows the seven-section order (Achievements → Training
+ * and Certificates), so the technology breakdown lives with the introduction
+ * instead of taking a slot in that sequence.
+ */
+export function SkillsGrid() {
   return (
-    <Section
-      id="skills"
-      label={t("skills.label")}
-      title={t("skills.title")}
-      description={t("skills.description")}
-      className="relative"
+    <motion.div
+      className="grid gap-4 sm:grid-cols-2 sm:gap-5 lg:grid-cols-3"
+      variants={staggerContainer}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, margin: "-80px" }}
     >
-      <motion.div
-        className="grid gap-4 sm:grid-cols-2 sm:gap-5"
-        variants={staggerContainer}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, margin: "-80px" }}
-      >
-        {portfolioData.skills.map((category) => (
-          <SkillCategoryCard key={category.id} category={category} />
-        ))}
-      </motion.div>
-    </Section>
+      {portfolioData.skills.map((category) => (
+        <SkillCategoryCard key={category.id} category={category} />
+      ))}
+    </motion.div>
   );
 }

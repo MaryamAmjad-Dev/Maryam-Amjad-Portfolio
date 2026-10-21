@@ -12,7 +12,8 @@ export const esOverrides: TranslationOverrides = {
   nav: {
     home: "Inicio",
     about: "Acerca",
-    skills: "Habilidades",
+    achievements: "Logros",
+    education: "Educación",
     experience: "Experiencia",
     projects: "Proyectos",
     hackathons: "Hackathons",
@@ -28,6 +29,8 @@ export const esOverrides: TranslationOverrides = {
     availability: "Disponible para oportunidades",
     hireMe: "Contrátame",
     downloadResume: "Descargar CV",
+    viewProjects: "Ver proyectos",
+    contactMe: "Contactarme",
     github: "GitHub",
     linkedin: "LinkedIn",
     stats: {
@@ -36,21 +39,32 @@ export const esOverrides: TranslationOverrides = {
       aiTools: "Herramientas IA",
     },
     roles: [
-      "Desarrolladora MERN Stack",
-      "Desarrolladora Next.js",
-      "Apasionada por IA, automatización y agentes inteligentes",
+      "Desarrolladora Full-Stack",
+      "Formadora",
+      "Ponente invitada",
+      "Moderadora",
     ],
   },
   about: {
     label: "Acerca",
-    title: "Donde el desarrollo MERN Stack se encuentra con sistemas inteligentes",
+    title: "Ingeniería de IA, educación y liderazgo comunitario",
     description:
-      "Experiencia en SaaS de producción, especialización en automatización IA y liderazgo en hackathons — una instantánea para reclutadores y colaboradores.",
-    education: "Educación",
-    achievementHighlights: "Logros destacados",
-    cgpa: "Promedio",
+      "Construyo aplicaciones impulsadas por IA, comparto conocimientos técnicos y ayudo a otros a crecer mediante la enseñanza y la participación comunitaria.",
     summary:
-      "Desarrolladora MERN Stack apasionada por construir aplicaciones full-stack escalables y de alto rendimiento con MongoDB, Express.js, React.js, Next.js, Node.js, TypeScript y Tailwind CSS.\n\nImpulsada por la curiosidad hacia sistemas inteligentes, exploro y construyo soluciones de IA con automatización, flujos de trabajo agentic, APIs de modelos de lenguaje y conceptos de aprendizaje automático.\n\nMi experiencia incluye contribuciones a productos SaaS reales, desarrollo frontend y backend, integración de APIs y entrega de aplicaciones web listas para producción.",
+      "Graduada en Tecnologia de la Informacion por la Government College University Faisalabad, con experiencia construyendo aplicaciones web full-stack y soluciones impulsadas por IA.\n\nActualmente soy Section Leader de Code in Place X de la Universidad de Stanford. Tambien contribuyo a la comunidad tecnica como formadora, ponente invitada y moderadora de webinars, asi como instructora voluntaria.\n\nMis proyectos abarcan el desarrollo de aplicaciones de IA, la verificacion multilingue basada en la voz y sistemas de IA optimizados en costes. He participado en hackathons nacionales e internacionales, liderado equipos y colaborado con comunidades tecnicas para construir soluciones practicas.",
+  },
+  achievements: {
+    label: "Logros",
+    title: "Logros y reconocimientos",
+    description:
+      "Resultados verificados en competiciones, hitos de liderazgo y reconocimiento de programas nacionales e internacionales.",
+  },
+  education: {
+    label: "Educación",
+    title: "Educación",
+    description: "Titrulación, rendimiento académico y cursos relacionados con el trabajo.",
+    cgpa: "Promedio",
+    coursework: "Cursos",
   },
   skills: {
     label: "Habilidades",
@@ -61,44 +75,46 @@ export const esOverrides: TranslationOverrides = {
   },
   experience: {
     label: "Experiencia",
-    title: "Trayectoria profesional",
+    title: "Experiencia profesional",
     description:
-      "Experiencia real construyendo productos SaaS, integrando APIs y entregando funciones en producción.",
+      "Prácticas y trabajo por roles en productos de producción, simulaciones virtuales y proyectos de consultoría.",
+    simulation: "Simulacion virtual",
+    certificate: "Certificado",
   },
   projects: {
     label: "Proyectos",
-    title: "Portafolio de proyectos",
+    title: "Proyectos académicos",
     description:
-      "Plataformas SaaS impulsadas por IA, middleware de seguridad y aplicaciones web de producción.",
+      "Proyectos de fin de grado, académicos y de hackathons en aplicaciones de IA, automatización e ingeniería full-stack.",
     featured: "Destacado",
     problem: "Problema",
     solution: "Solución",
-    github: "GitHub",
+    github: "Ver repositorio",
     liveDemo: "Demo en vivo",
   },
   hackathons: {
     label: "Hackathons",
-    title: "Competencia e innovación",
+    title: "Hackathons internacionales",
     description:
-      "Participante activa y líder de equipo en hackathons de IA y desarrollo a nivel mundial.",
+      "Participante y líder de equipo en hackathons de IA y desarrollo nacionales e internacionales, con un puesto entre los 25 primeros en CodeSprint LA.",
   },
   volunteer: {
     label: "Comunidad",
     title: "Experiencia de voluntariado",
     description:
-      "Investigación independiente y contribuciones a la comunidad más allá del trabajo con clientes y hackathons.",
+      "Enseñanza, mentoría y contribuciones a la comunidad más allá del trabajo con clientes y hackathons.",
   },
   certifications: {
     label: "Credenciales",
-    title: "Certificaciones y formación",
+    title: "Formación y certificados",
     description:
-      "Desarrollo profesional, formación en liderazgo y certificados obtenidos en el camino.",
+      "Desarrollo profesional, formación en liderazgo y certificados, cada uno enlazado a su documento verificado.",
   },
   contact: {
     label: "Contacto",
     title: "Construyamos algo inteligente",
     description:
-      "Abierta a oportunidades como desarrolladora MERN Stack, colaboraciones y proyectos impulsados por IA.",
+      "Abierta a oportunidades de ingeniería full-stack e IA, colaboraciones y proyectos impulsados por IA.",
     aiPoweredContact: "Contacto impulsado por IA",
     getInTouch: "Contactarme",
     intro:

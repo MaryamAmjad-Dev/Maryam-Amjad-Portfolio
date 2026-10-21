@@ -1,9 +1,9 @@
 "use client";
 
-import { Briefcase } from "lucide-react";
+import { Briefcase, ExternalLink } from "lucide-react";
 import { motion } from "framer-motion";
 import { FadeIn } from "@/components/animations";
-import { Badge, Section, TiltCard } from "@/components/ui";
+import { Badge, Button, Section, TiltCard } from "@/components/ui";
 import { portfolioData } from "@/data";
 import { useLanguage } from "@/hooks";
 import { formatDateRange } from "@/utils";
@@ -42,14 +42,24 @@ export function ExperienceSection() {
                   <span className="h-2 w-2 rounded-full bg-primary" />
                 </motion.div>
 
-                <TiltCard intensity={6}>
+                {/* `interactive` keeps the certificate button stationary. */}
+                <TiltCard intensity={6} interactive>
                   <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
                     <div className="flex min-w-0 gap-4">
                       <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl border border-primary/20 bg-primary/10 text-primary">
                         <Briefcase size={20} aria-hidden="true" />
                       </div>
                       <div className="min-w-0">
-                        <h3 className="text-heading text-lg font-semibold">{exp.role}</h3>
+                        <div className="flex flex-wrap items-center gap-2">
+                          <h3 className="text-heading text-lg font-semibold">
+                            {exp.role}
+                          </h3>
+                          {exp.simulation && (
+                            <Badge variant="outline">
+                              {t("experience.simulation")}
+                            </Badge>
+                          )}
+                        </div>
                         <p className="text-primary">{exp.company}</p>
                         {exp.location && (
                           <p className="mt-1 text-sm text-muted-subtle">{exp.location}</p>
@@ -88,6 +98,21 @@ export function ExperienceSection() {
                       </Badge>
                     ))}
                   </div>
+
+                  {exp.certificateUrl && (
+                    <div className="mt-4">
+                      <Button
+                        href={exp.certificateUrl}
+                        variant="ghost"
+                        size="sm"
+                        external
+                        className="cursor-pointer transition-transform hover:scale-105"
+                      >
+                        <ExternalLink size={14} aria-hidden="true" />
+                        {t("experience.certificate")}
+                      </Button>
+                    </div>
+                  )}
                 </TiltCard>
               </div>
             </FadeIn>

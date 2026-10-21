@@ -22,6 +22,8 @@ export function mergeTranslations(
       tagline: overrides.hero?.tagline ?? base.hero.tagline,
     },
     about: { ...base.about, ...overrides.about },
+    achievements: { ...base.achievements, ...overrides.achievements },
+    education: { ...base.education, ...overrides.education },
     skills: { ...base.skills, ...overrides.skills },
     experience: { ...base.experience, ...overrides.experience },
     projects: { ...base.projects, ...overrides.projects },

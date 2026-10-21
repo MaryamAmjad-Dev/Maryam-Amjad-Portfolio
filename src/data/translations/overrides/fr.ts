@@ -12,7 +12,8 @@ export const frOverrides: TranslationOverrides = {
   nav: {
     home: "Accueil",
     about: "À propos",
-    skills: "Compétences",
+    achievements: "Réalisations",
+    education: "Formation",
     experience: "Expérience",
     projects: "Projets",
     hackathons: "Hackathons",
@@ -28,25 +29,33 @@ export const frOverrides: TranslationOverrides = {
     availability: "Disponible pour de nouvelles opportunités",
     hireMe: "M'embaucher",
     downloadResume: "Télécharger le CV",
+    viewProjects: "Voir les projets",
+    contactMe: "Me contacter",
     github: "GitHub",
     linkedin: "LinkedIn",
     stats: { projects: "Projets", hackathons: "Hackathons", aiTools: "Outils IA" },
-    roles: [
-      "Développeuse MERN Stack",
-      "Développeuse Next.js",
-      "Passionnée d'IA Automation & Agentic AI",
-    ],
+    roles: ["Developpeuse Full-Stack", "Formatrice", "Conferenciere invitante", "Moderatrice"],
   },
   about: {
     label: "À propos",
-    title: "Là où l'art MERN Stack rencontre les systèmes intelligents",
+    title: "Ingénierie IA, éducation et leadership communautaire",
     description:
-      "Expérience SaaS en production, expertise en automatisation IA et leadership en hackathons — un aperçu pour recruteurs et collaborateurs.",
-    education: "Formation",
-    achievementHighlights: "Points forts",
-    cgpa: "Moyenne",
+      "Concevoir des applications propulsées par l'IA, partager des connaissances techniques et aider les autres à progresser grâce à l'enseignement et à l'engagement communautaire.",
     summary:
-      "Développeuse MERN Stack passionnée par la création d'applications full-stack évolutives et performantes avec MongoDB, Express.js, React.js, Next.js, Node.js, TypeScript et Tailwind CSS.\n\nAnimée par la curiosité pour les systèmes intelligents, j'explore et construis des solutions IA avec AI Automation, Agentic AI workflows, LLM APIs, Gemini API, Groq API et des concepts de Machine Learning.\n\nMon expérience inclut des contributions à des produits SaaS réels, le développement frontend et backend, l'intégration d'APIs et la livraison d'applications web prêtes pour la production.\n\nAu-delà de l'ingénierie, je participe activement aux hackathons IA et Web en tant que contributrice et team lead, transformant des idées en solutions digitales impactantes.",
+      "Diplomee en Technologies de l Information de la Government College University Faisalabad, avec de l experience dans la construction d applications web full-stack et de solutions propulsees par l IA.\n\nJe suis actuellement Section Leader pour Code in Place X de l Universite de Stanford. Je contribue aussi a la communaute technologique en tant que formatrice, conferenciere invitante et moderatrice de webinaires, ainsi qu enseignante benevole.\n\nMes projets couvrent le developpement d applications IA, la verification multilingue basee sur la voix et les systemes IA optimises en couts. J ai participe a des hackathons nationaux et internationaux, dirige des equipes et collabore avec des communautes technologiques pour construire des solutions concretes.",
+  },
+  achievements: {
+    label: "Réalisations",
+    title: "Réalisations et distinctions",
+    description:
+      "Résultats de compétitions vérifiés, étapes de leadership et reconnaissance de programmes nationaux et internationaux.",
+  },
+  education: {
+    label: "Formation",
+    title: "Formation",
+    description: "Diplôme, parcours académique et cours à l'origine du travail.",
+    cgpa: "Moyenne",
+    coursework: "Cours suivis",
   },
   skills: {
     label: "Compétences",
@@ -57,44 +66,46 @@ export const frOverrides: TranslationOverrides = {
   },
   experience: {
     label: "Expérience",
-    title: "Parcours professionnel",
+    title: "Expérience professionnelle",
     description:
-      "Expérience concrète dans la construction de produits SaaS, l'intégration d'APIs et la livraison de fonctionnalités en production.",
+      "Stages et missions sur des produits en production, des simulations virtuelles et des projets de conseil.",
+    simulation: "Simulation virtuelle",
+    certificate: "Certificat",
   },
   projects: {
     label: "Projets",
-    title: "Vitrine de projets",
+    title: "Projets académiques",
     description:
-      "Plateformes SaaS IA, middleware de sécurité et applications web de production.",
+      "Projets de fin d'études, académiques et de hackathons en applications IA, automatisation et ingénierie full-stack.",
     featured: "En vedette",
     problem: "Problème",
     solution: "Solution",
-    github: "GitHub",
+    github: "Voir le dépôt",
     liveDemo: "Démo live",
   },
   hackathons: {
     label: "Hackathons",
-    title: "Compétition & Innovation",
+    title: "Hackathons internationaux",
     description:
-      "Participante active et team lead dans des hackathons IA et développeurs à l'international.",
+      "Participante et team lead dans des hackathons IA et développeurs nationaux et internationaux, avec un top 25 à CodeSprint LA.",
   },
   volunteer: {
     label: "Communauté",
     title: "Expérience bénévole",
     description:
-      "Recherche indépendante et contributions communautaires au-delà des missions clients et hackathons.",
+      "Enseignement, mentorat et contributions communautaires au-delà des missions clients et hackathons.",
   },
   certifications: {
     label: "Diplômes",
-    title: "Certifications et formations",
+    title: "Formations et certificats",
     description:
-      "Développement professionnel, formation au leadership et certifications obtenues au fil du parcours.",
+      "Développement professionnel, formation au leadership et certifications, chacune liée à son document vérifié.",
   },
   contact: {
     label: "Contact",
     title: "Construisons quelque chose d'intelligent",
     description:
-      "Ouverte aux opportunités MERN Stack Developer, collaborations et projets propulsés par l'IA.",
+      "Ouverte aux opportunités en ingénierie full-stack et IA, aux collaborations et aux projets propulsés par l'IA.",
     aiPoweredContact: "Contact propulsé par l'IA",
     getInTouch: "Me contacter",
     intro:
