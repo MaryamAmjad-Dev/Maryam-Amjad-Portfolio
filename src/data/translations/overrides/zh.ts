@@ -93,7 +93,7 @@ export const zhOverrides: TranslationOverrides = {
   },
   projects: {
     label: "项目",
-    title: "学术项目",
+    title: "学术与黑客松项目",
     description: "涵盖 AI 应用、自动化与全栈工程的毕业设计、学术与黑客松项目。",
     featured: "精选",
     teamProject: "团队项目",

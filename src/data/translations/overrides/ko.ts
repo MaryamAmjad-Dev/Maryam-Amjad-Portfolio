@@ -101,7 +101,7 @@ export const koOverrides: TranslationOverrides = {
   },
   projects: {
     label: "프로젝트",
-    title: "학술 프로젝트",
+    title: "학술 및 해커톤 프로젝트",
     description:
       "AI 애플리케이션, 자동화, 풀스택 엔지니어링에 걸친 졸업 프로젝트와 학술·해커톤 프로젝트.",
     featured: "추천",

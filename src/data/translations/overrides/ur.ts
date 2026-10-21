@@ -101,7 +101,7 @@ export const urOverrides: TranslationOverrides = {
   },
   projects: {
     label: "پروجیکٹس",
-    title: "تعلیمی پروجیکٹس",
+    title: "تعلیمی اور ہیکیاثون پروجیکٹس",
     description:
       "AI ایپلیکیشنز، خودکار کارروائی اور فل اسٹیک انجینئرنگ میں فرسٹ ایئر، تعلیمی اور ہیکیاثون پروجیکٹس۔",
     featured: "Featured",

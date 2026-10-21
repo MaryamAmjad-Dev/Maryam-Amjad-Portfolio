@@ -134,7 +134,7 @@ export const enDictionary: TranslationDictionary = {
   },
   projects: {
     label: "Projects",
-    title: "Academic Projects",
+    title: "Academic and Hackathon Projects",
     description:
       "Final-year, academic, and hackathon projects spanning AI applications, automation, and full-stack engineering.",
     featured: "Featured",

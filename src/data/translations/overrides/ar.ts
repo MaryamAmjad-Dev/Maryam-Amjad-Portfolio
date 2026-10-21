@@ -102,7 +102,7 @@ export const arOverrides: TranslationOverrides = {
   },
   projects: {
     label: "المشاريع",
-    title: "المشاريع الأكاديمية",
+    title: "المشاريع الأكاديمية والهاكاثونات",
     description:
       "مشاريع التخرج والدراسة والهاكاثون في تطبيقات الذكاء الاصطناعي والأتمتة والهندسة المتكاملة.",
     featured: "مميز",

@@ -106,7 +106,7 @@ export const deOverrides: TranslationOverrides = {
   },
   projects: {
     label: "Projekte",
-    title: "Akademische Projekte",
+    title: "Akademische und Hackathon-Projekte",
     description:
       "Abschluss-, akademische und Hackathon-Projekte aus KI-Anwendungen, Automatisierung und Full-Stack-Engineering.",
     featured: "Featured",

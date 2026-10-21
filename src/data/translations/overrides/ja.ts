@@ -97,7 +97,7 @@ export const jaOverrides: TranslationOverrides = {
   },
   projects: {
     label: "プロジェクト",
-    title: "学術プロジェクト",
+    title: "学術およびハッカソンプロジェクト",
     description:
       "AI アプリケーション、自動化、フルスタックエンジニアリングにわたる卒業制作・学術・ハッカソンの各プロジェクト。",
     featured: "Featured",
