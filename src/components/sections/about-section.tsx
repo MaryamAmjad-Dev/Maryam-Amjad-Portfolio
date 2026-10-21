@@ -26,6 +26,11 @@ export function AboutSection() {
       label={t("about.label")}
       title={t("about.title")}
       description={t("about.description")}
+      /* The About content opens with three body paragraphs, not a card grid,
+         so the default 64px header margin reads as a hole under the two-line
+         description. 32px keeps the description attached to the copy it
+         introduces. */
+      headerClassName="mb-8"
     >
       <div className="space-y-10">
         <FadeIn>
