@@ -31,7 +31,7 @@ export const esOverrides: TranslationOverrides = {
       "Construyo aplicaciones web escalables e impulsadas con IA usando tecnología full-stack moderna.",
     headline:
       "SL @ Stanford Code in Place X • Formadora • Ponente invitada • Moderadora",
-    primaryRole: "Próxima estudiante de máster",
+    primaryRole: "Próxima candidata a máster",
     profileCardRole: "SL @ Stanford Code in Place X",
     badges: [
       "Egresada del programa Aspire Leaders",

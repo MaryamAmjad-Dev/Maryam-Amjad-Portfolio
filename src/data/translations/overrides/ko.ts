@@ -30,7 +30,7 @@ export const koOverrides: TranslationOverrides = {
     tagline:
       "최신 풀스택 기술로 확장 가능하고 AI를 활용한 웹 애플리케이션을 만듭니다.",
     headline: "SL @ Stanford Code in Place X • 트레이너 • 게스트 연사 • 사회자",
-    primaryRole: "대학원 진학 준비생",
+    primaryRole: "대학원 진학 후보자",
     profileCardRole: "SL @ Stanford Code in Place X",
     badges: ["Aspire Leaders 수료생", "해커톤 8회 참여", "팀 3회 리드"],
     hireMe: "채용하기",

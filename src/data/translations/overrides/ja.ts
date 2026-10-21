@@ -31,7 +31,7 @@ export const jaOverrides: TranslationOverrides = {
       "最新のフルスタック技術で、スケーラブルな AI 搭載 Web アプリケーションを構築します。",
     headline:
       "SL @ Stanford Code in Place X • トレーナー • ゲスト講演者 • モデレーター",
-    primaryRole: "大学院進学を目指す学生",
+    primaryRole: "大学院進学を目指す候補者",
     profileCardRole: "SL @ Stanford Code in Place X",
     badges: ["Aspire Leaders 修了生", "ハッカソン 8 回参加", "チーム 3 回率いた"],
     hireMe: "採用する",

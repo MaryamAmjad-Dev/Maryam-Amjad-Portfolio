@@ -30,7 +30,7 @@ export const urOverrides: TranslationOverrides = {
     tagline:
       "جدید فل اسٹیک ٹیکنالوجی کے ساتھ پائیدار اور AI سے چلنے والی ویب ایپلیکیشنز بنانا۔",
     headline: "SL @ Stanford Code in Place X • ٹرینر • گیسٹ اسپیکر • ماڈریٹر",
-    primaryRole: "گریجویٹ اسکول کی طالبہ",
+    primaryRole: "گریجویٹ اسکول کی مرشحہ",
     profileCardRole: "SL @ Stanford Code in Place X",
     badges: [
       "Aspire Leaders کی پرانی طالبہ",

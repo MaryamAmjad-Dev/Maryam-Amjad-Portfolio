@@ -30,7 +30,7 @@ export const arOverrides: TranslationOverrides = {
     tagline:
       "أبني تطبيقات ويب قابلة للتوسع وممكّنة بالذكاء الاصطناعي باستخدام تقنيات حديثة للواجهة الأمامية والخلفية.",
     headline: "SL @ Stanford Code in Place X • مدرِّبة • محاضِرة ضيفة • منظِّمة",
-    primaryRole: "طالبة دراسات عليا متوقعة",
+    primaryRole: "مرشحة دراسات عليا متوقعة",
     profileCardRole: "SL @ Stanford Code in Place X",
     badges: ["خريجة برنامج Aspire Leaders", "8 هاكاثونات", "3 فرق قدتها"],
     hireMe: "وظّفني",

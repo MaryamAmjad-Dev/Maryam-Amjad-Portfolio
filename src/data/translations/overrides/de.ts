@@ -30,7 +30,7 @@ export const deOverrides: TranslationOverrides = {
     tagline:
       "Ich baue skalierbare, KI-gestützte Webanwendungen mit moderner Full-Stack-Technologie.",
     headline: "SL @ Stanford Code in Place X • Trainerin • Gastrednerin • Moderatorin",
-    primaryRole: "Zukünftige Masterstudentin",
+    primaryRole: "Zukünftige Masterkandidatin",
     profileCardRole: "SL @ Stanford Code in Place X",
     badges: ["Alumna des Aspire Leaders Programms", "8x Hackathon", "3 Teams geleitet"],
     hireMe: "Einstellen",

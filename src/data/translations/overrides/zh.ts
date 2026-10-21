@@ -29,7 +29,7 @@ export const zhOverrides: TranslationOverrides = {
     availability: "开放机会中",
     tagline: "使用现代全栈技术，构建可扩展的 AI 驱动 Web 应用。",
     headline: "SL @ Stanford Code in Place X • 培训师 • 客座演讲人 • 主持人",
-    primaryRole: "拟申请研究生",
+    primaryRole: "拟申请研究生候选人",
     profileCardRole: "SL @ Stanford Code in Place X",
     badges: ["Aspire Leaders 校友", "参加 8 次黑客松", "带领 3 支团队"],
     hireMe: "雇佣我",

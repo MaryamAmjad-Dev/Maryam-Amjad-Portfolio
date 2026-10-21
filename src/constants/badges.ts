@@ -19,11 +19,11 @@ export const PROFESSIONAL_BADGES = [
 /**
  * Primary identity shown directly beneath the name.
  *
- * "Prospective Graduate Student" is the current standing; the Stanford
+ * "Prospective Graduate Candidate" is the current standing; the Stanford
  * Section Leader role is carried by the page headline and the profile card
  * rather than repeated here, so no credential is printed twice in one viewport.
  */
-export const PRIMARY_ROLE = "Prospective Graduate Student";
+export const PRIMARY_ROLE = "Prospective Graduate Candidate";
 
 /**
  * Headline shown in the right-hand hero profile card, the About badge and the
