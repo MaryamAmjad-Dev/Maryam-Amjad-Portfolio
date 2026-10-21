@@ -22,11 +22,21 @@ export function mergeTranslations(
       tagline: overrides.hero?.tagline ?? base.hero.tagline,
     },
     about: { ...base.about, ...overrides.about },
-    achievements: { ...base.achievements, ...overrides.achievements },
+    achievements: {
+      ...base.achievements,
+      ...overrides.achievements,
+      // Per-card copy is merged, not replaced, so a locale only has to supply
+      // the cards it actually translates.
+      cards: { ...base.achievements.cards, ...overrides.achievements?.cards },
+    },
     education: { ...base.education, ...overrides.education },
     skills: { ...base.skills, ...overrides.skills },
     experience: { ...base.experience, ...overrides.experience },
-    projects: { ...base.projects, ...overrides.projects },
+    projects: {
+      ...base.projects,
+      ...overrides.projects,
+      items: { ...base.projects.items, ...overrides.projects?.items },
+    },
     hackathons: { ...base.hackathons, ...overrides.hackathons },
     volunteer: { ...base.volunteer, ...overrides.volunteer },
     certifications: { ...base.certifications, ...overrides.certifications },

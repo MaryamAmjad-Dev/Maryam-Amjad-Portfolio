@@ -13,6 +13,13 @@ function getGithubUrl(project: Project): string | undefined {
   return project.githubUrl || project.repoUrl || undefined;
 }
 
+/**
+ * Every card renders the same blocks in the same order — icon and name,
+ * badges, one-paragraph overview, key contribution, technology tags, then the
+ * action row. Descriptions are held to a similar length in the data layer, and
+ * the action row is pushed down with `mt-auto` rather than a fixed card height,
+ * so the buttons line up across a row without clipping long text on mobile.
+ */
 function ProjectCard({
   project,
   labels,
@@ -22,91 +29,50 @@ function ProjectCard({
     featured: string;
     teamProject: string;
     myRole: string;
-    problem: string;
-    solution: string;
     github: string;
     liveDemo: string;
   };
 }) {
+  const { dictionary } = useLanguage();
+  const item = dictionary.projects.items[project.id];
+  const description = item?.description ?? project.description;
+  const role = item?.role ?? project.role;
   const githubUrl = getGithubUrl(project);
 
   return (
     <motion.div variants={staggerItem} className="h-full">
-      <TiltCard className="h-full" intensity={10} interactive>
+      <TiltCard className="h-full" intensity={6} interactive>
         <div className="flex h-full flex-col">
-          <div className="mb-4 flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
+          <div className="mb-4 flex items-start gap-3">
+            <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl border border-primary/20 bg-primary/10 text-primary">
+              <Sparkles size={20} aria-hidden="true" />
+            </div>
             <div className="min-w-0 flex-1">
-              <div className="mb-2 flex h-11 w-11 items-center justify-center rounded-xl border border-primary/20 bg-primary/10 text-primary">
-                <Sparkles size={20} aria-hidden="true" />
-              </div>
               <h3 className="text-xl font-semibold tracking-tight text-heading">
                 {project.title}
               </h3>
             </div>
-            <div className="flex flex-wrap items-start justify-start gap-2 sm:justify-end">
+            <div className="flex shrink-0 flex-wrap items-start justify-end gap-2">
               {project.featured && <Badge variant="accent">{labels.featured}</Badge>}
               {project.teamProject && (
                 <Badge variant="outline">{labels.teamProject}</Badge>
               )}
-              {githubUrl && (
-                <a
-                  href={githubUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label={`${project.title} on GitHub`}
-                  className="flex h-10 w-10 cursor-pointer items-center justify-center rounded-full border border-card-border bg-card text-muted transition-all duration-300 hover:scale-110 hover:border-primary/40 hover:bg-primary/10 hover:text-primary"
-                >
-                  <GitHubIcon size={16} />
-                </a>
-              )}
             </div>
           </div>
 
-          <p className="text-sm leading-relaxed text-muted">{project.description}</p>
+          <p className="text-sm leading-relaxed text-muted">{description}</p>
 
-          {project.role && (
-            <div className="mt-4 flex items-start gap-2.5 rounded-xl border border-primary/20 bg-primary/10 px-4 py-3">
+          {role && (
+            <div className="mt-4 flex items-start gap-2.5">
               <UserRound
                 size={15}
                 className="mt-0.5 shrink-0 text-primary"
                 aria-hidden="true"
               />
-              <div>
-                <p className="text-[10px] font-semibold uppercase tracking-widest text-primary/80">
-                  {labels.myRole}
-                </p>
-                <p className="mt-1 text-sm leading-relaxed text-foreground">
-                  {project.role}
-                </p>
-              </div>
-            </div>
-          )}
-
-          {(project.problem || project.solution) && (
-            <div className="mt-5 space-y-3 rounded-xl border border-card-border bg-card p-4">
-              {project.problem && (
-                <div>
-                  <p className="text-[10px] font-semibold uppercase tracking-widest text-muted-subtle">
-                    {labels.problem}
-                  </p>
-                  <p className="mt-1.5 text-sm leading-relaxed text-foreground">
-                    {project.problem}
-                  </p>
-                </div>
-              )}
-              {project.problem && project.solution && (
-                <div className="h-px bg-card-border" />
-              )}
-              {project.solution && (
-                <div>
-                  <p className="text-[10px] font-semibold uppercase tracking-widest text-muted-subtle">
-                    {labels.solution}
-                  </p>
-                  <p className="mt-1.5 text-sm leading-relaxed text-foreground">
-                    {project.solution}
-                  </p>
-                </div>
-              )}
+              <p className="text-sm leading-relaxed text-foreground">
+                <span className="sr-only">{labels.myRole}: </span>
+                {role}
+              </p>
             </div>
           )}
 
@@ -189,8 +155,6 @@ export function ProjectsSection() {
               featured: projectLabels.featured,
               teamProject: projectLabels.teamProject,
               myRole: projectLabels.myRole,
-              problem: projectLabels.problem,
-              solution: projectLabels.solution,
               github: projectLabels.github,
               liveDemo: projectLabels.liveDemo,
             }}

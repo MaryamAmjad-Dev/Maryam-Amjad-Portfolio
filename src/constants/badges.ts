@@ -7,8 +7,8 @@
  *   - 8 hackathons participated
  *   - 3 teams led
  *
- * The Stanford role is deliberately NOT in this list — it is rendered as the
- * prominent standalone role line beneath the name (see `STANFORD_ROLE`).
+ * The primary identity line is deliberately NOT in this list — it is rendered
+ * as the standalone role line beneath the name (see `PRIMARY_ROLE`).
  */
 export const PROFESSIONAL_BADGES = [
   "Aspire Leaders Alumna",
@@ -17,17 +17,22 @@ export const PROFESSIONAL_BADGES = [
 ] as const;
 
 /**
- * Primary professional identity. Kept verbatim from the CV so the claim is
- * never overstated.
+ * Primary identity shown directly beneath the name.
+ *
+ * "Prospective Graduate Student" is the current standing; the Stanford
+ * Section Leader role is carried by the page headline and the profile card
+ * rather than repeated here, so no credential is printed twice in one viewport.
  */
-export const STANFORD_ROLE = "Section Leader at Stanford Code in Place X";
+export const PRIMARY_ROLE = "Prospective Graduate Student";
 
 /**
- * Headline shown in the right-hand hero profile card. Deliberately reuses the
- * page headline rather than the Stanford role line, so the same credential is
- * not printed twice in one viewport.
+ * Headline shown in the right-hand hero profile card, the About badge and the
+ * footer.
+ *
+ * Uses "SL" rather than spelling out "Section Leader" because the full phrase
+ * no longer fits the profile card on narrow viewports, and the spelled-out
+ * wording still appears in the About copy and in the Achievements card.
  */
-export const PROFILE_CARD_ROLE =
-  "Full-Stack Developer • Trainer • Guest Speaker • Moderator";
+export const PROFILE_CARD_ROLE = "SL @ Stanford Code in Place X";
 
 export default PROFESSIONAL_BADGES;

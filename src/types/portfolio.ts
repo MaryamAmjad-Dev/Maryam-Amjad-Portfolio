@@ -65,10 +65,6 @@ export interface Project extends WithId {
   title: string;
   slug: string;
   description: string;
-  /** Optional: only present when the CV or repo states the problem explicitly */
-  problem?: string;
-  /** Optional: only present when the CV or repo states the approach explicitly */
-  solution?: string;
   longDescription?: string;
   /** Optional — several verified projects ship no image asset */
   thumbnailUrl?: string;

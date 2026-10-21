@@ -27,30 +27,28 @@ const CATEGORY_ICONS: Record<string, React.ElementType> = {
   "Soft Skills": Users,
 };
 
-const CATEGORY_GRADIENTS: Record<string, string> = {
-  Languages: "from-accent/12 to-primary/8",
-  Frontend: "from-primary/15 to-accent/8",
-  "Backend & Databases": "from-success/15 to-primary/8",
-  AI: "from-secondary/15 to-primary/8",
-  "Quality & Usability": "from-primary/18 to-secondary/10",
-  Deployment: "from-accent/12 to-secondary/8",
-  Tools: "from-primary/12 to-success/8",
-  "Soft Skills": "from-secondary/12 to-accent/8",
-};
+/**
+ * One tint for every card.
+ *
+ * The grid previously gave each category its own gradient, which read as eight
+ * unrelated pastel panels rather than one dashboard. A single restrained tint
+ * keeps the cards visually equal in both themes.
+ */
+const CARD_TINT = "bg-linear-to-br from-primary/8 to-accent/5 opacity-80";
 
 function SkillCategoryCard({ category }: { category: SkillCategory }) {
   const { t } = useLanguage();
   const Icon = CATEGORY_ICONS[category.name] ?? Code2;
-  const gradient = CATEGORY_GRADIENTS[category.name] ?? "from-primary/15 to-accent/8";
 
   return (
-    <motion.div variants={staggerItem}>
-      <TiltCard
-        intensity={8}
-        tintClassName={`bg-linear-to-br ${gradient} opacity-80`}
-      >
-        <div className="relative flex flex-col">
-          <div className="mb-6 flex items-center gap-3">
+    /* h-full on every wrapper so a category with a longer technology list
+       stretches its row instead of leaving a ragged card bottom. */
+    <motion.div variants={staggerItem} className="h-full">
+      {/* `interactive` turns the 3D tilt off: the cards hold a lot of small
+         text, and a tilted row reads as an uneven grid. */}
+      <TiltCard className="h-full" intensity={6} tintClassName={CARD_TINT} interactive>
+        <div className="relative flex h-full flex-col">
+          <div className="mb-5 flex items-center gap-3">
             <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl border border-primary/20 bg-primary/10 text-primary">
               <Icon size={20} aria-hidden="true" />
             </div>
@@ -64,14 +62,14 @@ function SkillCategoryCard({ category }: { category: SkillCategory }) {
             </div>
           </div>
 
-          <ul className="flex flex-col justify-start space-y-1.5">
+          <ul className="flex flex-col gap-1.5">
             {category.skills.map((skill) => (
               <li
                 key={skill.name}
-                className="flex items-center gap-2 text-sm text-foreground"
+                className="flex items-start gap-2 text-sm text-foreground"
               >
                 <span
-                  className="h-1.5 w-1.5 shrink-0 rounded-full bg-primary"
+                  className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-primary"
                   aria-hidden="true"
                 />
                 <span className="min-w-0 break-words">{skill.name}</span>
@@ -87,15 +85,16 @@ function SkillCategoryCard({ category }: { category: SkillCategory }) {
 /**
  * Skills dashboard grid.
  *
- * Rendered inside the About section rather than as its own section: the main
- * portfolio content follows the seven-section order (Achievements → Training
- * and Certificates), so the technology breakdown lives with the introduction
- * instead of taking a slot in that sequence.
+ * Three equal columns on desktop, two on tablet, one on mobile, with equal
+ * card heights per row. Rendered inside the About section rather than as its
+ * own section: the main portfolio content follows the seven-section order
+ * (Achievements → Training and Certificates), so the technology breakdown
+ * lives with the introduction instead of taking a slot in that sequence.
  */
 export function SkillsGrid() {
   return (
     <motion.div
-      className="grid gap-4 sm:grid-cols-2 sm:gap-5 lg:grid-cols-3"
+      className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 lg:gap-5"
       variants={staggerContainer}
       initial="hidden"
       whileInView="visible"

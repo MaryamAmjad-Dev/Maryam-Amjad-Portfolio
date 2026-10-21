@@ -11,7 +11,6 @@ import {
   ProfileAvatar,
   TiltCard,
 } from "@/components/ui";
-import { PROFILE_CARD_ROLE, PROFESSIONAL_BADGES, STANFORD_ROLE } from "@/constants/badges";
 import { SOCIAL_LINKS } from "@/constants";
 import { heroStats, portfolioData } from "@/data";
 import { useLanguage } from "@/hooks";
@@ -39,7 +38,7 @@ export function HeroSection() {
           <div className="flex flex-col items-center text-center lg:items-start lg:text-left">
             <FadeIn direction="up">
               <motion.div
-                className="mb-6 inline-flex items-center gap-2 rounded-full border border-card-border bg-card px-4 py-2 text-sm font-medium text-muted backdrop-blur-sm"
+                className="mb-5 inline-flex items-center gap-2 rounded-full border border-card-border bg-card px-4 py-2 text-sm font-medium text-muted backdrop-blur-sm"
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ delay: 0.2 }}
@@ -62,21 +61,21 @@ export function HeroSection() {
             {/* Primary professional identity — deliberately the first thing
                 under the name, ahead of the generic technology stack. */}
             <FadeIn direction="up" delay={0.15}>
-              <p className="mt-5 inline-flex items-center gap-2.5 rounded-full border border-primary/30 bg-primary/10 px-4 py-2 text-sm font-semibold text-primary sm:text-base">
+              <p className="mt-4 inline-flex items-center gap-2.5 rounded-full border border-primary/30 bg-primary/10 px-4 py-2 text-sm font-semibold text-primary sm:text-base">
                 <GraduationCap size={18} className="shrink-0" aria-hidden="true" />
-                {STANFORD_ROLE}
+                {t("hero.primaryRole")}
               </p>
             </FadeIn>
 
             <FadeIn direction="up" delay={0.2}>
-              <p className="mt-5 text-lg font-medium text-muted sm:text-xl md:text-2xl">
-                {profile.title}
+              <p className="mt-3 text-lg font-medium text-muted sm:text-xl md:text-2xl">
+                {t("hero.headline")}
               </p>
             </FadeIn>
 
             <FadeIn direction="up" delay={0.25}>
-              <div className="mt-5 flex flex-wrap justify-center gap-2 lg:justify-start">
-                {PROFESSIONAL_BADGES.map((b) => (
+              <div className="mt-4 flex flex-wrap justify-center gap-2 lg:justify-start">
+                {dictionary.hero.badges.map((b) => (
                   <Badge key={b} variant="outline">
                     {b}
                   </Badge>
@@ -84,8 +83,10 @@ export function HeroSection() {
               </div>
             </FadeIn>
 
+            {/* Reserves one line height so the row below never shifts while
+                the typing animation moves between roles. */}
             <FadeIn direction="up" delay={0.3}>
-              <div className="mt-5 min-h-8">
+              <div className="mt-4 min-h-8">
                 <TypingRoles
                   roles={dictionary.hero.roles}
                   className="text-base font-medium sm:text-lg"
@@ -94,20 +95,20 @@ export function HeroSection() {
             </FadeIn>
 
             <FadeIn direction="up" delay={0.4}>
-              <p className="mt-6 max-w-xl text-base leading-relaxed text-muted sm:text-lg">
+              <p className="mt-5 max-w-xl text-base leading-relaxed text-muted sm:text-lg">
                 {dictionary.hero.tagline}
               </p>
             </FadeIn>
 
             <FadeIn direction="up" delay={0.45}>
-              <div className="mt-4 flex items-center gap-2 text-sm text-muted-subtle">
+              <div className="mt-3 flex items-center gap-2 text-sm text-muted-subtle">
                 <MapPin size={14} aria-hidden="true" />
                 {profile.location}
               </div>
             </FadeIn>
 
             <FadeIn direction="up" delay={0.5}>
-              <div className="mt-8 flex w-full max-w-md flex-col gap-3 sm:max-w-none sm:flex-row sm:flex-wrap sm:items-center sm:justify-center lg:justify-start">
+              <div className="mt-7 grid w-full max-w-md gap-3 min-[420px]:grid-cols-2 sm:max-w-none sm:flex sm:flex-wrap sm:items-center sm:justify-center lg:justify-start">
                 <Button
                   href="#projects"
                   variant="primary"
@@ -169,7 +170,7 @@ export function HeroSection() {
 
                   <p className="mt-6 text-lg font-semibold text-heading">{profile.name}</p>
                   <p className="mt-2 text-center text-sm font-medium leading-snug text-primary">
-                    {PROFILE_CARD_ROLE}
+                    {t("hero.profileCardRole")}
                   </p>
 
                   <div className="mt-6 grid w-full grid-cols-3 gap-2 sm:gap-3">

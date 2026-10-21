@@ -36,6 +36,9 @@ yarn-error.log*
 # vercel
 .vercel
 
+# reference material (CV / project briefs) — source docs, not app code
+/reference-docs/
+
 # typescript
 *.tsbuildinfo
 next-env.d.ts

@@ -2,6 +2,8 @@
 
 import {
   Award,
+  Bot,
+  Globe,
   GraduationCap,
   Sparkles,
   Trophy,
@@ -20,26 +22,44 @@ import { portfolioData } from "@/data";
 import { useLanguage } from "@/hooks";
 import type { AchievementStat } from "@/types";
 
+/**
+ * Display order for the achievement cards.
+ *
+ * 1. Hackathon participation (the headline number)
+ * 2. Autovance AI — the team's HEC Generative AI Cohort 3 build
+ * 3. Stanford Code in Place X — selected on the first attempt
+ * 4. UNESCO Youth Hackathon — VeriVoice
+ * 5. QuizOff — international quiz competition
+ * 6-8. Team-lead count, CodeSprint LA ranking and the LinkedIn community
+ */
 const ACHIEVEMENT_ORDER = [
   "ach-participant",
+  "ach-autovance",
+  "ach-stanford",
+  "ach-unesco",
+  "ach-quizoff",
   "ach-lead",
   "ach-codesprint",
-  "ach-stanford",
-  "ach-quizoff",
   "ach-linkedin",
 ] as const;
 
 const ACHIEVEMENT_ICONS: Record<string, LucideIcon> = {
   "ach-participant": Trophy,
+  "ach-autovance": Bot,
+  "ach-stanford": GraduationCap,
+  "ach-unesco": Globe,
+  "ach-quizoff": Sparkles,
   "ach-lead": Users,
   "ach-codesprint": Award,
-  "ach-stanford": GraduationCap,
-  "ach-quizoff": Sparkles,
   "ach-linkedin": TrendingUp,
 };
 
 function AchievementCard({ stat }: { stat: AchievementStat }) {
+  const { dictionary } = useLanguage();
   const Icon = ACHIEVEMENT_ICONS[stat.id] ?? Sparkles;
+  const copy = dictionary.achievements.cards[stat.id];
+  const label = copy?.label ?? stat.label;
+  const subtitle = copy?.subtitle ?? stat.subtitle;
 
   return (
     <motion.div variants={staggerItem} className="h-full">
@@ -60,9 +80,9 @@ function AchievementCard({ stat }: { stat: AchievementStat }) {
             className="text-2xl md:text-3xl"
           />
           <div className="mt-auto space-y-0.5">
-            <p className="text-sm font-medium text-heading">{stat.label}</p>
-            {stat.subtitle && (
-              <p className="text-xs text-muted-subtle">{stat.subtitle}</p>
+            <p className="text-sm font-medium text-heading">{label}</p>
+            {subtitle && (
+              <p className="text-xs text-muted-subtle">{subtitle}</p>
             )}
           </div>
         </div>

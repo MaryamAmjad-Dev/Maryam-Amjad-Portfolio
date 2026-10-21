@@ -44,7 +44,13 @@ export function AboutSection() {
             ))}
           </div>
 
+          {/* Primary technical identity first, then the supporting roles —
+              compact and evenly spaced rather than repeating the hero
+              headline verbatim. */}
           <div className="mt-6 flex max-w-3xl flex-wrap gap-2">
+            <span className="rounded-full border border-primary/25 bg-primary/10 px-3 py-1 text-xs font-semibold text-primary">
+              {t("hero.profileCardRole")}
+            </span>
             {dictionary.hero.roles.map((role) => (
               <span
                 key={role}

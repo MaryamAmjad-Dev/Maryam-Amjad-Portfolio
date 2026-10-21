@@ -38,6 +38,14 @@ export interface TranslationDictionary {
   hero: {
     availability: string;
     tagline: string;
+    /** Page headline: "SL @ Stanford Code in Place X • Trainer • Guest Speaker • Moderator" */
+    headline: string;
+    /** Prominent identity line rendered directly beneath the name */
+    primaryRole: string;
+    /** Short role shown in the hero profile card, About badge and footer */
+    profileCardRole: string;
+    /** Credential badges shown beneath the headline */
+    badges: string[];
     hireMe: string;
     downloadResume: string;
     /** Hero CTA linking to the projects section */
@@ -51,6 +59,10 @@ export interface TranslationDictionary {
       hackathons: string;
       aiTools: string;
     };
+    /**
+     * Rotating roles in the hero typing animation. Deliberately distinct from
+     * `headline` so the same titles are not printed twice in one viewport.
+     */
     roles: string[];
   };
   about: {
@@ -64,6 +76,8 @@ export interface TranslationDictionary {
     label: string;
     title: string;
     description: string;
+    /** Copy for each highlight card, keyed by achievement id */
+    cards: Record<string, { label: string; subtitle?: string }>;
   };
   /** Section 2 of the main portfolio content */
   education: {
@@ -97,10 +111,14 @@ export interface TranslationDictionary {
     featured: string;
     teamProject: string;
     myRole: string;
-    problem: string;
-    solution: string;
     github: string;
     liveDemo: string;
+    /**
+     * Per-project copy keyed by project id. Every card renders the same
+     * structure — name, one-sentence overview, key contribution, technology
+     * tags and action links — so descriptions stay parallel in length.
+     */
+    items: Record<string, { description: string; role?: string }>;
   };
   hackathons: {
     label: string;

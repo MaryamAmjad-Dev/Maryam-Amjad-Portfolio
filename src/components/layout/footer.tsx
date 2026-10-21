@@ -17,7 +17,7 @@ export function Footer() {
               {portfolioData.profile.name}
             </p>
             <p className="mt-1 text-sm text-muted">
-              {portfolioData.profile.title}
+              {t("hero.profileCardRole")}
             </p>
             <p className="mt-2 text-[10px] font-medium uppercase tracking-widest text-primary/80">
               {t("meta.multilingualExperience")}

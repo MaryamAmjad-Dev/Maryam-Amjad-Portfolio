@@ -17,29 +17,30 @@ export function TypingRoles({ roles, className }: TypingRolesProps) {
 
   useEffect(() => {
     // No typing loop for users who asked for reduced motion.
-    if (prefersReducedMotion) return;
+    if (prefersReducedMotion || roles.length === 0) return;
 
-    const currentRole = roles[roleIndex];
+    const currentRole = roles[roleIndex] ?? "";
+    const isHolding = !isDeleting && displayText.length >= currentRole.length;
+    const delay = isHolding ? 2000 : isDeleting ? 40 : 80;
 
-    const timeout = setTimeout(
-      () => {
-        if (!isDeleting) {
-          if (displayText.length < currentRole.length) {
-            setDisplayText(currentRole.slice(0, displayText.length + 1));
-          } else {
-            setTimeout(() => setIsDeleting(true), 2000);
-          }
+    const timeout = setTimeout(() => {
+      if (!isDeleting) {
+        if (displayText.length < currentRole.length) {
+          setDisplayText(currentRole.slice(0, displayText.length + 1));
         } else {
-          if (displayText.length > 0) {
-            setDisplayText(displayText.slice(0, -1));
-          } else {
-            setIsDeleting(false);
-            setRoleIndex((prev) => (prev + 1) % roles.length);
-          }
+          setIsDeleting(true);
         }
-      },
-      isDeleting ? 40 : 80,
-    );
+      } else if (displayText.length > 1) {
+        setDisplayText(displayText.slice(0, -1));
+      } else {
+        // Swap to the next role without ever passing through an empty string,
+        // so the line stays occupied instead of collapsing to a blank row.
+        const nextIndex = (roleIndex + 1) % roles.length;
+        setRoleIndex(nextIndex);
+        setDisplayText(roles[nextIndex].slice(0, 1));
+        setIsDeleting(false);
+      }
+    }, delay);
 
     return () => clearTimeout(timeout);
   }, [displayText, isDeleting, prefersReducedMotion, roleIndex, roles]);

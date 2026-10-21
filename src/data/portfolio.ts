@@ -54,6 +54,16 @@ const hackathonEntries: Hackathon[] = [
       },
     ],
   },
+  // Presentation order is deliberate: the international headline events first,
+  // UNESCO Youth Hackathon in the fourth slot, then the two HEC cohorts.
+  {
+    id: "hack-unesco",
+    title: "UNESCO Youth Hackathon",
+    event: "UNESCO Youth Hackathon 2026",
+    description:
+      "Frontend Developer for VeriVoice, aligned with UNESCO Media and Information Literacy.",
+    year: "2026",
+  },
   {
     id: "hack-hec2",
     title: "HEC Generative AI Cohort 2",
@@ -68,14 +78,6 @@ const hackathonEntries: Hackathon[] = [
     event: "Higher Education Commission Pakistan",
     role: "Team Lead",
     description: "Led the team that delivered Autovance AI.",
-    year: "2026",
-  },
-  {
-    id: "hack-unesco",
-    title: "UNESCO Youth Hackathon",
-    event: "UNESCO Youth Hackathon 2026",
-    description:
-      "Frontend Developer for VeriVoice, aligned with UNESCO Media and Information Literacy.",
     year: "2026",
   },
   {
@@ -238,15 +240,25 @@ function buildAchievements(
   return [
     {
       id: "ach-participant",
-      label: "Hackathons",
-      subtitle: "AI/Web Competitions",
+      label: "National and International Hackathons",
+      subtitle: "AI and web competitions",
       value: events.length,
       suffix: "+",
     },
     {
+      // Autovance AI — the HEC Generative AI Cohort 3 entry the team delivered
+      // under Maryam's leadership. Highlighted as a milestone rather than a
+      // number, in the same way the Stanford card shows "1st Try".
+      id: "ach-autovance",
+      label: "Autovance AI",
+      subtitle: "HEC Generative AI Cohort 3",
+      displayValue: "Team Lead",
+      value: 1,
+    },
+    {
       id: "ach-lead",
       label: "Team Lead",
-      subtitle: "GenAI Hackathons",
+      subtitle: "Generative AI hackathons",
       value: teamLeadCount,
       suffix: "x",
     },
@@ -258,10 +270,18 @@ function buildAchievements(
     },
     {
       id: "ach-stanford",
-      label: "Stanford Section Leader",
-      subtitle: "Code in Place X — first attempt",
+      label: "Section Leader at Stanford Code in Place X",
+      subtitle: "Selected on the first attempt",
       value: 1,
       displayValue: "1st Try",
+    },
+    {
+      // UNESCO Youth Hackathon 2026 — VeriVoice.
+      id: "ach-unesco",
+      label: "UNESCO Youth Hackathon 2026",
+      subtitle: "VeriVoice — UNESCO Media & Information Literacy",
+      displayValue: "Frontend Developer",
+      value: 1,
     },
     {
       id: "ach-quizoff",
@@ -282,20 +302,21 @@ function buildAchievements(
 export const portfolioData: PortfolioData = {
   profile: {
     name: "Maryam Amjad",
-    title: "Full-Stack Developer • Trainer • Guest Speaker • Moderator",
+    title: "SL @ Stanford Code in Place X • Trainer • Guest Speaker • Moderator",
     tagline:
       "Building scalable, AI-enabled web applications with modern full-stack technology.",
     bio: "Information Technology graduate and full-stack developer building production web applications and AI applications, with experience in technical leadership, teaching, and community work.",
     summary:
-      "I am an Information Technology graduate from Government College University Faisalabad, with experience building full-stack web applications and AI-powered solutions.\n\nI currently serve as a Section Leader for Stanford University's Code in Place X. I also contribute to the tech community as a trainer, guest speaker, webinar moderator, and volunteer instructor.\n\nMy projects span AI application development, multilingual voice-based verification, and cost-optimised AI systems. I have participated in national and international hackathons, led teams, and collaborated with technical communities to build practical solutions.",
+      "I am an Information Technology graduate from Government College University Faisalabad, with experience building full-stack web applications.\n\nI currently serve as a Section Leader for Stanford University's Code in Place X. I also contribute to the tech community as a trainer, guest speaker, webinar moderator, and volunteer instructor.\n\nMy projects span multilingual voice-based verification, automation platforms, and cost-optimised software systems. I have participated in national and international hackathons, led teams, and collaborated with technical communities to build practical solutions.",
     location: "Pakistan",
     email: "maryamamjad621@gmail.com",
     phone: "+92 314 7390062",
     roles: [
-      "Full-Stack Developer",
-      "Trainer",
+      "Hackathon Team Lead",
+      "Trainer & Mentor",
       "Guest Speaker",
-      "Moderator",
+      "Webinar Moderator",
+      "Technical Content Writer",
     ],
     image: "/profile/maryam.svg",
     avatarUrl: "/profile/maryam.svg",
@@ -490,11 +511,7 @@ export const portfolioData: PortfolioData = {
       title: "AI Feature Kit",
       slug: "ai-feature-kit",
       description:
-        "Modular AI platform combining text-to-image, text-to-speech, voice conversion, summarisation and background removal.",
-      problem:
-        "Common AI tasks were spread across separate tools, with no single place to run them.",
-      solution:
-        "Built a modular platform on React, Node.js, Express and MySQL that keeps each AI capability independent and interchangeable.",
+        "Modular AI platform that brings text-to-image, text-to-speech, voice conversion, summarisation and background removal into one interface. Built as the final-year project, each capability stays independent so a model or endpoint can be swapped without touching the rest of the app.",
       technologies: ["React", "Node.js", "Express", "MySQL"],
       tags: ["Final Year Project", "AI", "Multi-modal"],
       featured: true,
@@ -507,11 +524,7 @@ export const portfolioData: PortfolioData = {
       title: "VeriVoice",
       slug: "verivoice",
       description:
-        "Voice-first multilingual verification assistant built for the UNESCO Youth Hackathon 2026, aligned with UNESCO Media and Information Literacy.",
-      problem:
-        "Misinformation in vulnerable communities spreads through forwarded voice notes, while existing fact-checking platforms rely on lengthy English text and assume advanced digital literacy.",
-      solution:
-        "A voice-in, voice-out verification loop built around the real communication habits of these communities: browser microphone or Discord voice note in, and a concise spoken response in, Urdu, Spanish, Indonesian or English. Claim classification, evidence retrieval from institutional sources, and citation guardrails keep answers tied to the retrieved sources rather than the model's memory.",
+        "Voice-first multilingual verification assistant built for the UNESCO Youth Hackathon 2026. A voice-in, voice-out loop answers in Urdu, Spanish, Indonesian or English, while claim classification, evidence retrieval from institutional sources and citation guardrails keep answers tied to the retrieved sources. I built the audio visualizer, hands-free voice mode and the Evidence Drawer.",
       technologies: [
         "React 18",
         "Vite",
@@ -525,8 +538,7 @@ export const portfolioData: PortfolioData = {
       tags: ["UNESCO Youth Hackathon 2026", "AI", "Multilingual", "Voice"],
       featured: true,
       teamProject: true,
-      role:
-        "Frontend Developer — built the audio visualizer, hands-free voice mode, Evidence Drawer, emergency alerts and the multilingual UI/UX. Supports Urdu, Indonesian, Spanish and English; the CV reports 170 passing tests.",
+      role: "Frontend Developer",
       liveUrl: "https://verivoice-ten.vercel.app",
       githubUrl:
         "https://github.com/MaryamAmjad-Dev/Veri-Voice-Unesco-Hackathon",
@@ -536,11 +548,7 @@ export const portfolioData: PortfolioData = {
       title: "AMD Model Router",
       slug: "amd-zerotoken",
       description:
-        "Resource-aware AI inference router designed for Track 1 of the AMD Developer Hackathon, balancing task accuracy, API-token usage, and strict compute limits.",
-      problem:
-        "An all-cloud routing setup burns API tokens, while a local-only setup cannot hold accuracy on harder tasks — inside a judging container limited to 4 GB RAM, 2 vCPUs, no GPU and a 10-minute execution limit.",
-      solution:
-        "Routes tasks across eight categories: deterministic solvers handle structured problems at zero token cost, a quantized local Qwen 2.5 3B GGUF model handles low-complexity tasks, an output validation gate checks responses for truncation or missing markers, and dynamic cloud escalation is limited to models named in the ALLOWED_MODELS environment variable. Prompt pruning strips bloat while bypassing code tasks to preserve indentation, and token ceilings, concurrency clamps and timeouts keep runs inside the resource budget. The 80% figure in the hackathon brief is the eligibility gate for scoring, not a measured result of this build.",
+        "Resource-aware AI inference router built for Track 1 of the AMD Developer Hackathon. Deterministic solvers handle structured problems at zero token cost, a quantized local Qwen 2.5 3B model covers low-complexity tasks, and cloud escalation stays limited to an allow-list. Token ceilings and timeouts keep runs inside a 4 GB RAM, 2 vCPU, GPU-free container.",
       technologies: [
         "Python",
         "Docker",
@@ -572,11 +580,7 @@ export const portfolioData: PortfolioData = {
       title: "Autovance AI",
       slug: "autovance-ai",
       description:
-        "AI-powered automation platform combining email automation, secure webhook execution, cron job scheduling, custom form actions, and an experimental explainable AI workflow builder in one dashboard.",
-      problem:
-        "Email sending, webhooks, scheduled jobs and custom forms usually live in separate tools, and AI-generated work is hard to trust when the underlying provider fails or is never configured.",
-      solution:
-        "Built with Next.js (Pages Router) on Vercel with Neon PostgreSQL for persistence, OpenRouter for AI generation, and configurable email providers. Security covers server-side validation, session-based authentication, rate limiting, password hashing and SSRF protection for outbound webhook requests. The workflow builder is presented as a research prototype with a dry-run preview, and the platform reports provider failures and missing configuration honestly instead of claiming success.",
+        "AI-powered automation platform combining email sending, secure webhook execution, cron scheduling and custom form actions in one dashboard. Built as the team's HEC Generative AI Cohort 3 entry, it adds an explainable-AI workflow builder presented as a research prototype with a dry-run preview, and reports provider failures honestly instead of claiming success.",
       technologies: [
         "Next.js (Pages Router)",
         "React",
@@ -598,11 +602,7 @@ export const portfolioData: PortfolioData = {
       title: "HireGen AI",
       slug: "hiregen-ai",
       description:
-        "Recruitment platform that automates interview questions and candidate scoring, built for HEC Generative AI Cohort 2.",
-      problem:
-        "Recruitment teams need consistent, scalable technical interviewing and scoring.",
-      solution:
-        "Led the team that built a platform that auto-generates interview questions, scores candidate responses and produces hiring reports.",
+        "Recruitment platform that auto-generates interview questions, scores candidate responses and produces hiring reports. Led the team that delivered it for HEC Generative AI Cohort 2, giving hiring teams a consistent, repeatable technical interview and scoring flow.",
       technologies: ["Next.js", "AI", "Node.js", "MongoDB"],
       tags: ["HEC Generative AI Cohort 2", "AI", "Hiring"],
       featured: true,
@@ -616,11 +616,7 @@ export const portfolioData: PortfolioData = {
       title: "MIRA AI",
       slug: "mira-ai",
       description:
-        "Personal growth platform with mood journaling, habit tracking and goal analytics.",
-      problem:
-        "Personal growth tooling tends to be scattered, and account security is often an afterthought.",
-      solution:
-        "Built a MERN application with JWT and Google OAuth authentication alongside the journaling, habit and analytics features.",
+        "Personal growth platform combining mood journaling, habit tracking and goal analytics, with JWT and Google OAuth authentication keeping each account's entries private to its owner.",
       technologies: ["MERN", "JWT", "Google OAuth"],
       tags: ["Personal Project", "MERN", "Wellbeing"],
       featured: false,
@@ -632,11 +628,7 @@ export const portfolioData: PortfolioData = {
       title: "University of Lakki Marwat Website Evaluation",
       slug: "lakki-marwat-website-evaluation",
       description:
-        "Academic project for the HCI mid-semester: a full evaluation of the University of Lakki Marwat website with a detailed written report.",
-      problem:
-        "The university website needed a structured usability and heuristic review for the HCI course.",
-      solution:
-        "Evaluated the website against HCI heuristics and produced both a presentation and a detailed report, assessed through Hirestive.",
+        "Academic project for the Human-Computer Interaction mid-semester: a full heuristic and usability evaluation of the University of Lakki Marwat website, delivered as a written report and a presentation and assessed through Hirestive.",
       technologies: ["Human-Computer Interaction", "Heuristic Evaluation"],
       tags: ["Academic Project", "HCI", "Mid Semester"],
       featured: false,
@@ -655,10 +647,8 @@ export const portfolioData: PortfolioData = {
       id: "proj-portfolio",
       title: "Maryam AI Portfolio",
       slug: "maryam-ai-portfolio",
-      description: "Next-generation AI-powered developer portfolio.",
-      problem: "Traditional portfolios fail to engage visitors interactively.",
-      solution:
-        "Designed an AI-driven portfolio with Gemini integration, animations, and premium SaaS UI.",
+      description:
+        "Next.js, TypeScript and Tailwind CSS portfolio with a built-in AI assistant and motion-driven UI. Designed as a live demonstration of the same full-stack and generative-AI stack used across the other projects.",
       technologies: ["Next.js", "TypeScript", "Tailwind", "Generative AI"],
       tags: ["Portfolio", "AI", "Next.js"],
       featured: false,
