@@ -125,22 +125,26 @@ export function Header() {
         >
           <a
             href="#home"
-            className="relative z-10 flex min-w-0 flex-1 max-w-[calc(100%-11rem)] items-center gap-2 overflow-hidden pr-2 text-xs font-semibold text-heading sm:text-sm lg:max-w-none"
+            className="relative z-10 flex min-w-0 flex-1 max-w-[calc(100%-11rem)] items-center gap-2 overflow-hidden pr-2 text-xs font-semibold text-heading sm:text-sm lg:max-w-none lg:min-w-max lg:shrink-0"
           >
             <Sparkles className="h-4 w-4 shrink-0 text-primary" aria-hidden="true" />
-            <span className="truncate min-w-0 block">
-              Maryam Amjad
-              <span className="hidden xl:inline text-primary"> Portfolio</span>
-            </span>
+            <span className="truncate min-w-0 block">Maryam Amjad</span>
           </a>
 
-          {/* 10 destinations do not fit the `lg` bar at 1024px with the full
-              action cluster present. The brand link is the element that yields
-              (it is `min-w-0 flex-1` + truncate), nav items stay nowrap so no
-              label is ever cut, and the two social icon buttons — duplicated in
-              the hero, contact and footer — only surface from `xl` up. The ul
-              also scrolls as a last-resort net for unusually long translations. */}
-          <ul className="relative z-10 hidden min-w-0 shrink-0 items-center gap-0 overflow-x-auto py-1 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden lg:flex xl:gap-1">
+          {/* 10 destinations do not fit the `lg` bar at 1024px alongside the
+              full action cluster. The brand link is now `shrink-0` at `lg` and
+              up, so the name is never the thing that gets cut; the ul is the
+              element that yields instead. Nav labels stay nowrap so no word is
+              ever sliced, the xl padding is tightened to reclaim room, and the
+              ul scrolls as a last-resort net for unusually long translations.
+              The nav brand reads just "Maryam Amjad". The " Portfolio" suffix
+              is dropped here because the 10-item list plus the xl action
+              cluster leaves no room for it at any width (it alone costs 61px,
+              and even at 1920px the bar only has ~23px spare). The footer and
+              the hero heading both carry the plain name. The two social icon
+              buttons — duplicated in the hero, contact and footer — only
+              surface from `xl` up. */}
+          <ul className="relative z-10 hidden min-w-0 shrink items-center gap-0 overflow-x-auto py-1 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden lg:flex xl:gap-0.5">
             {MAIN_NAV.map((item) => {
               const isActive = activeSection === item.href;
               return (
@@ -148,7 +152,7 @@ export function Header() {
                   <a
                     href={item.href}
                     className={cn(
-                      "relative whitespace-nowrap rounded-lg px-1.5 py-2 text-[12px] font-medium transition-colors xl:px-3 xl:text-sm",
+                      "relative whitespace-nowrap rounded-lg px-1.5 py-2 text-[12px] font-medium transition-colors lg:px-1 xl:px-2 xl:text-sm",
                       isActive
                         ? "text-heading"
                         : "text-muted hover:text-foreground",
@@ -159,7 +163,7 @@ export function Header() {
                     {isActive && (
                       <motion.span
                         layoutId="nav-indicator"
-                        className="absolute inset-x-1.5 -bottom-0.5 h-0.5 rounded-full bg-linear-to-r from-primary to-accent xl:inset-x-3"
+                        className="absolute inset-x-1.5 -bottom-0.5 h-0.5 rounded-full bg-linear-to-r from-primary to-accent lg:inset-x-1 xl:inset-x-2"
                         transition={{ type: "spring", stiffness: 380, damping: 30 }}
                       />
                     )}
